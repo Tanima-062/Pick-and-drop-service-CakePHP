@@ -1,0 +1,44 @@
+@use '../abstracts' as *;
+
+// SP FAQタブリスト
+.faq-tab-list {
+	.tab-list {
+		padding-bottom: 24px;
+		background-color: $white;
+
+		& .-title {
+			font-size: $font_size_small;
+			padding: 12px 24px 12px 12px;
+			display: block;
+			letter-spacing: 1px;
+			font-weight: $font_weight_bold;
+			position: relative;
+			border-top: 1px solid $gray;
+			color: $black;
+
+			& .icm-right-arrow {
+				font-size: $font_size_tiny;
+				display: inline-block;
+				vertical-align: middle;
+				position: absolute;
+				right: 12px;
+				top: 40%;
+				color: $dark-gray;
+
+				&.down {
+					transform: rotate(90deg);
+				}
+
+				&.up {
+					transform: rotate(270deg);
+				}
+			}
+		}
+
+		& .-content {
+			font-size: $font_size_tiny;
+			letter-spacing: 1px;
+			padding: 0 12px 12px;
+		}
+	}
+}

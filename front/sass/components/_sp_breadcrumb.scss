@@ -1,0 +1,61 @@
+@use '../abstracts' as *;
+
+/* -----------------------------------------------------------------------------
+  SP breadcrumb
+----------------------------------------------------------------------------- */
+
+.breadcrumb_area {
+	background-color: $light-gray;
+	padding-left: $margin_base;
+
+	.breadcrumb {
+		padding: ($margin_base * 2) 0;
+		display: flex;
+		flex-flow: row wrap;
+		align-items: center;
+		justify-content: flex-start;
+
+		.breadcrumb-list {
+			width: initial;
+			display: flex;
+			flex-flow: row nowrap;
+			align-items: center;
+
+			&::after {
+				content: '>';
+				font-size: 8px;
+				padding: 0 4px;
+				display: inline-flex;
+				align-self: baseline;
+			}
+
+			&:last-child::after {
+				display: none;
+			}
+
+			.breadcrumb-list-text {
+				color: $black;
+				display: inline-block;
+				vertical-align: middle;
+				font-size: $font_size_tiny;
+			}
+
+			&.disabled {
+				pointer-events: none;
+			}
+
+			&.is-current > .breadcrumb-list-text {
+				pointer-events: none;
+			}
+		}
+	}
+}
+//　予約導線のステップ
+.reserve_step {
+	margin: 24px 20px 32px;
+
+	img {
+		width: 100%;
+		display: block;
+	}
+}

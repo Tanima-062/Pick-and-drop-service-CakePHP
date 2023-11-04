@@ -1,0 +1,13 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_URI} !^/admin/ [NC]
+#RewriteCond %{REQUEST_URI} !^/manager/ [NC]
+#RewriteCond %{REQUEST_URI} !^/client/ [NC]
+RewriteCond %{REQUEST_URI} !^/rentacar/img/ [NC]
+RewriteRule ^(.*)$ index.php [QSA,L]
+RewriteBase /rentacar
+
+<Files ~ "^\.(htaccess|htpasswd)$">
+deny from all
+</Files>

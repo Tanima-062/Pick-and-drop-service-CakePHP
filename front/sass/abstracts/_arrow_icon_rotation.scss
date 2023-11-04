@@ -1,0 +1,19 @@
+//　PC & SP 共通
+
+//icomoonのicon-right-arrowの回転バージョン
+
+.icm-right-arrow {
+	display: inline-block;
+
+	&.icon-right-arrow_down {
+		transform: rotate(90deg);
+	}
+
+	&.icon-right-arrow_up {
+		transform: rotate(-90deg);
+	}
+
+	&.icon-right-arrow_left {
+		transform: rotate(180deg);
+	}
+}

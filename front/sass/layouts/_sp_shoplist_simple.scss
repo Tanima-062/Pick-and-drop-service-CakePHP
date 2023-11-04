@@ -1,0 +1,48 @@
+@use '../abstracts' as *;
+
+// 会社、店舗
+// 店舗リスト
+.search_list_div {
+	padding: 12px 3%;
+	background-color: #ebf6ff;
+
+	.search_list_ul li {
+		width: 100%;
+		margin: 0 auto;
+
+		a {
+			border-left: solid 1px #8c8c8c;
+			border-bottom: solid 1px #8c8c8c;
+			border-right: solid 1px #8c8c8c;
+			width: 100%;
+			margin: 0 auto;
+			display: inline-block;
+			color: #3c3c3c;
+			font-size: 15px;
+			padding: 12px 3% 11px 13%;
+			background-color: $white;
+		}
+
+		a::before {
+			content: url(/rentacar/img/sp/circle_arrow.png);
+			display: block;
+			float: left;
+			margin-left: -1em;
+			width: 1em;
+			position: relative;
+			top: 2px;
+			left: -6%;
+		}
+
+		&:first-child a {
+			border-top-left-radius: 4px;
+			border-top-right-radius: 4px;
+			border-top: solid 1px #8c8c8c;
+		}
+
+		&:last-child a {
+			border-bottom-left-radius: 4px;
+			border-bottom-right-radius: 4px;
+		}
+	}
+}

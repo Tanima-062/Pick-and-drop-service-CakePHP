@@ -1,0 +1,42 @@
+/* color set */
+$main-color: #1ba1ff; /* 共通ヘッダー、secondary button、テキストリンクの文字色 */
+$main-color-hover: #1b94e9;
+$accent-color: #ffc11c; /* primary button：予約動線につながるもの */
+$accent-color-hover: #e8b01b;
+$sub-color: #1c5db5; /* 選択中の表示 */
+$success-color: #0d8116; /* 成功メッセージの表示（その他用途での多用注意） */
+$success-sub-color: #ddebd7; /* 成功メッセージの表示（その他用途での多用注意） */
+$error-color: #ff1d1c; /* 警告・エラーメッセージの表示（その他用途での多用注意） */
+$warning-color: #fff4f4; /* 警告、バリデーション（背景色） */
+$caution-color: #d1ecff; /*弱い注意喚起メッセージの表示 （その他用途での多用注意）*/
+$black: #222; /* 基本のフォントカラー。本文・見出しは基本的にblackを使用すること */
+$white: #fff;
+$white-hover: #e9e9e9;
+$spear-gray: #4d4d4d;
+$dark-gray: #a6a6a6;
+$gray_lightness_1: #d1d1d1; //どうやら色のスキームが最近変わったみたい…色の変数名はいつか合わせるか。
+$gray: #e4e4e4;
+$light-gray: #f4f4f4;
+$alpha-black: rgba(0, 0, 0, .8);
+
+/* font-family */
+$base_font_family: 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ',
+	'Meiryo', sans-serif;
+// $mincho_font_family: 游明朝, YuMincho, 'ヒラギノ明朝 ProN W3', 'Hiragino Mincho ProN', HG明朝E, 'ＭＳ Ｐ明朝', 'ＭＳ 明朝', serif;
+
+/* font */
+$font_size_huge: 32px; /* pc大見出し */
+$font_size_big: 24px; /* sp大見出し・pc中見出し */
+$font_size_x-large: 20px; /* sp中見出し・pc小見出し・ボタンラベル */
+$font_size_large: 18px; /* 見出し */
+$font_size_medium: 16px; /* sp小見出し・input */
+$font_size_small: 14px;
+$font_size_tiny: 12px;
+$font_weight_bold: 600;
+$font_weight_normal: 300;
+
+/* margin */
+$margin_base: 8px; //10pxを8pxに変更しました
+
+/* border_radius */
+$border_radius: 3px;

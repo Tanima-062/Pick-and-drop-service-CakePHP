@@ -1,0 +1,192 @@
+@use '../abstracts' as *;
+
+@charset 'utf-8';
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	word-break: break-word;
+	word-wrap: break-word;
+	font-feature-settings: palt;
+	text-rendering: optimizeLegibility;
+	outline: none;
+}
+
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	// @include pc_view {
+	// 	font-size:  $font_size_medium;
+	// }
+	// @include sp_view {
+	// 	font-size:  $font_size_small;
+	// }
+	font-family: $base_font_family !important;
+	color: $black;
+	line-height: 1.4;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	clear: both;
+	font-weight: $font_weight_normal;
+}
+
+a {
+	color: $main-color;
+	text-decoration: none;
+	cursor: pointer;
+	outline: none;
+}
+
+ul,
+ol {
+	li {
+		list-style: none;
+	}
+}
+
+hr {
+	border-width: 1px 0 0 0;
+	border-style: solid;
+	border-color: #b4b4b4;
+}
+
+img {
+	border: 0;
+}
+
+form {
+	input,
+	select,
+	textarea {
+		margin: 0;
+		// border: none;
+		color: $black;
+		font-family: inherit;
+		font-size: inherit;
+		outline: none;
+	}
+
+	select,
+	textarea {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+	}
+
+	textarea {
+		overflow: auto;
+		vertical-align: top;
+
+		&:disabled {
+			background-color: $gray;
+			// color:  $spear-gray;
+		}
+	}
+
+	input {
+		&:not([type]),
+		&[type='url'],
+		&[type='tel'],
+		&[type='text'],
+		&[type='email'],
+		&[type='search'],
+		&[type='number'],
+		&[type='password'],
+		&[type='datetime'],
+		&[type='datetime-local'],
+		&[type='date'],
+		&[type='month'],
+		&[type='time'],
+		&[type='week'],
+		&[type='color'] {
+			&:disabled {
+				background-color: $gray;
+				color: $spear-gray;
+			}
+		}
+
+		&[type='submit'],
+		&[type='button'] {
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+		}
+
+		&[type='checkbox'],
+		&[type='radio'] {
+			padding: 0;
+
+			&:not(:disabled) {
+				cursor: pointer;
+			}
+		}
+
+		&:not([type='radio']):not([type='checkbox']) {
+			vertical-align: middle;
+		}
+	}
+
+	button {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		cursor: pointer;
+	}
+
+	select {
+		text-transform: none;
+		vertical-align: middle;
+		appearance: none;
+		cursor: pointer;
+
+		&:disabled {
+			border-color: $gray;
+			background-color: $gray;
+			color: $spear-gray;
+		}
+
+		&::-ms-expand {
+			display: none;
+		}
+	}
+
+	optgroup {
+		font: inherit;
+		font-weight: $font_weight_bold;
+	}
+
+	fieldset {
+		border: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	// 効いてないような？
+	// & ::-ms-input-placeholder,
+	// & ::-webkit-input-placeholder,
+	// & ::-moz-placeholder {
+	// 	opacity: 1;
+	// 	color: $black;
+
+	// 	&:disabled {
+	// 		color: $spear-gray;
+	// 	}
+	// }
+
+	& :invalid {
+		box-shadow: none;
+	}
+
+	& :last-child {
+		margin-bottom: 0;
+	}
+}

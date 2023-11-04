@@ -1,0 +1,15 @@
+@use '../abstracts' as *;
+// SP 共通レイアウト
+
+// コンテンツsection　の設定
+.content_section_bordered {
+	padding-top: ($margin_base * 4);
+	padding-bottom: ($margin_base * 4);
+	border-top: solid 8px $light-gray;
+	background-color: $white;
+}
+
+.content_section {
+	margin-bottom: ($margin_base * 3);
+	background-color: $white;
+}

@@ -1,0 +1,185 @@
+@use '../abstracts' as *;
+
+// 店舗ページ
+
+//------------------
+// NEW 202201 今後は.localstoredetail_page内へまとめていくこと。
+//------------------
+
+.localstoredetail_page {
+	.content_section.contents_search-wrap {
+		margin-bottom: ($margin_base * 3);
+	}
+
+	.search_list {
+		ul {
+			padding: 12px 0;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+
+			li {
+				width: 48%;
+				padding: 5px 0;
+
+				i {
+					display: inline-block;
+					margin-right: 5px;
+				}
+			}
+		}
+	}
+
+	.local_store_title {
+		width: 998px;
+		display: inline-block;
+		border: 1px solid #b4b4b4;
+
+		img {
+			margin-top: 4px;
+			margin-right: 19px;
+			margin-bottom: 4px;
+			margin-left: 14px;
+			float: left;
+		}
+
+		p {
+			float: left;
+			margin-top: 30px;
+			font-size: 19px;
+		}
+	}
+
+	.local_store_access {
+		margin-top: ($margin_base * 3);
+		margin-bottom: ($margin_base * 3);
+	}
+
+	.local_store_table {
+		border-collapse: collapse;
+		float: left;
+		width: 615px;
+
+		th {
+			text-align: left;
+			padding: 13px 21px;
+			background-color: #f5f5f5;
+			border: 1px solid #b4b4b4;
+			border-right: none;
+			vertical-align: top;
+			white-space: nowrap;
+		}
+
+		td {
+			padding: 13px 21px;
+			border: 1px solid #b4b4b4;
+			border-left: none;
+			vertical-align: top;
+		}
+	}
+
+	.local_store_wrap iframe {
+		float: right;
+		width: 365px;
+		height: 265px;
+	}
+
+	.hd-left-bordered {
+		border-left: 5px solid #5697e2;
+		padding-left: 5px;
+		margin-bottom: 10px;
+		font-size: $font_size_x-large;
+		line-height: 26px;
+		font-weight: $font_weight_normal;
+	}
+
+	.google_map {
+		float: left;
+		width: 365px;
+		height: 265px;
+		margin: 0 0 0 20px;
+
+		&.noimage {
+			background: url('/rentacar/img/noimage_station_map.png') no-repeat;
+
+			* {
+				display: none;
+			}
+		}
+	}
+
+	.rent-margin-bottom-l {
+		margin-bottom: 40px !important;
+	}
+
+	.contents_type_main_search {
+		border: 1px solid #6790c4;
+		background: #eaf6ff;
+		clear: both;
+
+		.rentacar_text_ttl {
+			background: #c6e7fe;
+			padding: 10px 20px;
+			font-size: 1.2em;
+		}
+
+		img {
+			margin: 20px auto 0;
+			max-width: 750px;
+			max-height: 500px;
+			display: block;
+		}
+
+		.from_about_contents {
+			padding: 20px;
+		}
+	}
+
+	.rentacar_txt_area {
+		h2 {
+			line-height: 40px;
+			margin: 10px 0;
+			padding-left: 24px;
+			border-left: 3px solid #4e78b9;
+			font-size: $font_size_large;
+			font-weight: $font_weight_normal;
+		}
+
+		h3 {
+			margin: 16px 0;
+			padding: 10px 20px;
+			font-size: $font_size_medium;
+			background: #c6e7fe;
+		}
+
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			border: 1px solid $gray;
+			text-align: center;
+		}
+
+		thead {
+			th,
+			td {
+				background-color: #eaf6ff;
+				background-color: #eaf6ff;
+				font-weight: $font_weight_bold;
+				font-size: $font_size_tiny;
+			}
+		}
+
+		th {
+			background-color: #eaf6ff;
+			padding: 10px 0;
+			border: 1px solid $gray;
+			text-align: center;
+		}
+
+		td {
+			padding: 10px 0;
+			border: 1px solid $gray;
+		}
+	}
+}
+//------------------

@@ -1,0 +1,102 @@
+@use '../abstracts' as *;
+
+// フェリーターミナルページ
+
+//------------------
+// NEW 202201 今後は.ferryterminal_page内へまとめていくこと。
+//------------------
+
+.ferryterminal_page {
+	.margin-btm30 {
+		margin-bottom: 30px;
+	}
+
+	.text_center {
+		text-align: center;
+	}
+
+	.contents_type_main_search {
+		border: 1px solid #6790c4;
+		background: #eaf6ff;
+		clear: both;
+
+		.rentacar_text_ttl {
+			background: #c6e7fe;
+			padding: 10px 20px;
+			font-size: 1.2em;
+		}
+
+		img {
+			margin: 20px auto 0;
+			max-width: 750px;
+			max-height: 500px;
+			display: block;
+		}
+
+		.from_about_contents {
+			padding: 20px;
+		}
+	}
+
+	.fromairport_place_time_tbl {
+		width: 100%;
+		border-collapse: collapse;
+		border: 1px solid $gray;
+		text-align: center;
+
+		th {
+			background-color: #eaf6ff;
+			padding: 10px 0;
+			border: 1px solid $gray;
+			text-align: center;
+		}
+
+		td {
+			padding: 10px 0;
+			border: 1px solid $gray;
+		}
+	}
+
+	.from_airport_link {
+		margin-bottom: 15px;
+		display: table;
+
+		li {
+			float: left;
+			margin-right: 8px;
+			margin-bottom: 15px;
+			vertical-align: middle;
+			display: table-cell;
+			height: 46px;
+
+			a {
+				background-color: #f7f7f7;
+				border: 3px solid #a0acba;
+				border-radius: 5px;
+				display: table-cell;
+				width: 152px;
+				text-align: center;
+				height: 40px;
+				vertical-align: middle;
+				line-height: 1.2;
+				cursor: pointer;
+				box-shadow: rgba(160, 172, 186, .2) 0 0 3px,
+					rgba(0, 0, 0, .15) 0 -4px 0 inset;
+
+				&:hover {
+					height: 40px;
+					border: 3px solid #6790c4;
+					text-decoration: none !important;
+					border-top: 3px solid #6790c4;
+					box-shadow: rgba(0, 0, 0, .15) 0 -3px 0 inset;
+				}
+			}
+		}
+	}
+
+	.fromairport_rentacar_info {
+		padding: 0 20px;
+	}
+}
+
+//------------------

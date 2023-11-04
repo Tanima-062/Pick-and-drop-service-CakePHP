@@ -1,0 +1,174 @@
+@use '../abstracts' as *;
+
+// 整理道半ば
+
+/***** COMMON *****/
+
+// 会社、会社レビュー、会社一覧、info、駅一覧
+.contents_type {
+	margin-top: 32px;
+}
+
+// default
+.thin_skin {
+	overflow: hidden;
+	min-width: 1000px;
+}
+
+// 全ページ？
+.wrap {
+	width: 1000px;
+	margin: 0 auto;
+	position: relative;
+	padding-bottom: 30px;
+}
+
+// mypages, reservation, plan, searches, エリア、港、空港、店舗、都道府県、駅
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	width: 100%;
+
+	th {
+		padding: 20px;
+		border: 1px solid #b4b4b4;
+		border-right: 1px solid transparent;
+		text-align: left;
+		background: #f5f5f5;
+		overflow: hidden;
+		word-break: normal;
+		font-weight: $font_weight_normal;
+	}
+
+	td {
+		padding: 16px;
+		border: 1px solid #b4b4b4;
+		overflow: hidden;
+		word-break: normal;
+	}
+}
+
+// 全部のページ？
+.clearfix::after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+// mypages, reservation, plan, 空港一覧、エリア、港、港一覧、空港、店舗、地方、駅一覧、list_search_view
+.rent-margin-bottom {
+	margin-bottom: 20px;
+}
+
+// 全部のページ？
+.contents {
+	display: block;
+	width: 1000px;
+	min-height: 400px;
+}
+
+// エリア、会社一覧、港、空港、店舗
+.page_title_text {
+	margin: 20px 0;
+	padding: 0 30px;
+}
+
+// 空港一覧、エリア、会社一覧、港、港一覧、空港、店舗、市区町村、地方、駅一覧
+.page_title {
+	clear: both;
+	padding: 10px 30px 10px 55px;
+	margin-bottom: 20px;
+	background-color: #3f71b4;
+	line-height: 2rem;
+	position: relative;
+
+	&::before {
+		font-family: 'icomoon' !important;
+		content: '\e912';
+		display: inline-block;
+		z-index: 1;
+		position: absolute;
+		left: 15px;
+		top: calc(50% - 16px);
+		font-size: 17px;
+		color: #6790c4;
+	}
+
+	&::after {
+		content: '';
+		display: inline-block;
+		position: absolute;
+		left: 13px;
+		top: calc(50% - 15px);
+		width: 30px;
+		height: 30px;
+		background-color: $white;
+		border-radius: 50%;
+	}
+
+	&.no-margin {
+		margin: 0;
+	}
+
+	h2 {
+		display: inline-block;
+		position: relative;
+		top: 2px;
+		font-size: $font_size_large;
+		font-weight: $font_weight_normal;
+		color: $white;
+	}
+
+	h1.page_title_h2 {
+		display: inline-block;
+		position: relative;
+		top: 2px;
+		font-size: $font_size_large;
+		font-weight: $font_weight_normal;
+		color: $white;
+		clear: both;
+	}
+
+	img {
+		vertical-align: middle;
+		margin-right: 16px;
+	}
+
+	> .page_title_header {
+		font-size: $font_size_medium;
+	}
+}
+
+// エリア、会社、港、空港、市区町村、都道府県、地方、駅
+.cont_page_head {
+	position: relative;
+	width: 100%;
+	min-height: 64px;
+	margin-bottom: 16px;
+	padding-top: 8px;
+
+	// エリア、港、空港、市区町村、都道府県、地方、駅
+	.page_mainhead {
+		color: $black;
+		background-color: $white;
+		font-size: $font_size_big;
+		font-weight: $font_weight_bold;
+		line-height: 1.4;
+	}
+
+	// エリア、港、空港、都道府県、地方、駅
+	.page_subhead {
+		color: $black;
+		background-color: $white;
+		font-size: $font_size_small;
+		font-weight: $font_weight_bold;
+	}
+}
+
+// 空港、港、エリア、市区町村、キャンペーン
+.cont_text_wrap {
+	margin: 24px 0;
+	line-height: 1.5;
+	text-align: left;
+	font-size: $font_size_small;
+}

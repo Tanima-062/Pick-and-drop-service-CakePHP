@@ -1,0 +1,71 @@
+@use '../abstracts' as *;
+
+/* HEADER */
+
+// 予約導線STEP1、STEP2用　header_reservations
+.header {
+	background-color: $main-color;
+	color: $white;
+}
+
+.header_wrap {
+	width: 1000px;
+	margin: 0 auto;
+	position: relative;
+}
+
+.header_top > * {
+	vertical-align: middle;
+	color: $white;
+	height: 60px;
+}
+
+.header_reservations {
+	.back_button_wrap {
+		background: transparent;
+		border: 0;
+		height: 60px;
+		width: 60px;
+		position: absolute;
+		left: 75px;
+		z-index: 100;
+	}
+
+	.back_button {
+		display: block;
+		position: absolute;
+		top: 18px;
+		transform: scale(-1, 1);
+	}
+
+	.back_arrow {
+		font-size: $font_size_big;
+		color: rgb(255, 255, 255);
+	}
+
+	h1 {
+		height: 60px;
+		line-height: 60px;
+		text-align: center;
+		font-size: $font_size_medium;
+		margin: 0 auto;
+		color: $white;
+		font-weight: $font_weight_bold;
+	}
+}
+
+// レンタカー会社からの流用時
+.header_nolinks {
+	width: 100%;
+	height: 60px;
+	background: $main-color;
+
+	&__logo {
+		display: flex;
+		align-items: center;
+		height: 100%;
+		width: 100%;
+		max-width: 1000px;
+		margin: 0 auto;
+	}
+}

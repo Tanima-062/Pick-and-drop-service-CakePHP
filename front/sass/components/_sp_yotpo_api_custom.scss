@@ -1,0 +1,371 @@
+@use '../abstracts' as *;
+
+.yotpo_api_custom_wrap {
+	padding: $margin_base * 4 $margin_base * 2;
+
+	.review_section_title {
+		font-weight: $font_weight_bold;
+	}
+
+	.reveiw_overview_wrap {
+		display: flex;
+		margin: $margin_base * 4 0;
+
+		.reveiw_overview_total_score {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: space-between;
+			margin-right: $margin_base * 2;
+
+			&_contents {
+				font-weight: $font_weight_bold;
+
+				.average_score {
+					font-size: $font_size_huge;
+					color: $sub-color;
+				}
+
+				.full_score {
+					font-size: $font_size_x-large;
+					color: $black;
+				}
+			}
+
+			&_stars {
+				display: flex;
+				justify-content: space-between;
+				color: #ffd200;
+				font-size: $font_size_large;
+			}
+
+			.rate-score {
+				width: $font_size_large;
+				position: relative;
+
+				i {
+					position: absolute;
+				}
+
+				i.icm-star-full {
+					overflow: hidden;
+					white-space: nowrap;
+				}
+			}
+		}
+
+		.reveiw_overview_distribution_score {
+			position: relative;
+			padding-left: $margin_base * 2;
+			border-left: solid 1px $gray;
+
+			&_list {
+				li {
+					display: flex;
+					align-items: center;
+					cursor: pointer;
+					white-space: nowrap;
+
+					&:hover {
+						opacity: .6;
+					}
+
+					.distributions {
+						&_star_num {
+							font-weight: $font_weight_bold;
+							margin-right: $margin_base;
+						}
+
+						&_reviews_sum {
+							color: $main-color;
+							margin-right: $margin_base * 2;
+							width: 47px;
+						}
+
+						&_graph {
+							&_wrap {
+								width: 134px;
+								height: 14px;
+								background-color: $light-gray;
+							}
+
+							&_score {
+								height: inherit;
+								background-color: $sub-color;
+							}
+						}
+						// IPHONE SE対応
+						@media only screen and (max-width: 370px) {
+							&_graph {
+								&_wrap {
+									width: calc(50px + 10vw);
+								}
+							}
+						}
+					}
+				}
+			}
+
+			.reveiw_overview_show_all {
+				font-size: $font_size_small;
+				position: absolute;
+				bottom: -30px;
+				left: 16px;
+
+				&:hover {
+					opacity: .6;
+				}
+
+				&.hide {
+					display: none;
+				}
+			}
+		}
+	}
+
+	.review_container_header {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		padding-bottom: $margin_base * 2;
+		border-bottom: 1px solid $gray;
+
+		.review_count {
+			display: inline-block;
+			color: $black;
+			font-size: $font_size_medium;
+			font-weight: $font_weight_bold;
+		}
+
+		.review_sort {
+			display: inline-block;
+			position: relative;
+			color: $black;
+			font-size: $font_size_medium;
+
+			#selected-sort {
+				position: relative;
+				cursor: pointer;
+				font-weight: $font_weight_bold;
+				padding-right: 30px;
+
+				&::after {
+					position: absolute;
+					top: 0;
+					bottom: 0;
+					right: 0;
+					display: flex;
+					align-items: center;
+					content: '\e902';
+					font-size: 14px;
+					color: $spear-gray;
+					font-family: 'icomoon';
+					transform: rotate(90deg);
+				}
+			}
+
+			&_list {
+				position: absolute;
+				top: 25px;
+				right: 0;
+				background: #fff !important;
+				min-width: 177px;
+				border: solid 1px #e3e3e3;
+				border-radius: $border_radius;
+				z-index: 10;
+				display: inline-block;
+
+				&.hide {
+					display: none;
+				}
+
+				.list-category {
+					display: flex;
+					align-items: center;
+
+					&:hover {
+						background-color: #f8f8f8;
+						color: #3085c7;
+					}
+
+					&:not(:first-child) {
+						border-top: solid 1px #e3e3e3;
+					}
+
+					color: #737373;
+					display: block;
+					padding: 7px 9px 9px 9px;
+					font-size: 12px;
+					width: 100%;
+					box-sizing: border-box;
+					cursor: pointer;
+
+					i {
+						font-size: $font_size_medium;
+						padding: 0 $margin_base;
+					}
+				}
+			}
+		}
+	}
+
+	.review_content_wrap {
+		margin-bottom: 16px;
+
+		.review_wrap {
+			border-bottom: 1px solid $gray;
+			padding-bottom: $margin_base * 2;
+
+			.review_head {
+				display: flex;
+				align-items: center;
+
+				.icon {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					width: 48px;
+					height: 48px;
+					border-radius: 48px;
+					background-color: $main-color;
+					margin: $margin_base * 2 $margin_base * 2 $margin_base 0;
+
+					i {
+						font-size: 28px;
+						color: $white;
+					}
+				}
+
+				.stars {
+					display: flex;
+					justify-content: space-between;
+					color: #ffd200;
+					font-size: $font_size_large;
+				}
+			}
+
+			.review_body {
+				display: flex;
+				flex-flow: column nowrap;
+
+				.review_title {
+					font-weight: $font_weight_bold;
+				}
+
+				.review_content {
+					margin-bottom: $margin_base;
+				}
+
+				.link_wrap {
+					font-size: $font_size_tiny;
+
+					a {
+						text-decoration: underline;
+						color: $main-color;
+					}
+				}
+
+				.posted_date {
+					font-size: $font_size_tiny;
+				}
+			}
+		}
+	}
+
+	.review_paging_wrap {
+		display: flex;
+		margin: $margin_base * 2 0;
+
+		&.hide {
+			display: none;
+		}
+
+		#review_paging {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			width: 360px;
+			height: 40px;
+			margin: 0 auto;
+
+			.btn_review_prev,
+			.btn_review_next {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 40px;
+				height: 40px;
+				border-radius: 40px;
+				background-color: $light-gray;
+				color: $dark-gray;
+
+				&:hover {
+					opacity: .6;
+				}
+
+				&.disabled {
+					cursor: not-allowed;
+					opacity: .5;
+				}
+			}
+
+			.icon-rotate-change-left {
+				transform: rotate(180deg);
+			}
+		}
+	}
+
+	.linkto_review_page {
+		margin: $margin_base * 2 0;
+
+		&.hide {
+			display: none;
+		}
+	}
+
+	.yotpo {
+		text-align: right;
+		padding-right: 30px;
+
+		&-link {
+			&:hover {
+				opacity: .8;
+			}
+		}
+
+		&-logo-title {
+			color: #3085c7 !important;
+			font-size: 14px;
+			margin-right: $margin_base;
+		}
+
+		&-icon {
+			position: relative;
+			color: #3085c7 !important;
+
+			&::before {
+				position: absolute;
+				font-size: 30px;
+				top: -5px;
+			}
+		}
+	}
+}
+
+// 上部 Rating Stars(api)
+.pref_review_star {
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+
+	> i {
+		margin-right: 3px;
+		font-size: $font_size_small;
+		color: #009fff;
+
+		&.yellow {
+			color: rgb(249, 211, 71);
+			font-size: $font_size_medium;
+		}
+	}
+}

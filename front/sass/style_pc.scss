@@ -1,0 +1,76 @@
+// PC：現状TOP以外の全ページで読み込み
+//
+// 共通系
+// @use 'abstracts' as *;
+@use 'base';
+@use 'components/pc_common';
+// @use 'pages_pc/plan_compare'; // 用途不明、使ってなさそうで様子見
+
+// 共通パーツ：部品単体 atoms　（他のatomsを内包できないもの）
+@use 'components/heading';
+@use 'components/button';
+@use 'components/form';
+
+// 共通パーツ：機能単体　（atomsを内包できるもの）
+@use 'components/pc_modal_float';
+@use 'components/pc_caution_blue';
+@use 'components/pc_datepicker';
+@use 'components/pc_loading_indicator_earth';
+//// 以下layoutsへの振り分け今度考える
+@use 'components/pc_header';
+@use 'components/pc_footer';
+@use 'components/pc_layout';
+@use 'components/pc_breadcrumb';
+@use 'components/pc_session_message';
+@use 'components/pc_modal-mypages-overseas-tour';
+@use 'components/pc_modal-plan';
+@use 'components/pc_faq-tablist';
+@use 'components/pc_searchform_main';
+@use 'components/pc_searchform_options';
+@use 'components/pc_searchform_submit';
+@use 'components/pc_yotpo_api_custom';
+@use 'components/pc_ranking';
+@use 'components/pc_linklist_seo-region-order';
+@use 'components/pc_sidebar';
+@use 'components/pc_static_menu';
+@use 'components/pc_campaign_banner_hokkaido';
+@use 'components/pc_note_self-checkin';
+@use 'components/pc_note_payment-onsite';
+@use 'components/pc_note_irregular-business-hours';
+
+// ページの構成要素
+@use 'layouts/pc_plan_content';
+@use 'layouts/pc_search_hints';
+@use 'layouts/pc_shoplist';
+@use 'layouts/pc_areamap';
+@use 'layouts/pc_reservation_note';
+
+// ページごとのカスタマイズ
+@use 'pages_pc/region';
+@use 'pages_pc/prefectures';
+@use 'pages_pc/city';
+@use 'pages_pc/municipality';
+@use 'pages_pc/station';
+@use 'pages_pc/stationlist';
+@use 'pages_pc/fromairport';
+@use 'pages_pc/airportlist';
+@use 'pages_pc/ferryterminal';
+@use 'pages_pc/ferryterminallist';
+@use 'pages_pc/company';
+@use 'pages_pc/company-reviews';
+@use 'pages_pc/companylist';
+@use 'pages_pc/localstoredetail';
+@use 'pages_pc/localstoredetail-reviews';
+@use 'pages_pc/error';
+@use 'pages_pc/news';
+@use 'pages_pc/infos-article';
+@use 'pages_pc/wpcampaign';
+@use 'pages_pc/mypage';
+//// 予約導線
+@use 'pages_pc/searches';
+@use 'pages_pc/searches_list-search-view';
+@use 'pages_pc/searches_map-search-view';
+@use 'pages_pc/plan';
+@use 'pages_pc/reservations';
+
+// 以上

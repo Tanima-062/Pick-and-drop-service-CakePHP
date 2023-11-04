@@ -1,0 +1,147 @@
+@use '../abstracts' as *;
+
+// 検索結果ページのリスト検索用（list_search_view.ctp）
+.searches_page .list_search_view {
+	/* ソート */
+	.search_sort_wrap {
+		margin: 12px 0;
+	}
+
+	/* ページャー */
+	.rent_pager {
+		padding: 32px 0 40px;
+
+		.rent_pager_list {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
+
+			.rent_pager_list_item {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				margin-right: 16px;
+				border-radius: 50%;
+				width: 40px;
+				height: 40px;
+
+				&.prev,
+				&.next {
+					background: $light-gray;
+					border-radius: 50%;
+					width: 40px;
+					height: 40px;
+				}
+
+				&.prev.is-first,
+				&.prev.is-last {
+					background: $light-gray;
+					color: $gray;
+
+					&::after {
+						font-family: 'icomoon';
+						font-size: $font_size_medium;
+					}
+				}
+
+				&.prev.is-first {
+					&::after {
+						content: '\e902';
+						transform: rotate(180deg);
+					}
+				}
+
+				&.prev.is-last {
+					&::after {
+						content: '\e902';
+					}
+				}
+
+				span {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					background: $sub-color;
+					color: $white;
+					border-radius: 50%;
+					width: 40px;
+					height: 40px;
+					font-weight: bold;
+				}
+
+				&.page_num,
+				&.prev,
+				&.next {
+					a {
+						&:link,
+						&:visited {
+							display: flex;
+							justify-content: center;
+							align-items: center;
+							border-radius: 50%;
+							width: 40px;
+							height: 40px;
+						}
+					}
+				}
+
+				&.page_num {
+					a {
+						color: $black;
+
+						&:link,
+						&:visited {
+							color: $black;
+						}
+
+						&:hover,
+						&:active {
+							border: 1px solid $sub-color;
+						}
+					}
+				}
+
+				&.prev,
+				&.next {
+					a {
+						color: $dark-gray;
+
+						&:link,
+						&:visited {
+							color: $dark-gray;
+						}
+
+						&:hover,
+						&:active {
+							border: none;
+							color: $main-color;
+						}
+
+						&::after {
+							font-family: 'icomoon';
+							font-size: $font_size_medium;
+						}
+					}
+				}
+
+				&.prev {
+					a {
+						&::after {
+							content: '\e902';
+							transform: rotate(180deg);
+						}
+					}
+				}
+
+				&.next {
+					a {
+						&::after {
+							content: '\e902';
+						}
+					}
+				}
+			}
+		}
+	}
+}

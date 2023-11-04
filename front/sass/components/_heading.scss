@@ -1,0 +1,42 @@
+@use '../abstracts' as *;
+
+// PC & SP 共通
+
+/* ----------------
+  ヘッダースタイル
+------------------*/
+// _components.scssから移動
+
+.heading {
+	font-weight: bold;
+	color: $black;
+	margin-bottom: 16px;
+
+	&.-huge {
+		// 未使用中
+		//PC見出し
+		font-size: $font_size_huge;
+	}
+
+	&.-big {
+		//PC大見出し, SP見出し
+		font-size: $font_size_big;
+	}
+
+	&.-x-large {
+		//PC中見出し, SP大見出し
+		font-size: $font_size_x-large;
+	}
+
+	&.-large {
+		// 未使用中
+		//PC小見出し, SP中見出し
+		font-size: $font_size_large;
+	}
+
+	&.-medium {
+		// 未使用中
+		//SP小見出し
+		font-size: $font_size_medium;
+	}
+}

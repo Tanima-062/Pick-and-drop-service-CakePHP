@@ -1,0 +1,83 @@
+@use '../abstracts' as *;
+
+/* -----------------------------------------------------------------------------
+  マイページ海外ツアーモーダル
+----------------------------------------------------------------------------- */
+
+.mypages-modal-overlay {
+	z-index: 999;
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 120%;
+	background-color: rgba(0, 0, 0, .75);
+}
+
+.mypages-modal-window {
+	background: rgba(0, 0, 0, 0);
+	box-sizing: border-box;
+	display: none;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 0;
+	pointer-events: none;
+	margin: auto;
+	width: 672px;
+	z-index: 999;
+	height: auto;
+	align-items: center;
+
+	.mypages-modal_contents_wrap {
+		position: relative;
+		width: 100%;
+		height: 268px;
+		box-sizing: border-box;
+		border-radius: 3px;
+		background: $white;
+		pointer-events: auto;
+		padding: 24px;
+
+		.mypages-modal-title {
+			font-size: $font_size_big;
+			line-height: 100%;
+			font-weight: $font_weight_bold;
+			margin-bottom: 24px;
+		}
+
+		.mypages-modal-text {
+			font-size: $font_size_medium;
+			line-height: 140%;
+			margin-bottom: 24px;
+
+			.modal-bold {
+				font-weight: $font_weight_bold;
+			}
+		}
+
+		.mypages-modal-button {
+			display: flex;
+			justify-content: space-between;
+			line-height: 100%;
+			font-weight: $font_weight_bold;
+
+			.btn-text {
+				font-size: $font_size_medium;
+				padding: 14px 16px;
+				min-width: 290px;
+				margin-bottom: 12px;
+				height: 44px;
+			}
+
+			.modal-btn-bottom {
+				font-size: $font_size_small;
+				font-weight: $font_weight_normal;
+				text-align: center;
+			}
+		}
+	}
+}

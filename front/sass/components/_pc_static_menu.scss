@@ -1,0 +1,65 @@
+@use '../abstracts' as *;
+
+// PC:静的ページのメニュー部分
+
+.link_in_page {
+	display: table;
+	width: 100%;
+	margin-bottom: 30px;
+	border-top: 1px solid #dcdcdc;
+	border-bottom: 1px solid #dcdcdc;
+
+	&.is_from_airport {
+		li {
+			display: table-cell;
+			min-width: 100px;
+			border-right: 1px solid #dcdcdc;
+
+			&:first-child {
+				border-left: 1px solid #dcdcdc;
+			}
+
+			a {
+				padding: 20px 0;
+				background-color: #f7f7f7;
+				color: #434343;
+				width: 100%;
+				display: block;
+				line-height: 1;
+				text-align: center;
+
+				&:hover {
+					background-color: #eaeaea;
+					text-decoration: none !important;
+				}
+			}
+		}
+	}
+
+	.link_in_page_li {
+		// prefecture&region
+		display: table-cell;
+		min-width: 100px;
+		border-right: 1px solid #dcdcdc;
+
+		&:first-of-type {
+			border-left: 1px solid #dcdcdc;
+		}
+	}
+
+	.link_in_page_a {
+		// prefecture&region
+		display: block;
+		padding: 20px 0;
+		width: 100%;
+		line-height: 1;
+		box-sizing: border-box;
+		text-align: center;
+		color: #434343;
+		background-color: #f7f7f7;
+
+		&:hover {
+			background-color: #eaeaea;
+		}
+	}
+}

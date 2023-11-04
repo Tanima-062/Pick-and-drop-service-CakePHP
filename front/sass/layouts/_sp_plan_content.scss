@@ -1,0 +1,569 @@
+@use '../abstracts' as *;
+
+// Plan Info Block
+
+// common2.0から移動
+// Searches: sp_list_search_view.ctp, sp_map_search_view.ctp
+// 予約導線 plan,step1,step2: sp_plan_view.ctp(&.plan_view)
+// Mypages: sp_index.ctp
+
+// .plan_contents_list_**は、.plan_info_block_**に書き換えたいけど、進行中のABtestを考慮し一旦そのままにしておく。
+
+.plan_info_block {
+	width: 100%;
+	border-bottom: 15px solid #e6e6e6;
+	padding: 0;
+	overflow: hidden;
+
+	.plan_info_block_head {
+		padding: 12px;
+		width: 100%;
+		background-color: $light-gray;
+		line-height: 1;
+		display: flex;
+
+		.plan_contents_list_head_main {
+			flex: 1;
+
+			.plan_contents_list_head_top {
+				margin-bottom: $margin_base;
+
+				.plan_contents_list_shop_name {
+					line-height: 1;
+					font-weight: $font_weight_bold;
+				}
+			}
+		}
+
+		.plan_contents_list_head_campaign-logo {
+			margin-right: $margin_base;
+		}
+
+		.plan_contents_list_head_middle {
+			display: flex;
+			justify-content: space-between;
+
+			.plan_contents_list_head_middle_left {
+				display: flex;
+				justify-content: flex-start;
+				flex-wrap: nowrap;
+				height: fit-content;
+
+				.plan_contents_list_office_name {
+					font-size: $font_size_tiny;
+					margin-right: ($margin_base * 2);
+					align-self: center;
+				}
+
+				.btn_modalf_open_wrap {
+					.btn_modal_open {
+						font-size: $font_size_tiny;
+					}
+
+					i.icm-right-arrow {
+						font-size: $font_size_small;
+						color: $main-color;
+						margin-left: 4px;
+					}
+				}
+
+				.modal_contents_wrap {
+					.modal_contents {
+						line-height: 1.4;
+
+						ul {
+							margin-top: ($margin_base * 2);
+
+							li {
+								list-style: disc inside;
+								padding-left: $margin_base;
+							}
+						}
+					}
+				}
+			}
+
+			.plan_contents_list_head_middle_right {
+				height: fit-content;
+
+				.plan_contents_list_yotpo {
+					position: relative;
+					font-family: $base_font_family;
+					font-size: $font_size_tiny;
+					line-height: 1;
+
+					.yotpo-stars {
+						display: none;
+					}
+
+					.yotpo .text-m {
+						font-family: $base_font_family;
+						font-size: $font_size_tiny;
+						// line-height: 1;
+					}
+
+					.yotpo .text-m::before {
+						content: '★';
+						color: #ffd200;
+					}
+
+					.widget-position {
+						margin-top: 0 !important;
+					}
+				}
+			}
+		}
+
+		.plan_contents_list_head_bottom {
+			.plan_contents_list_access {
+				font-size: $font_size_tiny;
+			}
+		}
+	}
+
+	.plan_info_block_body {
+		.plan_caption {
+			color: $black;
+			display: block;
+			font-size: $font_size_medium;
+			font-weight: $font_weight_bold;
+			overflow: hidden;
+			padding: 6px 12px;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+
+		.plan_detail_ul {
+			position: relative;
+			display: table;
+			table-layout: fixed;
+			width: 100%;
+			border-collapse: separate;
+			border-spacing: 12px 0;
+
+			.plan_detail_li {
+				display: table-cell;
+				vertical-align: top;
+
+				&.car_photo {
+					width: 40%;
+
+					.car_photo_wrap {
+						position: relative;
+						line-height: 1;
+
+						.plan_car_photo {
+							width: 100%;
+							border: solid 1px $gray_lightness_1;
+						}
+					}
+				}
+
+				&:not(.car_photo) {
+					min-height: 100%;
+					padding-bottom: ($margin_base * 4);
+
+					.plan_detail_topics {
+						line-height: 1;
+						font-size: $font_size_small;
+						margin-bottom: $margin_base;
+					}
+
+					.plan_detail_spec {
+						// margin-top: $margin_base;
+						font-size: 0;
+						margin-bottom: 4px;
+						// min-height: 75px;
+
+						li {
+							display: inline-block;
+							background-color: $white;
+							border: 1px solid $dark-gray;
+							border-radius: $border_radius;
+							margin-right: 4px;
+							margin-bottom: 4px;
+							font-size: $font_size_tiny;
+							padding: 4px;
+							line-height: 1px;
+
+							&.off {
+								opacity: .3;
+								//display: none;
+							}
+
+							.icon {
+								margin-right: 4px;
+
+								&.no-smoking {
+									color: $error-color;
+								}
+							}
+						}
+					}
+
+					// 時差出現メッセージ　Searchesのみ
+					.plan_detail_notes_wrap {
+						position: absolute;
+						bottom: 0;
+
+						.search_result_notes {
+							position: relative;
+							height: 16px;
+							text-overflow: ellipsis;
+							overflow: hidden;
+							white-space: nowrap;
+
+							&.search_result_notes_red {
+								color: $error-color;
+
+								.icm-clock {
+									font-size: $font_size_tiny;
+								}
+							}
+
+							&.search_result_notes_blue {
+								color: $sub-color;
+							}
+
+							.result_notes_p {
+								display: none;
+								line-height: 1.4;
+								font-size: 11px;
+							}
+
+							.result_notes_em {
+								font-weight: $font_weight_bold;
+								font-style: normal;
+							}
+
+							// ニュースアイコンのズレを修正
+							.icm-news {
+								padding-left: 1px;
+								padding-right: 2px;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.plan_equipment_ul {
+			width: 100%;
+			padding: 6px 12px;
+
+			.plan_equipment_li {
+				display: inline-block;
+				padding: 2px 6px;
+				margin-bottom: 4px;
+				text-align: center;
+				border-radius: $border_radius;
+				font-size: 11px;
+				color: #106e32;
+				background: #dcecb1;
+			}
+		}
+
+		.plan_contents_list_plandetail {
+			padding: 6px 12px;
+
+			a {
+				font-size: $font_size_tiny;
+				line-height: 1.4;
+				text-decoration: underline;
+			}
+		}
+	}
+
+	.plan_info_block_bottom {
+		border-top: solid 1px $gray;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		padding: 6px 12px;
+
+		.plan_info_block_bottom_left {
+			display: flex;
+			flex-direction: column;
+			margin-right: 12px;
+			flex-grow: 3;
+
+			.payment_labels {
+				display: flex;
+				justify-content: flex-start;
+				padding: 0;
+				margin-bottom: 6px;
+
+				.menseki_label,
+				.payment_type {
+					border-radius: $border_radius;
+					display: inline-block;
+					font-size: $font_size_tiny;
+					line-height: 1.4;
+					height: inherit;
+					padding: 2px 6px;
+					text-align: center;
+				}
+
+				.menseki_label {
+					color: $white;
+					background-color: $sub-color;
+					border: 1px solid $sub-color;
+					margin-right: 5px;
+				}
+
+				.payment_type {
+					color: $sub-color;
+					background-color: $white;
+					border: 1px solid $sub-color;
+					margin: 0;
+				}
+			}
+
+			.plan_price_ul {
+				display: flex;
+				justify-content: space-between;
+				width: 100%;
+				margin-bottom: 6px;
+
+				.plan_price_li {
+					line-height: 1.2;
+					vertical-align: middle;
+
+					&.plan_price {
+						color: $black;
+						display: flex;
+						justify-content: flex-end;
+						align-content: flex-end;
+						align-items: baseline;
+						flex-wrap: wrap;
+
+						span {
+							font-size: $font_size_small;
+							color: $black;
+							font-weight: $font_weight_normal;
+
+							&:nth-of-type(1) {
+								font-size: $font_size_x-large;
+								font-weight: $font_weight_bold;
+							}
+						}
+					}
+				}
+			}
+
+			.plan-notes_additional-fee {
+				.-text_drop,
+				.-text_latenight {
+					font-size: $font_size_tiny;
+					line-height: 1.4;
+					color: $black;
+
+					span {
+						font-weight: $font_weight_bold;
+					}
+				}
+			}
+		}
+
+		.plan_info_block_bottom_right {
+			display: flex;
+			width: auto;
+			flex-direction: column;
+			align-items: center;
+			flex-grow: 1;
+
+			.btn-type-primary {
+				min-width: 120px;
+			}
+		}
+	}
+
+	// 予約導線 plan,step1,step2: sp_plan_view.ctp
+	// Mypages: sp_index.ctp
+	&.plan_view {
+		border-bottom: none;
+
+		.plan_info_block_head {
+			.plan_shop_name {
+				line-height: 1;
+				font-size: $font_size_medium;
+				font-weight: $font_weight_bold;
+				background-color: #f7f7f7;
+			}
+		}
+
+		.plan_info_block_body {
+			.plan_detail_li {
+				&:not(.car_photo) {
+					padding-bottom: 0;
+				}
+			}
+		}
+
+		.plan_info_block_bottom {
+			flex-direction: column;
+
+			.plan_info_block_bottom_left {
+				margin-right: 0;
+			}
+		}
+	}
+
+	// Searches: sp_list_search_view.ctp
+	&.recommend_plan {
+		position: relative;
+		background: #fff8ee;
+
+		.recommend_label {
+			position: absolute;
+			top: -0;
+			right: -2px;
+			height: 18px;
+			padding: 0 6px;
+			line-height: 18px;
+			letter-spacing: .8px;
+			font-size: 8px;
+			font-weight: $font_weight_bold;
+			color: $white;
+			background: $accent-color;
+			z-index: 1;
+
+			&::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: -10px;
+				width: 10px;
+				height: 18px;
+				border-bottom-width: 18px;
+				border-bottom-style: solid;
+				border-bottom-color: $accent-color;
+				border-left-width: 10px;
+				border-left-style: solid;
+				border-left-color: transparent;
+			}
+		}
+
+		.recommend_block {
+			display: flex;
+			padding-top: $margin_base;
+
+			.recommend_icon {
+				white-space: nowrap;
+				height: fit-content;
+				padding: 4px;
+				margin-right: $margin_base;
+				line-height: 1;
+				border-radius: 3px;
+				font-size: $font_size_tiny;
+				color: $white;
+				background: $accent-color;
+			}
+
+			.recommend_title {
+				font-size: $font_size_tiny;
+				font-weight: $font_weight_bold;
+				line-height: 1.4;
+			}
+		}
+	}
+}
+
+// ADVPRO-6196 ABtest ここから
+// Searchesのみ
+// .search_result_boxはABtest用。テスト終わったらこのクラスはctpからも削除。本実装する場合はplan_info_blockとして上記記述に合わせて記述しなおす。
+.search_result_box {
+	.plan_contents_list_head_top {
+		display: flex;
+		align-items: center;
+	}
+
+	.plan_contents_list_shop_name {
+		display: inline-block;
+
+		& + .label-transfer {
+			color: $white;
+			background-color: $sub-color;
+			font-size: $font_size_tiny;
+			padding: 4px;
+			margin-left: $margin_base;
+			border-radius: $border_radius;
+			display: none;
+			//min-width: 97px; /*店舗名２行対応：Optimize側で対応したけど本実装では入れる*/
+
+			.icm-airplane {
+				display: inline-block;
+				margin-right: 4px;
+				transform: rotate(-20deg);
+			}
+		}
+	}
+
+	.load-capacity-wrap {
+		position: relative;
+		display: inline-flex;
+		margin-bottom: $margin_base;
+		display: none;
+
+		.load-capacity {
+			display: inline-block;
+			background-color: $white;
+			border: 1px solid $dark-gray;
+			border-radius: 3px;
+			font-size: $font_size_tiny;
+			padding: 4px $margin_base;
+			line-height: 1;
+
+			i {
+				margin-right: 4px;
+			}
+		}
+
+		.about_capacity {
+			display: inline-flex;
+			align-items: center;
+			margin-left: $margin_base;
+
+			.icm-question-fill {
+				color: $main-color;
+				font-size: $font_size_small;
+
+				&::before {
+					background-color: #fff;
+					border-radius: 50%;
+				}
+			}
+		}
+
+		.about_capacity_aside {
+			background-color: $spear-gray;
+			border-radius: $border_radius;
+			padding: $margin_base;
+			color: $white;
+			font-size: $font_size_tiny;
+			width: 188px;
+			position: absolute;
+			bottom: 28px;
+			right: -29px;
+			z-index: 200;
+
+			&[data-is-shown='true'] {
+				display: block;
+			}
+
+			&[data-is-shown='false'] {
+				display: none;
+			}
+
+			&::before {
+				content: '';
+				border: transparent solid 6px;
+				border-top: $spear-gray solid 8px;
+				position: absolute;
+				bottom: -14px;
+				right: 30px;
+			}
+		}
+	}
+}
+// ADVPRO-6196 ABtest ここまで

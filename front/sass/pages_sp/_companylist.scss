@@ -1,0 +1,77 @@
+@use '../abstracts' as *;
+
+// 会社一覧ページ
+
+//------------------
+// NEW 202201 今後は.sp_companylist_page内へまとめていくこと。
+//------------------
+
+.sp_companylist_page {
+	.section_title_blue {
+		text-align: left;
+		margin-bottom: 0;
+	}
+
+	.lead-paragraph {
+		padding: 13px 3%;
+		font-size: $font_size_tiny;
+	}
+
+	.company_list_h2 {
+		font-size: $font_size_large;
+		font-weight: $font_weight_bold;
+		line-height: 1.2;
+		margin-bottom: 16px;
+	}
+
+	.company_list_title {
+		padding: 6px 3%;
+		background-color: #c6e7fe;
+		border-top: 1px solid #53b8ff;
+
+		img {
+			width: 27px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		.company_list_title_text {
+			margin: 0;
+			display: inline-block;
+			font-size: 13px;
+			color: $black;
+			font-weight: $font_weight_bold;
+		}
+	}
+
+	.company_description_div {
+		padding: 13px 3%;
+	}
+
+	.company_description {
+		font-size: $font_size_tiny;
+	}
+
+	.show_company_detail {
+		float: right;
+		font-size: $font_size_tiny;
+		color: $sub-color;
+		text-decoration: underline;
+		position: relative;
+		padding-left: 19px;
+		cursor: pointer;
+		margin-top: 3px;
+
+		&::before {
+			content: url(/rentacar/img/campaign_arrow.png);
+			display: block;
+			background-size: 16px;
+			top: 2px;
+			left: 0;
+			position: absolute;
+			background-repeat: no-repeat;
+		}
+	}
+}
+
+//------------------

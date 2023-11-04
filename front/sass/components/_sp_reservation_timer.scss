@@ -1,0 +1,18 @@
+@use '../abstracts' as *;
+
+// step1,step2のみ
+.notes_reserve_box {
+	.secure_timer_area {
+		margin: 10px 0;
+		line-height: 2.6;
+		font-size: $font_size_tiny;
+		text-align: center;
+		color: #215fb2;
+		background: #ffeebf;
+
+		> span {
+			font-size: 13px;
+			font-weight: $font_weight_bold;
+		}
+	}
+}

@@ -1,0 +1,541 @@
+@use '../abstracts' as *;
+
+// 予約導線のページ step1,step2,予約完了
+
+//------------------
+// NEW 202201 今後は.reservations_page内へまとめていくこと。
+//------------------
+
+.reservations_page {
+	//step1（入力）
+	.step1-contents {
+		.contents_detail_tbl {
+			margin-bottom: ($margin_base * 3);
+		}
+
+		.form {
+			//ログインフォームから移動
+			display: table;
+			width: 100%;
+			margin-bottom: 24px;
+			padding: 24px 0;
+			table-layout: fixed;
+			background: #f7f7f7;
+		}
+
+		//ログインに失敗エラー画面
+		.login_error {
+			margin-bottom: 8px;
+		}
+
+		.panel_green {
+			margin-top: ($margin_base * 3);
+			margin-bottom: ($margin_base * 3);
+			background: #dcedae;
+			border: 1px solid #98b97d;
+			color: #106e32;
+			padding: 10px 20px;
+			text-align: center;
+		}
+
+		.panel_note {
+			margin-bottom: ($margin_base * 3);
+		}
+
+		//下部固定要素のボタン
+		.btm_floating_table {
+			.btn-type-primary {
+				min-width: 250px;
+			}
+		}
+
+		.login-form {
+			//loginして購入 追加スタイル
+			text-align: center;
+			margin: 8px 0;
+
+			&.close {
+				margin-bottom: 24px;
+			}
+
+			.input-form {
+				margin: 0 auto;
+				margin-bottom: $margin_base * 3;
+				width: 535px;
+
+				.field {
+					width: 100%;
+				}
+
+				.label {
+					text-align: left;
+
+					> .note {
+						margin-left: $margin_base;
+					}
+				}
+
+				.error-message {
+					text-align: left;
+				}
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+
+				.checkbox-form {
+					margin: 0;
+				}
+
+				.reset-password {
+					color: $main-color;
+					text-decoration: underline;
+				}
+			}
+		}
+
+		// メアド自動完成
+		.autocomplete-email {
+			position: relative;
+			width: 50%;
+
+			&-list {
+				z-index: 4;
+				top: 100%;
+				left: 0;
+				right: 0;
+				position: absolute;
+				border: 1px solid #e4e4e4;
+				border-bottom: none;
+				border-top: none;
+				border-radius: 3px;
+				box-shadow: 0 0 8px 0 rgba(0, 0, 0, .12),
+					0 8px 8px 0 rgba(0, 0, 0, .24);
+			}
+
+			&-item {
+				position: relative;
+				padding: 8px;
+				cursor: pointer;
+				background-color: #fff;
+
+				&:hover {
+					background-color: #e4e4e4;
+				}
+			}
+		}
+
+		.autocomplete-active {
+			background-color: #e4e4e4 !important;
+
+			&::before {
+				content: '';
+				position: absolute;
+				left: -1px;
+				top: 0;
+				width: 4px;
+				height: 100%;
+				background: #1ba1ff;
+				border-radius: 0 100vh 100vh 0;
+			}
+		}
+
+		.va-middle {
+			vertical-align: middle;
+		}
+
+		.rent-padding {
+			padding: 20px;
+		}
+
+		.of-visible {
+			overflow: visible;
+		}
+
+		.text_right {
+			text-align: right;
+		}
+
+		.label-require {
+			display: inline-block;
+			background: $main-color;
+			border-radius: 3px;
+			color: $white;
+			padding: 4px 8px;
+			font-size: .8em;
+			float: right;
+		}
+
+		.bubble {
+			display: inline-block;
+			position: relative;
+			padding: 4px 8px;
+			border-radius: 2px;
+			background: $error-color;
+			color: $white;
+			margin-right: 20px;
+			font-size: .8em;
+
+			&::after {
+				position: absolute;
+				content: '';
+				height: 0;
+				width: 0;
+			}
+		}
+
+		.bubble-right::after {
+			left: 100%;
+			top: 50%;
+			border: 4px solid transparent;
+			border-left: 6px solid #f00;
+			margin-top: -4px;
+		}
+
+		.contents_result_detail_amount {
+			padding-top: 20px;
+		}
+
+		.contents_result_detail_amount_price {
+			color: $error-color;
+			font-size: 2em;
+			font-weight: $font_weight_bold;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		.contents_confirm_tbl {
+			margin-bottom: ($margin_base * 3);
+		}
+
+		// econクレカ決済
+		.input_credit_type {
+			display: none;
+
+			+ label {
+				display: inline-block;
+				padding-right: 24px;
+				vertical-align: middle;
+			}
+		}
+	}
+
+	//step2（確認・web決済のみ使用）
+	.step2-contents {
+		.rent-margin {
+			margin: 20px;
+		}
+
+		.rent-padding {
+			padding: 20px;
+		}
+
+		.st-table {
+			display: table;
+			table-layout: fixed;
+			width: 100%;
+		}
+
+		.text_right {
+			text-align: right;
+		}
+
+		.panel_green {
+			background: #dcedae;
+			border: 1px solid #98b97d;
+			color: #106e32;
+			padding: 10px 20px;
+		}
+
+		.bubble {
+			display: inline-block;
+			position: relative;
+			padding: 4px 8px;
+			border-radius: 2px;
+			background: $error-color;
+			color: $white;
+			margin-right: 20px;
+			font-size: .8em;
+
+			&::after {
+				position: absolute;
+				content: '';
+				height: 0;
+				width: 0;
+			}
+		}
+
+		.bubble-right::after {
+			left: 100%;
+			top: 50%;
+			border: 4px solid transparent;
+			border-left: 6px solid #f00;
+			margin-top: -4px;
+		}
+
+		.contents_result_detail_amount {
+			padding-top: 20px;
+		}
+
+		.contents_result_detail_amount_price {
+			color: $error-color;
+			font-size: 2em;
+			font-weight: $font_weight_bold;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		.contents_confirm_tbl {
+			margin-bottom: 20px;
+		}
+	}
+
+	// 予約完了ページ
+	.completion-contents {
+		//予約進行状況ステップ画像
+		.reservation_step {
+			margin: 0 170px 32px;
+		}
+
+		.complete-btn {
+			text-align: center;
+		}
+
+		.rent-margin-bottom-important {
+			margin-bottom: 20px !important;
+		}
+
+		.text_underline {
+			text-decoration: underline;
+		}
+
+		a.text_underline:hover {
+			text-decoration: none;
+		}
+
+		.list_decimal_inside {
+			list-style: decimal inside;
+		}
+
+		.contents_complete_tbl_shopTel {
+			display: block;
+			font-size: 2em;
+			font-weight: $font_weight_bold;
+			color: #f00;
+		}
+
+		.complete_panel {
+			text-align: center;
+			margin-bottom: ($margin_base * 3);
+
+			.complete_panel_message {
+				font-size: 1.4em;
+				color: #215fb2;
+			}
+
+			.complete_panel_reserve {
+				background: #ebf6ff;
+				width: 60%;
+				margin: 10px auto;
+				padding: 10px 0 20px;
+			}
+
+			.complete_panel_reserve_number {
+				display: inline-block;
+				padding: 5px 60px;
+				color: #f00;
+				font-size: 2em;
+				font-weight: $font_weight_bold;
+				border: 1px solid #b4b4b4;
+				background: $white;
+			}
+		}
+
+		.complete_panel_note {
+			margin-bottom: ($margin_base * 3);
+
+			h4 {
+				font-size: 1.2em;
+				color: #215fb2;
+				padding-bottom: 10px;
+			}
+
+			h4.complete_panel_note_mailed {
+				position: relative;
+				padding-left: ($margin_base * 4);
+
+				.icm-mail {
+					position: absolute;
+					top: 2px;
+					left: 0;
+					font-size: 24px;
+				}
+			}
+
+			hr {
+				margin: 20px 0;
+			}
+		}
+
+		.note-self-checkin-wrap {
+			margin: 0 auto ($margin_base * 6);
+			width: 60%;
+
+			.-heading {
+				text-align: center;
+			}
+		}
+	}
+
+	// econ決済時用？
+	.processing-contents {
+		.rent-margin-bottom-l {
+			margin-bottom: 40px !important;
+		}
+
+		.st-table {
+			display: table;
+			table-layout: fixed;
+			width: 100%;
+		}
+
+		.processing_img {
+			display: block;
+			margin: 12px auto;
+		}
+
+		.processing_text {
+			text-align: center;
+		}
+	}
+
+	//login style
+	.login_error {
+		padding: 12px;
+		border: 2px solid #fbc2c4;
+		font-weight: $font_weight_bold;
+		color: #8a1f11;
+		background: #fbe3e4;
+	}
+
+	.table-form {
+		//table内の追加スタイル
+		.decide-width {
+			//中の要素が２つ以上の場合、大きさを分配
+			width: 100%;
+			display: flex;
+
+			&.-name {
+				.input-form {
+					margin-right: 24px;
+				}
+			}
+
+			.input-form,
+			.select-form {
+				&:last-child {
+					margin-right: 0;
+				}
+
+				&.-half {
+					width: 50%;
+				}
+
+				&.-onethird {
+					width: 33%;
+				}
+
+				&.-quarter {
+					width: 24%;
+				}
+
+				&.-half,
+				&.-onethird,
+				&.-quarter {
+					> .field {
+						width: 100%;
+					}
+				}
+			}
+
+			.-slash {
+				text-align: center;
+				margin: auto 24px;
+			}
+		}
+
+		.explain {
+			//table内のinputの上下説明
+			display: block;
+
+			&.-top {
+				margin-bottom: $margin_base;
+			}
+
+			&.-bottom {
+				margin-top: $margin_base;
+			}
+		}
+	}
+
+	.result-btn-wrap {
+		position: relative;
+		width: 100%;
+		height: 52px;
+		margin-bottom: 24px;
+
+		.left-btn {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+		.right-btn {
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+	}
+
+	.panel_note {
+		background: #f5f5f5;
+		border: 1px solid #b4b4b4;
+
+		.panel_note_title {
+			color: $sub-color;
+			font-size: $font_size_x-large;
+			margin-bottom: ($margin_base * 3);
+		}
+	}
+
+	.text_danger {
+		color: $error-color;
+	}
+
+	.text_center {
+		text-align: center;
+	}
+
+	.panel {
+		border-radius: 3px;
+		padding: 20px;
+	}
+
+	.contents_complete_tbl_shop {
+		display: inline-block;
+		vertical-align: middle;
+		margin-left: 20px;
+		width: 85%;
+	}
+
+	.contents_detail_tbl th,
+	.contents_confirm_tbl th {
+		width: 20%;
+	}
+
+	.contents_confirm_tbl td {
+		.text_bold {
+			font-weight: $font_weight_bold;
+		}
+	}
+}

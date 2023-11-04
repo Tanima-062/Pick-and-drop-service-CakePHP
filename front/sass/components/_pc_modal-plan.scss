@@ -1,0 +1,284 @@
+@use '../abstracts' as *;
+
+//モーダルNew？(_style.scssから移動)
+
+// searches, planのプランモーダル
+
+#modalOverlay {
+	position: fixed;
+	z-index: 1000;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 120%;
+	background-color: #000;
+	opacity: .75;
+	display: none;
+}
+
+#wrapper.is-fixed {
+	position: fixed;
+	width: 100%;
+}
+
+.modal-view.planview {
+	width: 1000px;
+	margin: auto;
+	background: $white;
+	border-radius: $border-radius;
+	position: fixed;
+	display: none;
+	z-index: 1001;
+	max-height: 80vh;
+
+	.modal-content-wrapper {
+		padding: ($margin_base * 2) ($margin_base * 2) 0 ($margin_base * 2);
+
+		.btn-close {
+			text-align: right;
+			cursor: pointer;
+
+			&::before {
+				font-size: $font_size_x-large;
+				color: $dark-gray;
+			}
+		}
+
+		.modal-content-scroll {
+			padding: ($margin_base * 2);
+			max-height: 60vh;
+			overflow-x: hidden;
+			overflow-y: auto;
+
+			.modal-content-inner {
+				display: flex;
+				justify-content: space-between;
+
+				.modal-inner-left {
+					width: 40%;
+
+					.swiper-container {
+						height: auto;
+						margin-bottom: ($margin_base * 2);
+
+						.swiper-wrapper {
+							.swiper-slide {
+								width: 100%;
+								height: auto;
+								overflow: hidden;
+							}
+
+							img {
+								width: 100%;
+							}
+						}
+
+						.swiper-pagination-bullet-active {
+							background: $main-color;
+						}
+
+						.swiper-button-prev,
+						.swiper-button-next {
+							width: 44px;
+							height: 44px;
+							position: absolute;
+							top: unset;
+							bottom: 0;
+							right: 0;
+							background: none;
+							background-color: $white;
+							border: 1px solid $gray;
+							border-radius: 50%;
+
+							.icm-right-arrow {
+								position: absolute;
+								left: 14px;
+								top: 13px;
+								color: $main-color;
+								font-size: $font_size_medium;
+							}
+
+							&:hover {
+								background-color: $caution-color;
+							}
+
+							&.swiper-button-disabled {
+								opacity: 1;
+
+								.icm-right-arrow {
+									color: $gray;
+								}
+							}
+						}
+
+						.swiper-button-prev {
+							left: 0;
+
+							.icm-right-arrow {
+								left: 12px;
+							}
+						}
+					}
+
+					.-description-carimg-wrapper {
+						display: none;
+						margin-bottom: $margin_base * 2;
+
+						.-description-cartype {
+							font-size: $font_size_small;
+							display: inline-block;
+						}
+
+						.-description-carmodel {
+							display: inline;
+							font-size: $font_size_small;
+
+							> span {
+								display: inline-block;
+
+								&:not(:first-child) {
+									&::before {
+										content: '/';
+									}
+								}
+							}
+						}
+
+						.carimg_note {
+							font-size: $font_size_small;
+							margin-top: $margin_base;
+						}
+					}
+
+					.remark-wrapper {
+						display: none;
+						margin-top: $margin_base;
+
+						table {
+							td,
+							th {
+								border: 1px solid $gray;
+								padding: $margin_base;
+							}
+
+							th {
+								background: $light-gray;
+							}
+						}
+					}
+				}
+
+				.modal-inner-right {
+					width: 60%;
+					padding-left: 30px;
+
+					.-description-planname {
+						font-size: $font_size_x-large;
+						margin-bottom: $margin_base * 3;
+					}
+				}
+
+				.-description,
+				.-remark {
+					white-space: pre-wrap;
+					word-wrap: break-word;
+					text-align: left;
+				}
+			}
+		}
+	}
+
+	.modal-content-btn {
+		border-top: 1px solid $light-gray;
+		padding: $margin_base ($margin_base * 2);
+		text-align: center;
+
+		button {
+			display: inline-block;
+		}
+	}
+}
+
+// 使ってなさそう
+// .modal-content {
+// 	width: 80%;
+// 	margin: 0;
+// 	padding: 40px;
+// 	border: 1px solid #aaa;
+// 	background: $white;
+// 	border-radius: 10px;
+// 	position: fixed;
+// 	display: none;
+// 	z-index: 1000;
+// 	text-align: center;
+
+// 	.text-center {
+// 		text-align: center !important;
+// 	}
+
+// 	.text-bold {
+// 		font-weight: $font_weight_bold;
+// 	}
+
+// 	.margin-small-bottom {
+// 		margin-bottom: 5px !important;
+// 	}
+
+// 	ul.list_low {
+// 		padding: 20px 5px;
+// 		text-align: left;
+// 		background: $white;
+
+// 		li {
+// 			list-style: disc;
+// 		}
+// 	}
+
+// 	li {
+// 		width: 80%;
+// 		margin: 0 auto 10px;
+// 	}
+
+// 	.button {
+// 		margin: 0;
+// 		border: none;
+// 		overflow: visible;
+// 		font: inherit;
+// 		color: #444;
+// 		display: inline-block;
+// 		box-sizing: border-box;
+// 		padding: 0 12px;
+// 		background: #f7f7f7;
+// 		vertical-align: middle;
+// 		line-height: 28px;
+// 		min-height: 30px;
+// 		font-size: $font_size_medium;
+// 		text-decoration: none;
+// 		text-align: center;
+// 		border: 1px solid rgba(0, 0, 0, .2);
+// 		border-bottom-color: rgba(0, 0, 0, .3);
+// 		background-origin: border-box;
+// 		background-image: -webkit-gradient(
+// 			linear,
+// 			left top,
+// 			left bottom,
+// 			from($white),
+// 			to(#eee)
+// 		);
+// 		background-image: linear-gradient(to bottom, $white, #eee);
+// 		border-radius: 4px;
+// 		text-shadow: 0 1px 0 $white;
+// 		cursor: pointer;
+// 	}
+// }
+
+// .modal-overlay {
+// 	z-index: 999;
+// 	display: none;
+// 	position: fixed;
+// 	top: 0;
+// 	left: 0;
+// 	width: 100%;
+// 	height: 120%;
+// 	background-color: rgba(0, 0, 0, .75);
+// }

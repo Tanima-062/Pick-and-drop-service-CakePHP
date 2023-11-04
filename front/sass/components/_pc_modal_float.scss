@@ -1,0 +1,108 @@
+@use '../abstracts' as *;
+
+//PC共通
+
+/* -----------------------------------------------------------------------------
+  モーダル-Float
+----------------------------------------------------------------------------- */
+body.body-fixed {
+	position: fixed;
+	width: 100%;
+}
+
+.btn_modalf_open_wrap {
+	position: relative;
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+
+	.btn_modal_open {
+		color: $black;
+		font-size: $font_size_small;
+		text-decoration: underline;
+	}
+
+	// インフォアイコンをつける場合
+	i.icm-info-button-fill {
+		font-size: $font_size_medium;
+		color: $main-color;
+
+		& + .btn_modal_open {
+			padding-left: 8px;
+			line-height: 1;
+		}
+	}
+}
+
+.modalf-overlay {
+	z-index: 999;
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 120%;
+	background-color: rgba(0, 0, 0, .75);
+}
+
+.modalf-window {
+	background: rgba(0, 0, 0, 0);
+	box-sizing: border-box;
+	display: none;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 0;
+	pointer-events: none;
+	margin: auto;
+	min-width: 35%;
+	max-width: 70%;
+	z-index: 999;
+	height: auto;
+	align-items: center;
+
+	.modal_contents_wrap {
+		position: relative;
+		width: 100%;
+		height: auto;
+		box-sizing: border-box;
+		border-radius: 3px;
+		background: $white;
+		pointer-events: auto;
+
+		.btn-close {
+			cursor: pointer;
+			position: absolute;
+			right: 5px;
+			top: 14px;
+			width: 40px;
+			height: 40px;
+			padding: 11px;
+
+			i {
+				font-size: 18px;
+				color: $dark-gray;
+			}
+		}
+
+		.modal-title {
+			height: 72px;
+			font-size: $font_size_big;
+			line-height: 1;
+			padding: 24px 16px;
+			font-weight: $font_weight_bold;
+		}
+
+		.modal_contents {
+			height: auto;
+			max-height: calc(70vh - 72px);
+			padding: 0 24px;
+			margin-bottom: 24px;
+			font-size: $font_size_medium;
+			overflow-y: scroll;
+			overflow-y: auto;
+		}
+	}
+}

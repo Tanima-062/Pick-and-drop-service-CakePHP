@@ -1,0 +1,43 @@
+@use '../abstracts' as *;
+
+.caution_blue {
+	display: flex;
+	align-items: center;
+	border-radius: $border_radius;
+	padding: 10px;
+	width: 100%;
+	background-color: $caution-color;
+	color: $sub-color;
+	font-size: $font_size_small;
+	font-weight: $font_weight_bold;
+
+	& .icm-warning {
+		padding-right: 10px;
+
+		&::before {
+			font-size: 22px;
+		}
+	}
+
+	// 詳細込バージョン
+	&.-detail {
+		padding: ($margin_base * 2) $margin_base;
+
+		& .icm-warning {
+			&::before {
+				font-size: $font_size_medium;
+			}
+		}
+
+		& .title {
+			font-size: $font_size_tiny;
+		}
+
+		& .detail {
+			color: $black;
+			font-size: $font_size_tiny;
+			font-weight: $font_weight_normal;
+			margin-top: $margin_base;
+		}
+	}
+}

@@ -1,0 +1,21 @@
+@use '../abstracts' as *;
+
+.caution_blue {
+	display: flex;
+	align-items: center;
+	border-radius: $border_radius;
+	padding: ($margin_base * 2) 20px;
+	width: 100%;
+	background-color: $caution-color;
+	color: $sub-color;
+	font-size: $font_size_medium;
+	font-weight: $font_weight_bold;
+
+	& .icm-warning {
+		padding-right: 20px;
+
+		&::before {
+			font-size: 22px;
+		}
+	}
+}

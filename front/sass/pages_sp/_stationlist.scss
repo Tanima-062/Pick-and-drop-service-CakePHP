@@ -1,0 +1,54 @@
+@use '../abstracts' as *;
+
+// 駅一覧ページ
+
+//------------------
+// sp_stationlist_page内へまとめていくこと。
+//------------------
+
+.sp_stationlist_page {
+	.station_list_block {
+		margin-bottom: ($margin_base * 2);
+
+		.station_list {
+			margin-left: 16px;
+			border-bottom: 1px solid #8c8c8c;
+
+			&:last-child {
+				border-bottom: none;
+			}
+
+			> ul {
+				margin: 0;
+				padding: 0;
+				display: inline-block;
+				width: 100%;
+				padding-left: 32px;
+				padding-bottom: 10px;
+				box-sizing: border-box;
+
+				> li {
+					display: inline-block;
+					padding: 10px 12px 0 12px;
+
+					&.item-header {
+						display: block;
+						width: 100%;
+						padding: 10px 0;
+						text-indent: -32px;
+						border-bottom: 1px solid #ececec;
+
+						> h2 {
+							margin: 0;
+							padding: 0;
+							font-weight: $font_weight_normal;
+							font-size: $font_size_small;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+//------------------

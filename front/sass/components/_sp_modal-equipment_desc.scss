@@ -1,0 +1,49 @@
+@use '../abstracts' as *;
+
+/* SP 元からあったタイプのモーダルウィンドウ　（＝modal float以外） */
+
+// searchesページ：プラン詳細のequipmentの説明モーダル
+
+.sp_modal_equipment_desc {
+	.modal_wrap.equipment_desc {
+		background: rgba(0, 0, 0, 0);
+		bottom: 0;
+		display: none;
+		top: 0;
+		left: 0;
+		right: 0;
+		padding: 0;
+		pointer-events: none;
+		position: fixed;
+		margin: auto;
+		width: 95%;
+		z-index: 999;
+		height: 80vh;
+
+		.modal_equip_contents {
+			position: relative;
+			top: 50%;
+			width: 100%;
+			margin-top: -60px;
+			padding: 20px 16px;
+			line-height: 1.2;
+			overflow: hidden;
+			border-radius: $border_radius;
+			font-size: $font_size_small;
+			color: $black;
+			background: $white;
+			pointer-events: auto;
+		}
+	}
+
+	.modal_overlay {
+		display: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 120%;
+		background: rgba(0, 0, 0, .75);
+		z-index: 998;
+	}
+}

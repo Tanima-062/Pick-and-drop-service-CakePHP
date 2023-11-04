@@ -1,0 +1,545 @@
+@use '../abstracts' as *;
+
+// PC 検索フォーム詳細条件検索パート　searchform_options.ctp
+
+//// TOPとそれ以外のページで、検索フォームのデザイン統一されれば、SPのように、分岐なくしてシンプルになる予定。
+//// TOPのほうが最新デザイン。
+
+/*------------------
+
+TOPページ以外
+
+------------------*/
+body:not(.tops_page) {
+	.searchform_options_section {
+		margin-bottom: $margin_base * 3;
+
+		// 切り替えタブ
+		.option_tab_ul {
+			display: table;
+			width: 100%;
+			table-layout: fixed;
+			border-collapse: separate;
+			border-spacing: 4px 0;
+		}
+
+		.option_tab_li {
+			display: table-cell;
+			height: 44px;
+			vertical-align: bottom;
+		}
+
+		.btn_option_tab {
+			width: 100%;
+			height: 40px;
+			padding: 0 12px;
+			border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
+			text-align: left;
+			font-size: $font_size_small;
+			font-weight: $font_weight_bold;
+			color: $white;
+			background: #aaa;
+			transition: height .2s;
+			transform-origin: center bottom;
+			border: none;
+
+			&.is_selected {
+				height: 44px;
+				background: #009fff;
+			}
+		}
+
+		// ３パネル共通
+		.search_fieldset {
+			position: relative;
+			margin-top: 40px;
+			padding: 16px 16px 30px;
+			box-sizing: border-box;
+			border: none;
+		}
+
+		.search_legend {
+			position: absolute;
+			top: -20px;
+			left: 18px;
+		}
+
+		.options_tab_panel {
+			display: none;
+			height: fit-content;
+			border-top: 2px solid $white;
+			border-bottom: 2px solid $white;
+		}
+
+		.selected_all_wrap {
+			position: absolute;
+			top: -12px;
+			right: 24px;
+			text-align: right;
+		}
+
+		.selected_all_radio {
+			margin-left: 12px;
+
+			+ label {
+				margin-left: 6px;
+			}
+		}
+
+		.form-checkbox-wrap input[type='checkbox'] {
+			& + label::before {
+				background-color: $white;
+				border-radius: $border_radius;
+				color: $white;
+			}
+
+			&:checked + label::before {
+				color: $sub-color;
+			}
+		}
+
+		// 車両タイプパネル
+		.about_price {
+			position: absolute;
+			top: -16px;
+			right: 16px;
+			cursor: pointer;
+
+			.icm-info-button-fill {
+				color: $main-color;
+				font-size: $font_size_small;
+			}
+
+			.about_price_text {
+				font-size: $font_size_tiny;
+				text-decoration: underline;
+				top: 0;
+				right: 16px;
+			}
+
+			.about_price_aside {
+				background-color: $white;
+				border-radius: $border_radius;
+				padding: $margin_base * 2;
+				color: $black;
+				font-size: $font_size_tiny;
+				width: 320px;
+				position: absolute;
+				top: -110px;
+				right: 0;
+				z-index: 200;
+
+				&::before {
+					content: '';
+					border: transparent solid 8px;
+					border-top: $white solid 14px;
+					position: absolute;
+					bottom: -22px;
+					right: 30px;
+				}
+			}
+		}
+
+		.car_type_ul {
+			display: flex;
+			justify-content: space-between;
+
+			.car_type_li {
+				position: relative;
+				text-align: center;
+				vertical-align: top;
+				display: inline-block;
+				width: 100px;
+
+				.car_type_name {
+					display: flex;
+					line-height: 1.2;
+					font-weight: $font_weight_normal;
+					position: static;
+					align-items: center;
+					justify-content: center;
+				}
+
+				.lowestprice-bycartype {
+					color: $white;
+					font-size: $font_size_small;
+					font-weight: $font_weight_bold;
+					margin-top: 6px;
+				}
+			}
+		}
+
+		#search_select_car_type .car_type_li:last-of-type .car_type_name {
+			letter-spacing: -1px;
+			font-size: 11px;
+		}
+
+		.btn_car_type {
+			display: block;
+			min-width: 98px;
+			border-radius: 3px;
+			font-size: $font_size_tiny;
+			color: $black;
+			background: $white;
+			z-index: 0;
+			cursor: pointer;
+
+			img {
+				pointer-events: none;
+			}
+
+			.icm-checkbox-checked {
+				//新デザインはTOPのみ適用中のため
+				display: none;
+			}
+		}
+
+		.car_type_input {
+			display: none;
+
+			&:checked + .btn_car_type_wrap .btn_car_type {
+				background: $caution-color;
+
+				> {
+					.car_type_checkbox {
+						position: absolute;
+						top: -6px;
+						left: -6px;
+						width: 15px;
+						height: 15px;
+						border-radius: 2px;
+						background: $white;
+						z-index: 1;
+						pointer-events: none;
+
+						&::after {
+							content: '';
+							display: block;
+							position: absolute;
+							top: 3px;
+							left: 3px;
+							width: 8px;
+							height: 4px;
+							border-left: 2px solid #1ba0fe;
+							border-bottom: 2px solid #1ba0fe;
+							transform: rotate(-45deg);
+							z-index: 2;
+						}
+					}
+
+					.car_type_name {
+						color: $white;
+						background: #1ba0fe;
+					}
+				}
+			}
+
+			+ .btn_car_type_wrap .btn_car_type:hover {
+				background: $white-hover;
+
+				> .car_type_name {
+					color: $white;
+					background: #9b9b9b;
+				}
+			}
+		}
+
+		.car_type_name {
+			display: inline-block;
+			width: 100%;
+			height: 36px;
+			padding: 0 6px;
+			line-height: 36px;
+			border-top-left-radius: 3px;
+			border-top-right-radius: 3px;
+			box-sizing: border-box;
+			background: #f7f7f7;
+			pointer-events: none;
+		}
+
+		.car_type_capacity {
+			position: absolute;
+			width: 100%;
+			top: 98px;
+			left: 0;
+		}
+
+		// オプションパネル
+		.equip_chk {
+			display: inline-block;
+			width: 220px;
+			padding: 8px 6px;
+			line-height: 1;
+		}
+
+		// 会社指定パネル
+		.client_chk {
+			display: inline-block;
+			width: 316px;
+			padding: 8px 6px;
+			line-height: 1;
+
+			label {
+				margin-left: 6px;
+			}
+		}
+	}
+}
+
+/*------------------
+
+TOPページのみ
+
+------------------*/
+.tops_page {
+	.searchform_options_section {
+		// 切り替えタブ
+		.option_tab_ul {
+			display: flex;
+			flex-flow: row nowrap;
+			justify-content: space-between;
+			width: 100%;
+			padding: 0 16px;
+		}
+
+		.option_tab_li {
+			width: calc(100% / 3);
+			height: 48px;
+		}
+
+		.btn_option_tab {
+			width: 100%;
+			height: 100%;
+			border: none;
+			border-bottom: solid 1px $gray;
+			background: none;
+			font-size: $font_size_medium;
+			color: $black;
+
+			&.is_selected {
+				color: $sub-color;
+				font-weight: $font_weight_bold;
+				border-bottom: solid 3px $sub-color;
+			}
+		}
+
+		// ３パネル共通
+		.search_fieldset {
+			position: relative;
+			margin-top: 16px;
+			margin-bottom: 32px;
+			padding: 16px 16px;
+		}
+
+		.search_legend {
+			font-size: $font_size_medium;
+			height: 16px;
+			line-height: 1;
+			font-weight: $font_weight_bold;
+		}
+
+		.options_tab_panel {
+			display: none;
+			height: fit-content;
+			border-top: 2px solid $white;
+			border-bottom: 2px solid $white;
+		}
+
+		.selected_all_wrap {
+			position: absolute;
+			top: -16px;
+			right: 24px;
+
+			.selected_all_radio {
+				margin-left: 12px;
+
+				+ label {
+					margin-left: 6px;
+				}
+			}
+		}
+
+		// 車両タイプパネル
+		.about_price {
+			position: absolute;
+			top: -16px;
+			right: 16px;
+			cursor: pointer;
+
+			.icm-info-button-fill {
+				color: $main-color;
+				font-size: $font_size_small;
+			}
+
+			.about_price_text {
+				font-size: $font_size_tiny;
+				text-decoration: underline;
+				top: 0;
+				right: 16px;
+			}
+
+			.about_price_aside {
+				background-color: $white;
+				border-radius: $border_radius;
+				padding: $margin_base * 2;
+				color: $black;
+				font-size: $font_size_tiny;
+				width: 320px;
+				position: absolute;
+				top: -110px;
+				right: 0;
+				z-index: 200;
+
+				&::before {
+					content: '';
+					border: transparent solid 8px;
+					border-top: $white solid 14px;
+					position: absolute;
+					bottom: -22px;
+					right: 30px;
+				}
+			}
+		}
+
+		.car_type_ul {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.car_type_li {
+			display: inline-block;
+
+			.car_type_input {
+				display: none;
+			}
+
+			.btn_car_type_wrap {
+				position: relative;
+				display: block;
+				width: 100px;
+				height: 122px;
+				border: 1px $dark-gray solid;
+				border-radius: $border_radius;
+			}
+
+			.btn_car_type {
+				display: block;
+				width: 100%;
+				height: 100%;
+				background-color: $light-gray;
+				z-index: 0;
+				cursor: pointer;
+				border-radius: $border_radius;
+
+				.car_type_checkbox {
+					display: none; //一時的に旧デザイン共有のため
+				}
+
+				.icm-checkbox-checked {
+					display: none;
+				}
+
+				.car_type_name {
+					display: flex;
+					width: 100%;
+					height: 36px;
+					padding: 4px;
+					line-height: 1;
+					align-items: center;
+					justify-content: center;
+					font-size: $font_size_tiny;
+					color: $black;
+					position: absolute;
+					top: 4px;
+					left: 0;
+					text-align: center;
+				}
+
+				img {
+					filter: grayscale(100%);
+					position: absolute;
+					bottom: 4px;
+				}
+
+				.car_type_capacity {
+					position: absolute;
+					width: 100%;
+					bottom: 4px;
+					font-size: $font_size_tiny;
+					color: $black;
+					text-align: center;
+				}
+			}
+
+			&:last-of-type .btn_car_type {
+				.car_type_name {
+					letter-spacing: -1px;
+				}
+			}
+
+			.car_type_input:checked {
+				+ .btn_car_type_wrap {
+					.btn_car_type {
+						background-color: $white;
+						outline: 2px $sub-color solid;
+						border-radius: 1px; //outline用
+					}
+
+					.icm-checkbox-checked {
+						display: block;
+						font-size: 16px;
+						color: $sub-color;
+						background-color: $white;
+						position: absolute;
+						top: -5px;
+						left: -7px;
+					}
+
+					.car_type_name {
+						color: $sub-color;
+					}
+
+					img {
+						filter: grayscale(0);
+					}
+				}
+			}
+
+			.lowestprice-bycartype {
+				color: $white;
+				font-size: $font_size_small;
+				font-weight: $font_weight_bold;
+				margin-top: 6px;
+			}
+		}
+
+		// オプションパネル
+		.search_select_option_list_wrap {
+			display: flex;
+			flex-flow: row wrap;
+		}
+
+		.equip_chk {
+			width: calc(100% / 4);
+			line-height: 1;
+			margin-bottom: $margin_base * 2;
+		}
+
+		// 会社指定パネル
+		.search_select_company_list_wrap {
+			display: flex;
+			flex-flow: row wrap;
+		}
+
+		.client_chk {
+			// display: inline-block;
+			// width: 280px;
+			// height: 24px;
+			// line-height: 24px;
+			width: calc(100% / 3);
+			line-height: 1;
+			margin-bottom: $margin_base * 2;
+		}
+	}
+}

@@ -1,0 +1,47 @@
+@use '../abstracts' as *;
+// 予約番号メモリマインダー
+
+.memo_reminder {
+	border: solid 2px $sub-color;
+	width: 100%;
+	margin-bottom: 20px;
+
+	dt {
+		border-bottom: solid 1px $sub-color;
+		padding: 5px 10px;
+		color: $sub-color;
+		text-align: center;
+	}
+
+	dd.memo_reminder_content {
+		display: inline-block;
+		padding: 6px 12px 12px;
+		text-align: center;
+
+		.icon_wrap {
+			display: flex;
+			flex-flow: row nowrap;
+			justify-content: center;
+			gap: 8px;
+			color: $sub-color;
+			font-size: 3rem;
+			margin-bottom: 10px;
+
+			img {
+				height: 60px;
+				vertical-align: middle;
+				display: inline-block;
+			}
+		}
+
+		.memo_reminder_content_header {
+			color: $sub-color;
+		}
+
+		.memo_reminder_content_text {
+			color: #5d5d5d;
+			font-size: 1.3rem;
+			line-height: 1.4;
+		}
+	}
+}

@@ -1,0 +1,732 @@
+@use '../abstracts' as *;
+
+// マイページ
+
+//------------------
+// NEW 202201 今後は.sp_mypages_page内へまとめていくこと。
+// Mypagesディレクトリ内もページごとに分離したい
+// bodyタグクラスでの分離をする前に、この中で分離すべく暫定でdivタグにファイルごとのクラスつけておく。
+//------------------
+
+.sp_mypages_page {
+	/* ----------------------
+	共通
+	-----------------------*/
+	.ac {
+		text-align: center;
+	}
+
+	.inner {
+		padding: 6px 12px 12px;
+	}
+
+	.p_10px {
+		padding: 10px;
+	}
+
+	.mb20px {
+		margin-bottom: 20px;
+	}
+
+	h4 {
+		padding: 8px;
+		text-align: center;
+		font-size: 1.5rem;
+		font-weight: $font_weight_bold;
+	}
+
+	.btn {
+		display: block;
+		margin: 0 auto;
+		padding: 12px 24px;
+		line-height: 1;
+		text-align: center;
+		font-size: $font_size_medium;
+		color: $white;
+	}
+
+	.bg_orange {
+		border-radius: 5px !important;
+		background-color: #ff8e18 !important;
+
+		&:disabled {
+			opacity: .4;
+		}
+	}
+
+	.btn_bg_important {
+		font-size: 1.5rem !important;
+		line-height: 1.3rem !important;
+		color: $white !important;
+		padding: 15px 20px !important;
+	}
+
+	.color_red {
+		color: #f00;
+		letter-spacing: .03rem;
+	}
+
+	.title_blue_line {
+		background: #ebf6ff;
+		padding: 8px 10px;
+		font-size: 1.6rem;
+		font-weight: $font_weight_bold;
+		color: #215fb2;
+		position: relative;
+
+		span {
+			padding-left: 10px;
+			display: block;
+			border-left: solid 4px #215fb2;
+			color: #215fb2;
+		}
+	}
+
+	.btn_mypage_disabled {
+		opacity: .4;
+	}
+
+	// edit & check
+	.changeUserdata {
+		box-sizing: border-box;
+		padding: 0 10px;
+		margin-bottom: 30px;
+
+		.-title {
+			margin-bottom: 10px;
+			margin-top: 20px;
+			font-weight: $font_weight_bold;
+		}
+
+		.-item {
+			margin-bottom: 10px;
+		}
+
+		input.textInput {
+			background: $white;
+			border: 1px solid $dark-gray;
+			border-radius: 4px;
+			line-height: 1;
+			min-height: 50px;
+			padding: 0 10px;
+			display: inline-block;
+			font-size: $font_size_medium;
+
+			&._count {
+				width: 100px;
+				text-align: right;
+			}
+
+			&._mail {
+				width: 300px;
+			}
+
+			&._tel {
+				width: 200px;
+			}
+		}
+
+		.-select {
+			display: inline-block;
+			position: relative;
+			height: 50px;
+
+			&::after {
+				content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAHCAYAAAA1WQxeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDE0IDc5LjE1Njc5NywgMjAxNC8wOC8yMC0wOTo1MzowMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6ODg3OTgxRjAyODZGMTFFNTk3RkJGQTcyOUU4QzEyMUUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6ODg3OTgxRjEyODZGMTFFNTk3RkJGQTcyOUU4QzEyMUUiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4ODc5ODFFRTI4NkYxMUU1OTdGQkZBNzI5RThDMTIxRSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4ODc5ODFFRjI4NkYxMUU1OTdGQkZBNzI5RThDMTIxRSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PmLMV3YAAABaSURBVHjaYnQu3bGdgYHBgwE72MEEJIqA+A8WSZBYEUjBdSCehkXBdJAcE5TTBMRvkSTfAXEjiAFT8BaqCAYaYRqYkARB1tyA4ukwQRZ0RwExIxD/hgkCBBgARIMT8IbEMzsAAAAASUVORK5CYII=);
+				position: absolute;
+				top: 10px;
+				right: 8px;
+				bottom: 0;
+				margin: auto;
+			}
+		}
+
+		select {
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+			border: none;
+			outline: none;
+			background: $white;
+			border: 1px solid $dark-gray;
+			border-radius: $border_radius;
+			line-height: 1;
+			min-height: 40px;
+			padding: 0 $margin_base * 3;
+			font-size: $font_size_medium;
+			width: 80px;
+			text-align: right;
+		}
+
+		select[readonly] {
+			background: $gray;
+			pointer-events: none;
+		}
+	}
+
+	// フォームパーツ刷新で消えてしまったようなので、一旦ここに置いときます
+	.plan_form input.has-error {
+		border: 2px solid $error-color;
+		background: $warning-color;
+	}
+
+	/* ----------------------
+	ページごと　 
+	-----------------------*/
+
+	/* login.ctp 予約確認ログイン画面
+	---------------------------- */
+	div.sp_mypages-login_page {
+		.session_message_wrap {
+			.session_message {
+				padding: ($margin_base * 2);
+
+				.icm-warning {
+					color: $error-color;
+					margin-right: ($margin_base * 2);
+					font-size: $font_size_x-large;
+				}
+
+				.session-message-text {
+					color: $error-color;
+					font-size: $font_size_small;
+					font-weight: $font_weight_bold;
+				}
+			}
+		}
+
+		section {
+			&.-inner {
+				padding-left: 8px;
+				padding-right: 8px;
+			}
+		}
+
+		.input-form {
+			margin-bottom: ($margin_base * 2);
+
+			&:nth-child(2 of .input-form) {
+				margin-bottom: ($margin_base * 3);
+			}
+
+			.field {
+				&.-valid-error {
+					border: 2px solid $error-color;
+					background: $warning-color;
+				}
+			}
+
+			.valid-err-message {
+				color: $error-color;
+				font-size: $font_size_tiny;
+			}
+		}
+
+		.notification {
+			background-color: $light-gray;
+			border-radius: 3px;
+			padding: 16px;
+			display: grid;
+			grid-template-columns: 18px 1fr;
+			margin-top: ($margin_base * 2);
+
+			.-icon-wrapper {
+				display: flex;
+				align-items: center;
+			}
+
+			.-icon {
+				height: 18px;
+				width: 18px;
+			}
+
+			.-text-wrapper {
+				margin-left: 8px;
+				font-weight: $font_weight_bold;
+
+				a {
+					color: $main-color;
+					text-decoration: underline;
+				}
+			}
+		}
+
+		.headline-large-sp {
+			font-size: $font_size_big;
+			font-weight: $font_weight_bold;
+			margin-top: ($margin_base * 3);
+			margin-bottom: ($margin_base * 3);
+		}
+
+		.button-label {
+			font-size: $font_size_medium;
+			font-weight: $font_weight_bold;
+			margin-bottom: $margin_base;
+			margin-top: $margin_base;
+
+			+ .button-label-sub {
+				display: block;
+				font-size: $font_size_small;
+				margin-bottom: $margin_base;
+			}
+		}
+	}
+
+	/* index.ctp 予約内容画面
+	---------------------------- */
+	div.sp_mypages-index_page {
+		.fl {
+			float: left;
+		}
+
+		.fr {
+			float: right;
+		}
+
+		.p_5px {
+			padding: 5px;
+		}
+
+		.font_b {
+			font-weight: $font_weight_bold;
+		}
+
+		.mb10px {
+			margin-bottom: 10px;
+		}
+
+		.btn2 {
+			border-radius: 5px;
+		}
+
+		.sec {
+			margin-bottom: 10px;
+		}
+
+		.bg_gray_2 {
+			background-color: #989898 !important;
+			color: $white !important;
+		}
+
+		.bg_gray_3 {
+			background-color: #b4b4b4 !important;
+			color: $white !important;
+			border-radius: 5px !important;
+			margin-top: 10px !important;
+		}
+
+		.bg_brown {
+			background-color: #f0f0f0 !important;
+		}
+
+		.bg_brown .caption_gray {
+			color: #5d5d5d;
+			font-size: 1.3rem;
+			line-height: 1.8rem;
+			padding: 10px 15px !important;
+		}
+
+		.border-top-none {
+			border-top: none !important;
+		}
+
+		.txtc {
+			text-align: center;
+		}
+
+		.text {
+			display: block;
+		}
+
+		.people_num {
+			p {
+				display: inline-block;
+				width: 25%;
+			}
+		}
+
+		.title_blue {
+			// padding: 6px 12px;
+			// font-size: $font_size_medium;
+			background-color: #f7f7f7;
+		}
+
+		.plan_warning_red {
+			font-size: $font_size_tiny;
+			text-align: center;
+			color: red;
+			margin-bottom: 10px;
+		}
+
+		.caution {
+			margin-top: 10px;
+			font-size: 1.4rem;
+			line-height: 1.5rem;
+			padding: 10px;
+			margin-bottom: 20px;
+			background-color: #dcedae !important;
+			color: #106e32 !important;
+
+			p {
+				text-align: center;
+				color: #106e32;
+				margin: 10px 0;
+
+				&::before {
+					margin: 0 5px 0 0;
+					content: ' ';
+					display: inline-block;
+					width: 18px;
+					height: 18px;
+					background: url(../../img/sp/ico_caution@2x.png);
+					background-size: contain;
+					vertical-align: middle;
+				}
+			}
+
+			span {
+				color: #333;
+			}
+		}
+
+		.campaign-notice {
+			background: $warning-color;
+			border-radius: 3px;
+			padding: 16px;
+			margin-bottom: 16px;
+			font-size: $font_size_tiny;
+		}
+
+		.change_btn {
+			margin-top: 8px;
+		}
+
+		.reservation_number {
+			h4 {
+				text-align: center;
+				font-weight: $font_weight_bold;
+			}
+
+			.cancel_text {
+				h5 {
+					padding: 8px 0;
+					line-height: 1;
+					font-size: $font_size_small;
+					font-weight: $font_weight_bold;
+				}
+			}
+
+			.number p {
+				width: 80%;
+				margin: 5px auto 15px;
+				display: block;
+				border: 1px solid #c8c8c8;
+				text-align: center;
+				color: #f00;
+				font-size: 1.5rem;
+				font-weight: $font_weight_bold;
+				padding: 10px;
+			}
+
+			ul {
+				display: table;
+				width: 100%;
+				max-width: 600px;
+				margin: auto;
+
+				li {
+					display: table-cell;
+					width: 50%;
+					padding: 0 1% 0;
+
+					a {
+						border-radius: 4px;
+						padding: 8px 0;
+						text-align: center;
+						background-color: #b4b4b4;
+						display: block;
+						color: $white;
+						box-shadow: 0 1px 3px 0 #a9a9a9;
+						font-size: 1.2rem;
+					}
+				}
+			}
+		}
+
+		.meeting_info {
+			background-color: #fffce2;
+			padding: 10px;
+
+			p {
+				&.text {
+					font-size: 80%;
+				}
+
+				&.title {
+					font-weight: $font_weight_bold;
+					margin-bottom: 10px;
+				}
+			}
+		}
+
+		.access_box {
+			background-color: #f0f0f0;
+			background-image: url(../../img/sp/ico_spot@2x.png);
+			background-repeat: no-repeat;
+			background-size: 20px;
+			background-position: 20px center;
+			padding: 15px 15px 15px 60px;
+
+			/* font-size:0.9rem; */
+			line-height: 140%;
+		}
+
+		.credit_card {
+			width: 90%;
+			margin: 0 auto;
+		}
+
+		.inquiry_body_text {
+			width: 80%;
+			box-sizing: border-box;
+			padding-left: 10px;
+
+			li {
+				border-bottom: solid 1px #ddd;
+				padding: 5px 10px 5px 0;
+
+				.font_b {
+					font-size: 1.3rem;
+					margin: 5px 0 5px;
+				}
+			}
+		}
+
+		.inquiry_body_photo {
+			width: 20%;
+
+			img {
+				width: 60px;
+			}
+		}
+
+		.plan_form {
+			.accordion {
+				.acordion_tree {
+					padding: 5px 10px;
+				}
+			}
+		}
+
+		.reservation_info_outline {
+			border-top: solid 1px $gray;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			padding: 6px 12px;
+			margin-bottom: 20px;
+
+			.plan_info_return_date {
+				background-color: #ececec;
+				padding: 5px;
+
+				li {
+					text-align: center;
+					font-weight: $font_weight_bold;
+					font-size: 1.6rem;
+
+					span {
+						font-size: .8rem;
+						margin-right: 10px;
+					}
+				}
+			}
+		}
+	}
+
+	/* お客様情報変更　入力画面
+	---------------------------- */
+	div.sp_mypages-edit_page {
+		.infants_comment {
+			margin-top: 20px;
+			color: $error-color;
+		}
+
+		.box-outer {
+			margin-bottom: 20px;
+		}
+
+		.plan_form_title {
+			font-size: $font_size_large;
+			letter-spacing: 1px;
+		}
+
+		.plan_form {
+			th {
+				letter-spacing: 1px;
+			}
+		}
+	}
+
+	/* お客様情報変更　確認画面
+	---------------------------- */
+	div.sp_mypages-check_page {
+		.back_mypage {
+			text-align: center;
+			margin-top: 100px;
+			margin-bottom: 100px;
+		}
+
+		.cancellation {
+			text-decoration: line-through;
+		}
+	}
+
+	/* 予約キャンセル画面
+	---------------------------- */
+	div.sp_mypages-cancel_page {
+		// .frame {
+		// 	padding: 15px 20px;
+		// }
+
+		.cancel_td {
+			display: block;
+		}
+
+		.cancel_textarea {
+			padding: $margin_base;
+			font-size: $font_size_medium;
+			width: 100%;
+			max-width: 100%;
+			min-width: 100%;
+		}
+
+		.cancel_title {
+			padding: 12px;
+			border-top: 12px solid #f7f7f7;
+			box-shadow: 0 -2px 2px -2px rgba(0, 0, 0, .6);
+			padding: 12px;
+			letter-spacing: 1px;
+			font-size: $font_size_large;
+			font-weight: $font_weight_bold;
+			margin-bottom: 10px;
+
+			& + .inner {
+				margin-bottom: ($margin_base * 2);
+			}
+		}
+
+		.text {
+			display: block;
+		}
+	}
+
+	/* 予約キャンセル完了画面
+	---------------------------- */
+	div.sp_mypages-cancel_finish_page {
+		.reserve_completed_num-wrap {
+			margin-bottom: ($margin_base * 3);
+			background-color: #ebf6ff !important;
+			padding: 10px;
+
+			.reserve_completed_num {
+				background-color: $white;
+				padding: 5%;
+				border: solid 1px #ddd;
+				margin: 5px auto;
+				font-size: 1rem;
+				width: 80%;
+				margin: 5px auto 15px;
+				display: block;
+				border: 1px solid #c8c8c8;
+				text-align: center;
+				color: #f00;
+				font-size: 1.5rem;
+
+				p {
+					font-size: 1.9rem;
+				}
+			}
+		}
+	}
+
+	/* 追加徴収　クレカ情報入力画面
+	---------------------------- */
+	div.sp_mypages-input_page {
+		.plan_form_li {
+			font-size: 0;
+			padding-bottom: 16px;
+
+			h5 {
+				padding: 8px 0;
+				line-height: 1;
+				font-size: $font_size_small;
+				font-weight: $font_weight_bold;
+			}
+
+			> label {
+				font-size: $font_size_tiny;
+			}
+
+			.text_danger {
+				margin-top: -4px;
+				line-height: 1.3;
+				letter-spacing: 1px;
+				font-size: 10px;
+				color: $error-color;
+			}
+
+			.-notes {
+				display: table;
+				table-layout: fixed;
+				width: 100%;
+				margin-top: 16px;
+				border-collapse: separate;
+				border-spacing: 12px;
+				background: #f7f7f7;
+
+				> * {
+					display: table-cell;
+					line-height: 1.5;
+					vertical-align: middle;
+					font-size: $font_size_tiny;
+				}
+			}
+		}
+
+		.plan_form_col2 {
+			display: inline-block;
+			width: 50%;
+			vertical-align: top;
+			font-size: $font_size_tiny;
+			box-sizing: border-box;
+
+			&:first-of-type {
+				padding-right: 6px;
+			}
+
+			&:last-of-type {
+				padding-left: 6px;
+			}
+		}
+
+		.plan_form_input {
+			width: 100%;
+			margin-bottom: 6px;
+		}
+	}
+
+	/* 変更内容入力画面
+	---------------------------- */
+	div.sp_mypages-edit_page {
+		textarea {
+			width: 100%;
+			max-width: 100%;
+			min-width: 100%;
+			min-height: 200px;
+			border: solid 1px $dark-gray;
+			border-radius: $border_radius;
+			padding: $margin_base;
+		}
+	}
+}

@@ -1,0 +1,30 @@
+@use '../abstracts' as *;
+
+// 現地決済の注意事項「ご予約時のお支払いはありません」
+// plan, 現地決済のstep1
+
+.note_payment_onsite {
+	margin-bottom: $margin_base;
+	border: 1px solid $gray;
+	background: #fafafa;
+
+	> .note_payment_onsite_header {
+		padding: $margin_base 0;
+		border-bottom: 1px dotted $gray;
+		text-align: center;
+		font-size: $font_size_medium;
+		font-weight: $font_weight_bold;
+		color: $error-color;
+	}
+
+	> .note_payment_onsite_body {
+		padding: $margin_base ($margin_base * 2);
+		letter-spacing: .5px;
+		font-size: $font_size_tiny;
+		color: $black;
+
+		> span {
+			font-weight: $font_weight_bold;
+		}
+	}
+}

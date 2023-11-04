@@ -1,0 +1,250 @@
+@use '../abstracts' as *;
+
+// 空港ページ
+
+//------------------
+// NEW 202201 今後は.fromairport_page内へまとめていくこと。
+//------------------
+
+.fromairport_page {
+	.pref_cont_wrap {
+		width: 100%;
+		margin: 6px 0;
+		padding-bottom: 36px;
+		font-size: 0;
+	}
+
+	.margin-btm30 {
+		margin-bottom: 30px;
+	}
+
+	.text_center {
+		text-align: center;
+	}
+
+	.contents_type_main_search {
+		border: 1px solid #6790c4;
+		background: #eaf6ff;
+		clear: both;
+
+		.rentacar_text_ttl {
+			background: #c6e7fe;
+			padding: 10px 20px;
+			font-size: 1.2em;
+		}
+
+		img {
+			margin: 20px auto 0;
+			max-width: 750px;
+			max-height: 500px;
+			display: block;
+		}
+
+		.from_about_contents {
+			padding: 20px;
+		}
+	}
+
+	.fromairport_place_time_tbl {
+		width: 100%;
+		border-collapse: collapse;
+		border: 1px solid $gray;
+		text-align: center;
+
+		th {
+			background-color: #eaf6ff;
+			padding: 10px 0;
+			border: 1px solid $gray;
+			text-align: center;
+		}
+
+		td {
+			padding: 10px 0;
+			border: 1px solid $gray;
+		}
+	}
+
+	.from_airport_link {
+		margin-bottom: 15px;
+		display: table;
+
+		li {
+			float: left;
+			margin-right: 8px;
+			margin-bottom: 15px;
+			vertical-align: middle;
+			display: table-cell;
+			height: 46px;
+
+			a {
+				background-color: #f7f7f7;
+				border: 3px solid #a0acba;
+				border-radius: 5px;
+				display: table-cell;
+				width: 152px;
+				text-align: center;
+				height: 40px;
+				vertical-align: middle;
+				line-height: 1.2;
+				cursor: pointer;
+				box-shadow: rgba(160, 172, 186, .2) 0 0 3px,
+					rgba(0, 0, 0, .15) 0 -4px 0 inset;
+
+				&:hover {
+					height: 40px;
+					border: 3px solid #6790c4;
+					text-decoration: none !important;
+					border-top: 3px solid #6790c4;
+					box-shadow: rgba(0, 0, 0, .15) 0 -3px 0 inset;
+				}
+			}
+		}
+	}
+
+	.fromairport_rentacar_info {
+		padding: 0 20px;
+	}
+}
+
+//------------------
+
+// .fromairport_head {
+// 	width: 100%;
+// 	position: relative;
+// }
+
+// .fromairport_head_ttl {
+// 	color: $white;
+// 	font-size: 22px;
+// 	line-height: 1;
+// 	position: absolute;
+// 	top: 36px;
+// 	left: 32px;
+// 	background-color: rgba(0, 0, 0, .4);
+// 	padding: 3px 5px;
+// }
+
+// .fromairport_head_en {
+// 	color: $white;
+// 	font-size: $font_size_small;
+// 	line-height: 1;
+// 	position: absolute;
+// 	top: 69px;
+// 	left: 32px;
+// 	background-color: rgba(0, 0, 0, .4);
+// 	padding: 3px 5px;
+// }
+
+// .fromairport_head img {
+// 	width: 100%;
+// 	vertical-align: bottom;
+// }
+
+// .search_area {
+// 	position: relative;
+// 	background: url(../img/img_pr_06.png) no-repeat;
+// 	min-height: 400px;
+// 	overflow: hidden;
+// 	background-position: bottom right;
+// }
+
+// .cp_outline_hover {
+// 	margin-right: 7px;
+// 	display: inline-table;
+
+// 	&:hover {
+// 		.cp_outline {
+// 			background-color: #cce6f9;
+// 		}
+
+// 		.cp_outerbox {
+// 			border: 1px solid #cce6f9;
+// 		}
+// 	}
+// }
+
+// .cp_outline {
+// 	position: relative;
+// 	width: 174px;
+// 	background-color: #f7f7f7;
+// 	padding: 8px;
+// 	margin-bottom: 30px;
+// 	float: left;
+// }
+
+// .cp_outline_hover:last-child {
+// 	margin-right: 0;
+// }
+
+// .cp_orange {
+// 	padding: 7px 9px;
+// 	color: $white;
+// 	position: absolute;
+// 	top: 0;
+// 	left: 0;
+// 	background-color: #ffac00;
+// 	line-height: 1;
+// }
+
+// .cp_outerbox {
+// 	border: 1px solid $gray;
+// 	background-color: $white;
+// 	padding: 28px 28px 25px;
+// }
+
+// .cp_innerbox {
+// 	background-color: #f6fafd;
+// }
+
+// .cp_car_type {
+// 	color: #434343;
+// 	text-align: center;
+// 	font-size: $font_size_small;
+// 	font-weight: $font_weight_bold;
+// 	line-height: 1;
+// }
+
+// .cp_img {
+// 	text-align: center;
+// 	position: relative;
+// 	top: 7px;
+// }
+
+// .cp_seater {
+// 	color: #434343;
+// 	text-shadow: $white 3px 1px 0, $white -3px 1px 0, $white 3px -1px 0,
+// 		$white -3px -1px 0;
+// 	font-size: $font_size_small;
+// 	text-align: center;
+// 	position: relative;
+// 	bottom: -7px;
+// 	line-height: 1;
+// }
+
+// .cp_price {
+// 	font-size: 25px;
+// 	color: #3f71b4;
+// 	text-align: center;
+// 	margin-top: 25px;
+// 	line-height: 1;
+// }
+
+// .iframe_map_area {使われてなさそう
+// 	margin-bottom: 20px;
+// }
+
+// .from_airport_map {使われてなさそう
+// 	vertical-align: bottom;
+
+// 	iframe {
+// 		vertical-align: bottom;
+// 	}
+// }
+
+// .cp_text {
+// 	font-size: $font_size_large;
+// 	color: #3f71b4;
+// 	text-align: center;
+// 	margin-top: 25px;
+// 	line-height: 1;
+// }

@@ -1,0 +1,50 @@
+order deny,allow
+Deny from all
+SetEnvIf Remote_Addr 114.160.49.32 allow_ip
+SetEnvIf Remote_Addr 114.160.49.33 allow_ip
+SetEnvIf Remote_Addr 114.160.49.34 allow_ip
+SetEnvIf Remote_Addr 114.160.49.35 allow_ip
+SetEnvIf Remote_Addr 114.160.49.36 allow_ip 
+SetEnvIf Remote_Addr 114.160.49.37 allow_ip 
+SetEnvIf Remote_Addr 114.160.49.38 allow_ip 
+SetEnvIf Remote_Addr 114.160.49.39 allow_ip 
+SetEnvIf Remote_Addr 114.160.49.40 allow_ip 
+SetEnvIf Remote_Addr 114.160.49.41 allow_ip 
+SetEnvIf Remote_Addr 114.160.49.42 allow_ip 
+SetEnvIf Remote_Addr 114.160.49.43 allow_ip 
+SetEnvIf Remote_Addr 114.160.49.44 allow_ip 
+SetEnvIf Remote_Addr 114.160.49.45 allow_ip 
+SetEnvIf Remote_Addr 114.160.49.46 allow_ip 
+SetEnvIf Remote_Addr 114.160.49.47 allow_ip 
+SetEnvIf Remote_Addr 114.160.49.48 allow_ip 
+SetEnvIf Remote_Addr 114.160.49.49 allow_ip 
+SetEnvIf Remote_Addr 114.160.49.50 allow_ip 
+SetEnvIf Remote_Addr 114.160.49.51 allow_ip 
+SetEnvIf Remote_Addr 114.160.49.52 allow_ip 
+SetEnvIf Remote_Addr 114.160.49.53 allow_ip 
+SetEnvIf Remote_Addr 114.160.49.54 allow_ip 
+SetEnvIf Remote_Addr 114.160.49.55 allow_ip 
+SetEnvIf Remote_Addr 114.160.49.56 allow_ip 
+SetEnvIf Remote_Addr 114.160.49.57 allow_ip 
+SetEnvIf Remote_Addr 114.160.49.58 allow_ip 
+SetEnvIf Remote_Addr 114.160.49.59 allow_ip 
+SetEnvIf Remote_Addr 114.160.49.60 allow_ip 
+SetEnvIf Remote_Addr 114.160.49.61 allow_ip 
+SetEnvIf Remote_Addr 114.160.49.62 allow_ip 
+SetEnvIf Remote_Addr 114.160.49.63 allow_ip 
+SetEnvIf Remote_Addr 114.160.49.64 allow_ip 
+SetEnvIf Remote_Addr 114.160.49.65 allow_ip 
+SetEnvIf Remote_Addr 114.160.49.66 allow_ip 
+SetEnvIf Remote_Addr 114.160.49.67 allow_ip 
+Allow from env=allow_ip
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !^/admin/ [NC]
+RewriteCond %{REQUEST_URI} !^/manager/ [NC]
+RewriteRule ^(.*)$ index.php [QSA,L]
+
+<Files ~ "^\.(htaccess|htpasswd)$">
+deny from all
+</Files>

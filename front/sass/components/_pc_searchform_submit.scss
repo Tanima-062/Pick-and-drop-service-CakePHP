@@ -1,0 +1,17 @@
+@use '../abstracts' as *;
+
+.searchform_submit_section {
+	display: block;
+	text-align: center;
+}
+
+.searchform_error {
+	width: 100%;
+	text-align: center;
+	color: $error-color;
+	pointer-events: none;
+
+	& + .btn-type-primary {
+		line-height: 1;
+	}
+}

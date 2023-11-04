@@ -1,0 +1,109 @@
+@use '../abstracts' as *;
+
+// 会社レビューページ
+
+//------------------
+// NEW 202201 今後は.sp_company-reviews_page内へまとめていくこと。
+//------------------
+
+.sp_company-reviews_page {
+	.page_hr {
+		height: 8px;
+		border: none;
+		background: $light-gray;
+	}
+
+	.review-page-container {
+		h1.page-title {
+			padding: 0 16px;
+			margin: $margin_base * 4 0 $margin_base * 3 0;
+			font-size: 24px;
+			font-weight: $font_weight_bold;
+		}
+
+		h2.page-sub-title {
+			margin-top: 32px;
+			padding: 0 16px;
+			font-size: $font_size_large;
+			font-weight: $font_weight_bold;
+		}
+
+		.-section {
+			&:not(:first-of-type) {
+				border-top: 8px solid $light-gray;
+			}
+
+			.search_section {
+				margin: 32px 0 20px 0;
+			}
+		}
+
+		.review-yotpo {
+			display: flex;
+			align-items: center;
+			margin: 8px 16px;
+
+			&-title {
+				padding-right: $margin_base * 4;
+				font-weight: $font_weight_bold;
+			}
+
+			&-score {
+				padding-right: $margin_base * 2;
+				font-weight: $font_weight_bold;
+			}
+		}
+
+		// yotpo styleを上書き
+		#recent-review {
+			padding: 0 16px;
+
+			.yotpo-regular-box-filters-padding {
+				border-top: none !important;
+			}
+
+			.yotpo-icon-profile {
+				background: $main-color;
+
+				&::before {
+					position: absolute;
+					font-family: 'icomoon' !important;
+					top: 0;
+					bottom: 0;
+					left: 0;
+					right: 0;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					content: '\e9bf';
+					font-size: 28px;
+					color: $white !important;
+				}
+
+				.yotpo-user-letter {
+					display: none;
+				}
+			}
+
+			.yotpo-icon-star {
+				font-size: 20px;
+				color: #ffd200 !important;
+			}
+
+			.yotpo-icon-empty-star {
+				font-size: 20px;
+				color: #ffd200 !important;
+			}
+		}
+
+		.btn-type-link_wrap {
+			padding: 0 12px;
+			margin: $margin_base * 2 0;
+		}
+
+		.yotpo_container {
+			margin-top: 0;
+		}
+	}
+}
+//------------------

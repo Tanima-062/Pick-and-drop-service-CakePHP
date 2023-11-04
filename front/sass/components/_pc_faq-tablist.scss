@@ -1,0 +1,51 @@
+@use '../abstracts' as *;
+
+// PC FAQタブリスト
+.faq-tab-list {
+	.tab-list {
+		padding-bottom: 24px;
+		border-top: 1px solid $gray;
+		border-bottom: 1px solid $gray;
+		background-color: $white;
+		font-size: $font_size_tiny;
+		letter-spacing: 1px;
+
+		& .-head {
+			display: flex;
+			align-items: stretch;
+			justify-content: space-between;
+			margin: 16px 0;
+
+			& .tab-li {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex: 1;
+				border-bottom: 1px solid $dark-gray;
+				padding: 12px 0;
+
+				& .-title {
+					color: $black;
+
+					&:hover {
+						opacity: .6;
+					}
+				}
+			}
+
+			& .is-current {
+				border-bottom: 3px solid $sub-color;
+				padding-bottom: 10px;
+
+				& .-title {
+					color: $sub-color;
+					font-weight: $font_weight_bold;
+
+					&:hover {
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
+}

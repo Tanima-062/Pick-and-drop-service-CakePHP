@@ -1,0 +1,423 @@
+@use '../abstracts' as *;
+
+// 検索結果ページのマップ検索用（sp_map_search_view.ctp）
+.map-search-wrap {
+	padding: 0 $margin_base * 2 $margin_base * 2 $margin_base * 2;
+	border-bottom: 8px solid $light-gray;
+
+	#map-search {
+		// Google Mapsの地図、航空写真ボタン
+		.gm-style-mtc {
+			display: none;
+		}
+
+		// Google Mapsのfull screen ボタン
+		.gm-fullscreen-control {
+			display: none;
+		}
+
+		// Google Mapsの地図、地図上にペグマンをドロップして、ストリートビューを開くボタン
+		.gm-svpc {
+			display: none;
+		}
+
+		.labels {
+			width: 37px;
+			height: 37px;
+			border-radius: 37px;
+			background: white;
+			box-shadow: 0 3px 5px 0 rgba(0, 0, 0, .5);
+
+			&::after {
+				transform: rotate(-45deg);
+				width: 8px;
+				height: 8px;
+				content: '';
+				background: white;
+				position: absolute;
+				bottom: -2.5px;
+				left: 15px;
+				box-shadow: -2px 2px 2px 0 rgba(0, 0, 0, .2);
+			}
+
+			&.selected {
+				transform: scale(1.25);
+				transition: transform .2s ease-in-out;
+				z-index: 9999 !important;
+				background: $sub-color;
+
+				&::after {
+					background: $sub-color;
+				}
+
+				.duplicated-office-marker {
+					& i {
+						&::before {
+							color: $white;
+							background-color: $sub-color;
+						}
+					}
+				}
+			}
+
+			& img {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				margin: auto;
+				width: 20px;
+				height: 20px;
+			}
+
+			.duplicated-office-marker {
+				& i {
+					&::before {
+						position: absolute;
+						top: 0;
+						bottom: 0;
+						left: 0;
+						right: 0;
+						margin: auto;
+						width: 20px;
+						height: 19px;
+						background-color: $white;
+						color: $sub-color;
+						font-size: 18px;
+					}
+				}
+
+				span {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					font-size: 12px;
+					color: #ffff;
+					width: 15px;
+					height: 15px;
+					border-radius: 15px;
+					background: $black;
+					position: absolute;
+					bottom: -4px;
+					right: -4px;
+				}
+			}
+
+			&.recommended::before {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				content: '\e932';
+				font-family: 'icomoon';
+				font-size: 8px;
+				color: #ffff;
+				width: 15px;
+				height: 15px;
+				border-radius: 15px;
+				background: #ffc11c;
+				position: absolute;
+				top: -4px;
+				left: -4px;
+			}
+		}
+
+		.iw-wrap {
+			max-width: 270px;
+			font-size: 12px;
+
+			.iw-title {
+				font-weight: $font_weight_bold;
+				margin-bottom: $margin_base;
+			}
+
+			.iw-content {
+				margin-bottom: 4px;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+
+				&.recommended {
+					padding-left: 21px;
+					position: relative;
+
+					&::before {
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						content: '\e932';
+						font-family: 'icomoon';
+						font-size: 8px;
+						color: #ffff;
+						width: 15px;
+						height: 15px;
+						border-radius: 15px;
+						background: #ffc11c;
+						position: absolute;
+						top: 2px;
+						left: 1px;
+					}
+				}
+			}
+		}
+	}
+
+	#duplicated-office-list {
+		.form-select {
+			border: 1px solid $dark-gray;
+
+			select {
+				white-space: nowrap;
+				overflow: hidden;
+			}
+		}
+	}
+
+	.recommend-mark {
+		position: relative;
+		margin-left: 22px;
+		font-size: $font_size_tiny;
+		margin-top: $margin_base;
+
+		&.hidden {
+			display: none;
+		}
+
+		&::before {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			content: '\e932';
+			font-family: 'icomoon';
+			font-size: 8px;
+			color: #fff;
+			width: 15px;
+			height: 15px;
+			border-radius: 15px;
+			background: #ffc11c;
+			position: absolute;
+			top: 2px;
+			left: -22px;
+		}
+	}
+
+	.duplicated-office-list-title {
+		font-size: $font_size_tiny;
+		font-weight: $font_weight_bold;
+		margin: $margin_base * 2 0 $margin_base 0;
+	}
+
+	.office-info-wrap {
+		max-height: 0;
+		opacity: 0;
+		transition: all .5s ease-in-out;
+		overflow: hidden;
+
+		&.active {
+			max-height: fit-content;
+			opacity: 1;
+		}
+
+		.office-info {
+			display: flex;
+			position: relative;
+			margin: $margin_base * 4 0 $margin_base 0;
+			padding: 0 $margin_base $margin_base * 2 0;
+			background-color: $light-gray;
+
+			&-selected-label {
+				position: absolute;
+				top: -12px;
+				left: 8px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: $font_size_tiny;
+				border-radius: 18px;
+				width: 98px;
+				height: 24px;
+				color: $white;
+				background-color: $sub-color;
+			}
+
+			&-recommended-label {
+				position: absolute;
+				top: -12px;
+				right: 0;
+				color: $white;
+				height: 24px;
+				width: 50px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				padding-right: 4px;
+				font-size: $font_size_tiny;
+				background-color: #ffc11c;
+
+				&::before {
+					content: '';
+					position: absolute;
+					top: 0;
+					left: -15px;
+					width: 15px;
+					height: 24px;
+					border-bottom-width: 24px;
+					border-bottom-style: solid;
+					border-bottom-color: #ffc11c;
+					border-left-width: 15px;
+					border-left-style: solid;
+					border-left-color: transparent;
+					box-sizing: border-box;
+				}
+			}
+
+			&-l {
+				margin-top: $margin_base * 2;
+
+				&-img {
+					width: 48px;
+					height: 48px;
+					margin-left: $margin_base;
+					margin-right: $margin_base * 2;
+				}
+			}
+
+			&-r {
+				margin-top: $margin_base * 2;
+				flex: 1;
+
+				&-client-name {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					font-size: $font_size_tiny;
+					margin-bottom: 4px;
+					white-space: nowrap;
+					flex-wrap: wrap;
+
+					.yotpo-score {
+						.yotpo_widget_wrap {
+							margin: 0;
+
+							.yotpo-stars {
+								display: none;
+							}
+
+							.text-m {
+								color: $main-color;
+								font-size: $font_size_tiny;
+
+								&::before {
+									content: '★';
+									color: #ffd200;
+								}
+							}
+						}
+					}
+				}
+
+				&-office-name {
+					font-weight: $font_weight_bold;
+					margin-bottom: $margin_base;
+				}
+
+				&-way-info {
+					margin-bottom: $margin_base;
+
+					&-contents {
+						font-size: $font_size_tiny;
+					}
+
+					.map-location {
+						color: $spear-gray;
+					}
+				}
+
+				&-recommend {
+					display: flex;
+					margin-bottom: $margin_base;
+
+					&-icon {
+						padding: 4px 8px;
+						white-space: nowrap;
+						height: fit-content;
+						line-height: 1;
+						border-radius: 3px;
+						font-size: 12px;
+						color: $white;
+						background: #ffc11c;
+						margin-right: $margin_base;
+					}
+
+					&-point {
+						font-size: $font_size_tiny;
+						font-weight: $font_weight_bold;
+					}
+				}
+
+				&-fee {
+					flex: 1;
+					display: flex;
+					justify-content: flex-end;
+					align-items: center;
+					border-top: solid 1px $gray;
+					padding-top: $margin_base;
+
+					&-type {
+						font-size: $font_size_tiny;
+						margin-right: $margin_base * 2;
+					}
+
+					&-price {
+						font-size: $font_size_large;
+						font-weight: $font_weight_bold;
+						white-space: nowrap;
+					}
+				}
+			}
+		}
+
+		.campaign-info {
+			display: flex;
+			align-items: center;
+			margin-top: $margin_base * 2;
+
+			img {
+				margin-right: 12px;
+			}
+		}
+
+		.map-search-result {
+			margin-top: $margin_base * 3;
+
+			&-num {
+				font-size: $font_size_medium;
+				font-weight: $font_weight_bold;
+			}
+		}
+	}
+}
+
+.map-plan-list {
+	max-height: 0;
+	opacity: 0;
+	transition: all .5s ease-in-out;
+	overflow: hidden;
+
+	&.active {
+		max-height: fit-content;
+		opacity: 1;
+
+		// map-searchのみ
+		.plan_info_block {
+			padding-bottom: $margin_base;
+			border-bottom: 8px solid $light-gray;
+			margin-top: $margin_base * 2;
+
+			&:last-of-type {
+				border-bottom: 50px solid $light-gray;
+				margin-bottom: $margin_base * 2;
+			}
+		}
+	}
+}

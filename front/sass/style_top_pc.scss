@@ -1,0 +1,27 @@
+// PC：TOPページで読み込み
+//
+// 共通系
+// @use 'abstracts' as *;
+@use 'base';
+
+// 共通パーツ：部品単体 atoms　（他のatomsを内包できないもの）
+@use 'components/heading';
+@use 'components/button';
+@use 'components/form';
+@use 'components/icon_spinner_oversea';
+
+// 共通パーツ：機能単体　（atomsを内包できるもの）
+@use 'components/pc_modal_float';
+@use 'components/pc_datepicker';
+//// 以下layoutsへの振り分け今度考える
+@use 'components/pc_header';
+@use 'components/pc_footer';
+@use 'components/pc_faq-tablist';
+@use 'components/pc_searchform_main_top';
+@use 'components/pc_searchform_options';
+@use 'components/pc_searchform_submit';
+
+// ページの構成要素
+
+// ページごとのカスタマイズ
+@use 'pages_pc/top';

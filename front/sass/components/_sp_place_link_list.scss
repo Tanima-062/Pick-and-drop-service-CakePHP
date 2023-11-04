@@ -1,0 +1,43 @@
+@use '../abstracts' as *;
+
+.city_area_search {
+	margin-bottom: 16px;
+
+	li {
+		float: left;
+		width: 44%;
+		margin-left: 4%;
+		margin-top: 10px;
+
+		&:nth-child(1),
+		&:nth-child(2) {
+			margin-top: 0;
+		}
+
+		a {
+			background-color: #f2f1f1;
+			border: 1px solid #a0a0a0;
+			border-radius: 4px;
+			color: #434343;
+			padding: 10px;
+			display: block;
+			text-align: center;
+			padding: 5px 10px;
+			text-decoration: none;
+			position: relative;
+
+			&::after {
+				position: absolute;
+				content: '';
+				background-image: url('/rentacar/img/sp/right_arrow.png');
+				top: 9px;
+				right: 4px;
+				background-size: 100%;
+				background-position: 50%;
+				width: 14px;
+				height: 14px;
+				background-repeat: no-repeat;
+			}
+		}
+	}
+}

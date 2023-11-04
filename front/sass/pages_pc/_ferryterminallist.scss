@@ -1,0 +1,68 @@
+@use '../abstracts' as *;
+
+// フェリーターミナル一覧ページ
+
+//------------------
+// NEW 202201 今後は.ferryterminallist_page内へまとめていくこと。
+//------------------
+
+.ferryterminallist_page {
+	.search_rentacar {
+		height: auto;
+		background-color: #ebf6ff;
+		border: solid 1px #6790c4;
+		padding: 10px 20px;
+		margin-bottom: 20px;
+
+		ul {
+			display: inline-block;
+		}
+
+		li {
+			float: left;
+			margin-top: 10px;
+			margin-right: 5px;
+		}
+
+		a {
+			padding: 2px 7px 2px 9px;
+			line-height: 15px;
+			color: #505050;
+			width: auto;
+			border: 1px solid #a0a0a0;
+			border-radius: 3px;
+			background: $white;
+			box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, .2);
+			text-decoration: none;
+
+			&::before {
+				position: relative;
+				content: url(/rentacar/img/icon_blue_right_arrow.png);
+				left: -2px;
+				top: -1px;
+			}
+		}
+	}
+
+	.hd-left-bordered {
+		border-left: 3px solid #5697e2;
+		padding-left: 15px;
+		margin-bottom: 10px;
+		font-size: $font_size_x-large;
+		font-weight: $font_weight_normal;
+		line-height: 26px;
+	}
+
+	.rentacar_text_ttl2 {
+		background: #f6f6f6;
+		padding: 10px 20px;
+		font-size: 1.2em;
+		color: $sub-color;
+	}
+
+	.from_about_contents {
+		padding: 20px;
+	}
+}
+
+//------------------

@@ -1,0 +1,25 @@
+@use '../abstracts' as *;
+
+// PC & SP 共通
+// 海外レンタカーのみ
+
+// ↓このときspinnerのicomoonが追加されているようだがそのアイコンははるか昔に削除されているようだ
+
+/*  loadingくるくる */
+.icon-spinner {
+	animation: spin 1s infinite steps(8);
+	color: $spear-gray;
+	display: inline-block;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(359deg);
+	}
+}

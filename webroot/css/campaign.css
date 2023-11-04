@@ -1,0 +1,18 @@
+.campaign-area{
+	width: 740px;
+	margin: 0px auto;
+}
+.client-name{
+	border-left: 8px solid #0066cc;
+	padding-left: 10px;
+}
+.campaign-title{
+	border-bottom: #0066cc 3px solid;
+	margin-top: 2.08333em;
+	margin-bottom: 1.66667em;
+	padding: 0 0 5px 3px;
+}
+.campaign-contents{
+	margin-top: 15px;
+	margin-bottom: 15px;
+}

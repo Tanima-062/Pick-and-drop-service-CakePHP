@@ -1,0 +1,673 @@
+@use '../abstracts' as *;
+
+// PC TOP検索フォームメインパート　 + TOPのみの検索フォーム部品のスタイル
+// searchform_main_top_domestic.ctp
+// searchform_main_top_oversea.ctp
+
+.tops_page {
+	.search-container {
+		/*-----------------------
+		国内海外共通　ここから
+		-----------------------*/
+
+		.search-container-header {
+			color: $white;
+			padding-top: 32px;
+			padding-bottom: 16px;
+			width: 1000px;
+			margin: auto;
+			font-size: $font_size_huge;
+			line-height: 24px;
+		}
+
+		.wrap.search {
+			background-color: $white;
+			margin: 16px auto;
+			border-radius: 4px;
+			box-shadow: 0 2px 10px 0 rgba(0, 0, 0, .15);
+		}
+
+		/*-----------------------
+		国内海外共通　ここまで
+		-----------------------*/
+
+		/*-----------------------
+		国内レンタカー用　ここから
+		-----------------------*/
+
+		// 検索フォームのセクション
+		position: relative;
+		margin-bottom: 16px;
+		width: 100%;
+		background: url('../img/webp/bg_domestic.webp');
+		background-repeat: no-repeat;
+		background-position: top center;
+		overflow: hidden;
+
+		&.no_webp {
+			background-image: url('../img/bg_domestic.jpg');
+		}
+
+		.contents_search {
+			margin-top: 0;
+			background: transparent;
+			padding-bottom: 24px;
+			width: 100%;
+
+			.searchform_main_top_domestic_section {
+				.search_table {
+					display: flex;
+					width: 100%;
+					color: $black;
+					font-size: $font_size_tiny;
+					box-sizing: border-box;
+					padding: 0;
+
+					.search_main_cell {
+						width: 460px;
+						padding: 24px 16px 16px 16px;
+						vertical-align: top;
+						box-sizing: border-box;
+
+						.search_main_title {
+							margin-bottom: 8px;
+						}
+					}
+
+					.search_arrow_cell {
+						width: 80px;
+						padding-top: 50px;
+						text-align: center;
+						vertical-align: top;
+						font-size: $font_size_large;
+
+						.icm-arrow {
+							font-size: 24px;
+							color: $dark-gray;
+						}
+					}
+
+					.select_datetime_wrap {
+						display: flex;
+						width: 100%;
+						margin-bottom: $margin_base * 2;
+						border-collapse: separate;
+						border-spacing: 0 6px;
+						gap: 8px;
+
+						.input-form,
+						.select-form {
+							width: 100%;
+						}
+					}
+
+					.return_way_check_checkbox {
+						font-size: $font_size_medium;
+					}
+
+					.return_way_check_text {
+						font-weight: normal;
+						color: $black;
+						margin-top: $margin_base;
+						font-size: $font_size_tiny;
+					}
+				}
+
+				// 返却場所フォーム部分
+				.search_select_return {
+					display: none;
+					margin-bottom: 16px;
+				}
+
+				// 場所タブ
+				.select_place_ul {
+					display: flex;
+					width: 100%;
+					margin-bottom: 16px;
+					border-collapse: separate;
+					border-spacing: 0 4px;
+					gap: 8px;
+
+					.select_place_li {
+						&:last-of-type {
+							padding-right: 0;
+						}
+
+						.select_place_tab {
+							display: block;
+							position: relative;
+							width: 137px;
+							height: 36px;
+							line-height: 34px;
+							border-radius: $border_radius;
+							border: 1px solid $dark-gray;
+							box-sizing: border-box;
+							text-align: center;
+							color: $spear-gray;
+							background: $white;
+
+							&.is_selected {
+								background: $sub-color;
+								color: $white;
+								border-color: $sub-color;
+
+								&::after {
+									content: '';
+									position: absolute;
+									top: 100%;
+									left: 50%;
+									width: 0;
+									height: 0;
+									margin-left: -6px;
+									border: 7px solid transparent;
+									border-top: 10px solid $sub-color;
+								}
+							}
+
+							.select_place_icon {
+								margin-right: 6px;
+								font-size: $font_size_medium;
+							}
+
+							.select_place_text {
+								font-size: 16px;
+							}
+						}
+					}
+				}
+
+				// 場所リスト
+				.select_place_ol,
+				.select_return_ol {
+					display: flex;
+					gap: 8px;
+
+					fieldset {
+						width: 100%;
+					}
+
+					label {
+						position: relative;
+						display: block;
+						margin-bottom: 12px;
+					}
+
+					select {
+						-webkit-appearance: none;
+						-moz-appearance: none;
+						appearance: none;
+						font-size: $font_size_medium;
+						cursor: pointer;
+					}
+
+					span {
+						display: none;
+						position: absolute;
+						top: 10px;
+						left: 16px;
+						line-height: 24px;
+						font-size: 16px;
+						color: #c5c5c5;
+						cursor: default;
+					}
+
+					i {
+						position: absolute;
+						top: 50%;
+						right: 8px;
+						margin-top: -7px;
+						color: $black;
+					}
+
+					> li {
+						display: block;
+
+						&:empty {
+							height: 36px;
+						}
+					}
+				}
+
+				.select_area_item_2col {
+					width: 100%;
+
+					fieldset:first-child {
+						width: 113px;
+					}
+
+					fieldset:nth-child(2) {
+						width: 307px;
+					}
+
+					.field {
+						padding: 8px 24px 8px 16px;
+					}
+				}
+
+				.select_area_item_1col {
+					width: 100%;
+				}
+
+				.hidden_radio_box {
+					display: none;
+				}
+			} //searchform_main_top_domestic_section
+
+			// 詳細条件検索トグラー
+			.searchform_options_section_toggler {
+				display: flex;
+				justify-content: flex-end;
+				gap: 8px;
+				align-items: center;
+				cursor: pointer;
+				color: $main-color;
+				font-size: $font_size_medium;
+				padding: 8px 24px;
+				margin-bottom: 16px;
+
+				.icm-right-arrow {
+					font-size: $font_size_tiny;
+				}
+			}
+
+			.searchform_options_section_wrap {
+				height: fit-content;
+				transition-duration: .25s;
+				transition-timing-function: ease;
+				transition-delay: 0s;
+				transition-property: all;
+				opacity: 1;
+
+				&.-hidden {
+					height: 0;
+					transition-duration: .15s;
+					transition-timing-function: ease;
+					transition-delay: 0s;
+					transition-property: all;
+					opacity: 0;
+				}
+			}
+			// 詳細条件検索トグラー END
+
+			.searchform_submit_section_wrap {
+				position: relative;
+			}
+
+			// 検索条件についてモーダル
+			.btn_modalf_open_wrap {
+				position: absolute;
+				top: 10px;
+				left: 16px;
+				display: flex;
+				align-items: center;
+			}
+
+			.modalf-window {
+				.modal_contents_wrap {
+					.modal_contents {
+						dt {
+							font-weight: $font_weight_bold;
+							margin-bottom: 8px;
+						}
+
+						dd {
+							margin-bottom: 24px;
+						}
+					}
+				}
+			}
+			// 検索条件についてモーダル END
+		}
+
+		/*-----------------------
+		国内レンタカー用　ここまで
+		-----------------------*/
+
+		/*-----------------------
+		開発環境のみ 海外レンタカー用　ここから
+		-----------------------*/
+
+		&.oversea {
+			background: url('../img/bg_oversea.jpg');
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center 0;
+
+			.wrap.search {
+				background-color: $alpha-black;
+				margin: 16px auto;
+			}
+
+			.search-form {
+				padding: 16px 24px 24px;
+
+				.-grid {
+					display: grid;
+					grid-template-columns: 1fr 100px 1fr;
+					align-items: start;
+
+					&.grid-item-center {
+						align-items: center;
+					}
+
+					&.grid-item-end {
+						align-items: end;
+					}
+				}
+
+				input,
+				select {
+					-webkit-appearance: none;
+					-moz-appearance: none;
+					border: none;
+					appearance: none;
+					cursor: pointer;
+					background: transparent;
+					text-overflow: ellipsis;
+				}
+
+				.form-checkbox {
+					+ label {
+						color: $white;
+					}
+				}
+
+				.search-datetime,
+				.search-place {
+					background: $white;
+					border-radius: 3px;
+					padding: 8px;
+
+					& > .form-block-title {
+						font-size: $font_size_tiny;
+						color: $dark-gray;
+						margin-bottom: 4px;
+					}
+
+					input,
+					select {
+						font-size: $font_size_medium;
+						cursor: pointer;
+						width: 100%;
+					}
+
+					.disabled {
+						select {
+							color: $dark-gray;
+							pointer-events: none;
+						}
+					}
+
+					.-icon {
+						position: absolute;
+						left: 0;
+						top: 0;
+						bottom: 0;
+						height: 16px;
+						font-size: $font_size_medium;
+						color: $dark-gray;
+						margin: auto;
+					}
+				}
+
+				.search-datetime {
+					ul {
+						display: grid;
+						grid-template-columns: 1fr 1fr;
+
+						.select-date {
+							position: relative;
+							height: 20px;
+						}
+
+						.select-time {
+							position: relative;
+							border-left: 1px dotted $dark-gray;
+
+							.-icon {
+								left: 8px;
+							}
+
+							select {
+								height: 20px;
+							}
+						}
+					}
+
+					select,
+					input {
+						padding-left: 32px;
+					}
+				}
+
+				.search-place {
+					& > div {
+						position: relative;
+					}
+
+					.-grid {
+						grid-template-columns: 1fr 1fr 1fr;
+						padding-left: 25px;
+
+						& > label {
+							&:not(:first-child) {
+								border-left: 1px dotted $dark-gray;
+								padding-left: 16px;
+							}
+						}
+					}
+				}
+
+				.search-popularity {
+					// 人気の都市から探す
+					.-grid {
+						grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+						width: 70%;
+					}
+
+					.form-block-title {
+						font-size: $font_size_small;
+						color: $white;
+						margin-bottom: 0;
+					}
+
+					input {
+						& + label {
+							position: relative;
+							display: block;
+							padding: 8px 8px 8px 24px;
+							cursor: pointer;
+							color: $white;
+
+							&::before {
+								content: '\e970';
+								font-family: 'icomoon';
+								width: 18px;
+								height: 18px;
+								margin: auto;
+								color: $dark-gray;
+								z-index: 2;
+								position: absolute;
+								left: 0;
+								// top: 0;
+								// bottom: 0;
+							}
+
+							&::after {
+								content: '';
+								width: 14px;
+								height: 14px;
+								border-radius: 50%;
+								background: $white;
+								margin: auto;
+								display: inline-block;
+								position: absolute;
+								left: 1px;
+								top: 0;
+								bottom: 0;
+								z-index: 1;
+							}
+						}
+
+						&:hover {
+							& + label {
+								&::before {
+									content: '\e96f';
+								}
+							}
+						}
+
+						&:checked {
+							& + label {
+								color: $white;
+
+								&::before {
+									content: '\e96f';
+									color: $sub-color;
+								}
+							}
+						}
+					}
+
+					label {
+						color: $white;
+					}
+				}
+
+				.-arrow {
+					text-align: center;
+
+					.-icon {
+						color: $white;
+						font-size: $font_size_x-large;
+					}
+				}
+
+				.return-select-country {
+					position: relative;
+
+					.-loading {
+						display: none;
+						position: absolute;
+						width: 100%;
+						height: 100%;
+						text-align: center;
+						opacity: .7;
+
+						.-icon {
+							color: $dark-gray;
+							font-size: $font_size_big;
+						}
+					}
+				}
+
+				.form-oversea-bottom {
+					margin-top: $margin_base;
+
+					.-submit {
+						grid-column: 2 / 4;
+						text-align: right;
+					}
+				}
+
+				.notification {
+					background-color: $light-gray;
+					border-radius: 3px;
+					padding: 8px;
+					display: grid;
+					grid-template-columns: 18px 1fr;
+
+					.-icon-wrapper {
+						display: flex;
+						align-items: center;
+					}
+
+					.-icon {
+						height: 18px;
+						width: 18px;
+					}
+
+					.-text-wrapper {
+						font-size: $font_size_tiny;
+						margin-left: 8px;
+					}
+				}
+
+				.font-size-tiny {
+					font-size: $font_size_tiny;
+				}
+
+				.mt-1 {
+					margin-top: $margin_base;
+				}
+			}
+		}
+
+		/*-----------------------
+		開発環境のみ 海外レンタカー用　ここまで
+		-----------------------*/
+
+		/*-----------------------
+		開発環境のみ　:海外レンタカーがある場合のUI
+		-----------------------*/
+		// 海外レンタカー未選択のとき、非表示
+		#rentacar-oversea-form,
+		#return-place {
+			display: none;
+		}
+
+		// 国内海外切り替えタブ
+		.rentacar-tab {
+			display: flex;
+
+			label {
+				display: block;
+				padding: 16px 16px 8px;
+				position: relative;
+				cursor: pointer;
+				color: $dark-gray;
+
+				& > .-line {
+					border-bottom: 3px solid transparent;
+					width: 100px;
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					right: 0;
+					margin: auto;
+				}
+			}
+
+			input[type='radio'] {
+				display: none;
+			}
+
+			input {
+				&:checked {
+					& + label {
+						color: $black;
+						text-align: center;
+
+						& > .-line {
+							border-bottom: 3px solid $sub-color;
+						}
+					}
+				}
+			}
+		}
+
+		&.oversea {
+			input {
+				&:checked {
+					& + label {
+						color: $white;
+					}
+				}
+			}
+		}
+
+		/*-----------------------
+		開発環境のみ　:海外レンタカーがある場合のUI
+		-----------------------*/
+	}
+}

@@ -1,0 +1,2 @@
+ErrorDocument 403 /rentacar/img/noimage.png
+ErrorDocument 404 /rentacar/img/noimage.png

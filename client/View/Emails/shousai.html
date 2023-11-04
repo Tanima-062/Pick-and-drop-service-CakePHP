@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<link href="css/reset.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<script src="js/jquery.js"></script>
+<script src="js/jquery.st.js"></script>
+<script type="text/javascript" src="js/jquery.simplyscroll.js"></script>
+<script type="text/javascript">
+(function($) {
+	$(function() {
+		$("#scroller").simplyScroll({
+			auto: false,
+			manualMode: 'loop',
+			speed: 55
+		});
+	});
+})(jQuery);
+</script>
+<link href="css/colorbox.css" rel="stylesheet">
+<script src="js/jquery.colorbox.js"></script>
+<script>
+	$(document).ready(function(){
+		//Examples of how to assign the ColorBox event to elements
+		$(".group1").colorbox({rel:'group1'});
+		//Example of preserving a JavaScript event for inline calls.
+		$("#click").click(function(){
+			$('#click').css({"background-color":"#f00", "color":"#fff", "cursor":"inherit"}).text("Open this window again and this message will still be here.");
+			return false;
+		});
+	});
+</script>
+<!--[if IE]>
+<link href="css/ie.css" rel="stylesheet">
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<title>プラン詳細ページ</title>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+<div id="wrapper">
+
+	<header id="header">
+		<div class="conts clearfix">
+			<h1><a href="http://192.168.11.59/rental_car/"><img src="img/logo.jpg?imwidth=194" width="194" height="60" alt="logo"></a></h1>
+			<p class="top_txt">沖縄のレンタカー予約ならＯＲＳにおまかせ！
+			豊富なカテゴリー別検索機能を<br>
+			使って、あなたの希望にピッタリなレンタカーを業界最安値の価格帯でご提供します！</p>
+			<p class="hd_btn"><a href="http://192.168.11.59/rental_car/okini.html" target="_blank"><img class="rollover" src="img/btn/list.jpg?imwidth=155" width="155" height="24" alt="お気に入りリスト"></a></p>
+		</div>
+	</header>
+	<!--///header-->
+
+	<div id="container">
+		<!--///sidebar-->
+		<div id="contents">
+			<nav class="navi clearfix">
+				<ul class="clearfix">
+					<li><a href="http://192.168.11.59/rental_car/">
+					<img class="rollover" src="img/nav/01.jpg?imwidth=192" width="192" height="70" alt="このサイトについて"></a></li>
+					<li><a href="http://192.168.11.59/rental_car/">
+					<img class="rollover" src="img/nav/02.jpg?imwidth=192" width="192" height="70" alt="予約～返却までの流れ"></a></li>
+					<li><a href="http://192.168.11.59/rental_car/">
+					<img class="rollover" src="img/nav/03.jpg?imwidth=192" width="192" height="70" alt="楽しみ方特集"></a></li>
+					<li><a href="http://192.168.11.59/rental_car/koutu.html">
+					<img class="rollover" src="img/nav/04.jpg?imwidth=192" width="192" height="70" alt="沖縄交通注意報"></a></li>
+					<li><a href="http://192.168.11.59/rental_car/">
+					<img class="rollover" src="img/nav/05.jpg?imwidth=192" width="192" height="70" alt="観光ドライブマップ"></a></li>
+				</ul>
+			</nav>
+			<div class="pan" itemprop="breadcrumb">
+				<a href="http://192.168.11.59/rental_car/">TOP &gt;</a>
+				プラン詳細ページ
+			</div>
+			<article id="main_plan">
+				<div class="conts_hd">
+					<p><a href="okini.html" target="_blank"><img class="rollover" src="img/btn/tsuika.jpg?imwidth=219" width="219" height="24" alt="お気に入りリストに追加"></a></p>
+					<p>【シーズン特割！】用乗車プラン【時間割】</p>
+				</div>
+				<div class="car_status clearfix">
+					<div class="conts1">
+						<p><img src="img/car/01.jpg?imwidth=219" width="219" height="125" alt="車"></p>
+						<p class="marker"><img src="img/icon_hoshou.png?imwidth=68" width="68" height="67" alt="快適保障"></p>
+						<p class="txt">【プラン設定期間】</p>
+						<p class="kikan">2012年03月16日～2012年12月20日</p>
+					</div>
+					<div class="conts2 clearfix">
+						<div class="left">
+							<table class="Dtable">
+								<tr><th>営業所店名</th>
+								<td>デュアルレンタカー那覇空港営業書店</td></tr>
+								<tr><th>出発対応エリア</th><td>那覇空港・那覇市内・本島北部</td></tr>
+								<tr><th>車両タイプ</th><td>乗用車(最大定員5名)</td></tr>
+								<tr><th>参考車両</th><td>アクア</td></tr>
+							</table>
+							<ul class="status clearfix">
+								<li><img src="img/Lstatus01_on.png" width="169" height="33" alt="完全禁煙車両"></li>
+								<li><img src="img/Lstatus02.png" width="169" height="33" alt="カーナビ搭載"></li>
+								<li><img src="img/Lstatus03_on.png" width="169" height="33" alt="ETC標準搭載"></li>
+								<li><img src="img/Lstatus04_on.png" width="169" height="33" alt="CDプレイヤー付き"></li>
+							</ul>
+							<ul class="status clearfix">
+								<li><img src="img/Lstatus05_on.png" width="169" height="33" alt="チャイルドシート1台無料"></li>
+								<li><img src="img/Lstatus06_on.png" width="169" height="33" alt="ガソリン満タン不要"></li>
+								<li><img src="img/Lstatus07_on.png" width="169" height="33" alt="ホテル配車送迎"></li>
+								<li><img src="img/Lstatus08.png" width="169" height="33" alt="NOC補償込み"></li>
+							</ul>
+						</div>
+						<!-- left -->
+					</div>
+					<!-- conts2 -->
+				</div>
+				<!-- car_status -->
+				<div id="gallery" class="imageRow clearfix">
+					<div class="slide_conts">
+						<ul id="scroller" class="clearfix">
+							<li><a title="テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト&lt;br&gt;テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト<br>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト<br>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト<br>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト<br>"
+							class="group1" href="img/slide05_L.png" rel="lightbox[plants]"><img src="img/slide05.png" width="167" height="111" alt="写真"></a></li>
+							<li><a title="テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト"
+							class="group1" href="img/slide01_LL.jpg" rel="lightbox[plants]"><img src="img/slide01.png" width="167" height="111" alt="写真"></a></li>
+							<li><a title="テキストテキストテキストテキストテキストテキストテキストテキスト<br>テキストテキストテキストテキストテキストテキストテキストテキスト<br>" class="group1" href="img/slide02_L.png" rel="lightbox[plants]"><img src="img/slide02.png" width="167" height="111" alt="写真"></a></li>
+							<li><a title="テキストテキストテキストテキストテキストテキストテキストテキスト<br>テキストテキストテキストテキストテキストテキストテキストテキスト<br>" class="group1" href="img/slide03_L.png" rel="lightbox[plants]"><img src="img/slide03.png" width="167" height="111" alt="写真"></a></li>
+							<li><a title="テキストテキストテキストテキストテキストテキストテキストテキスト<br>テキストテキストテキストテキストテキストテキストテキストテキスト<br>" class="group1" href="img/slide04_L.png" rel="lightbox[plants]"><img src="img/slide04.png" width="167" height="111" alt="写真"></a></li>
+						</ul>
+					</div>
+				</div>
+				<table class="Dtable bikou">
+					<tr>
+						<th>プラン詳細</th>
+						<td>
+						■OGS特別価格■ <span class="r_color">カーナビ・CD・ETC全車装備！</span>はもちろんの事、
+						さらに・・・軽料金でコンパクトクラスをご用意致します！
+						ぜひこの機会にパラダイスレンタカーをご利用ください。</td>
+					</tr>
+					<tr>
+						<th>備考</th>
+						<td>
+							<p>※ お支払いは当日ご出発手続きの際に、店舗で精算させて頂きます。</p>
+							<p>※ お見積りの料金には、『免責補償料』が含まれています。</p>
+							<p>※ ペット同乗希望の方は ペット同乗可能プラン よりご選択ください。</p>
+						</td>
+					</tr>
+				</table>
+				<p class="sub_title">ご予約・お見積り</p>
+				<div id="yoyaku_tbl" class="clearfix">
+					<div class="left">
+						<p class="title"><img src="img/yoyaku_title01.png" width="440" height="29" alt="予約条件を指定"></p>
+						<form>
+						<dl class="nichiji">
+							<dt>ご利用日時の指定</dt>
+							<dd>
+								<table>
+								<tr>
+									<th>借りる日</th>
+									<td>
+									<select id="hoge" name="借りる月" tabindex="1">
+										<option selected>2013年1月</option>
+										<option>2013年2月</option>
+										<option>2013年3月</option>
+										<option>2013年4月</option>
+										<option>2013年5月</option>
+									</select></td>
+									<td class="day">
+									<select name="借りる日" tabindex="2">
+										<option selected>10日</option>
+										<option>11日</option>
+										<option>12日</option>
+										<option>13日</option>
+										<option>14日</option>
+									</select></td>
+									<td class="time">
+									<select name="借りる時間" tabindex="3">
+										<option selected>10:00</option>
+										<option>10:30</option>
+										<option>11:00</option>
+										<option>11:30</option>
+										<option>12:00</option>
+									</select></td>
+								</tr>
+								<tr>
+									<th>返す日</th>
+									<td>
+									<select name="返す月" tabindex="4">
+										<option selected>2013年1月</option>
+										<option>2013年2月</option>
+										<option>2013年3月</option>
+										<option>2013年4月</option>
+										<option>2013年5月</option>
+									</select></td>
+									<td class="day">
+									<select name="返す日" tabindex="5">
+										<option selected>10日</option>
+										<option>11日</option>
+										<option>12日</option>
+										<option>13日</option>
+										<option>14日</option>
+									</select></td>
+									<td class="time">
+									<select name="返す時間" tabindex="6">
+										<option selected>10:00</option>
+										<option>10:30</option>
+										<option>11:00</option>
+										<option>11:30</option>
+										<option>12:00</option>
+									</select></td>
+								</tr>
+								</table>
+							</dd>
+						</dl>
+						<dl class="sharyou">
+							<dt>予約車両台数を指定</dt>
+							<dd>
+								<table>
+								<tr>
+									<th>予約車両台数</th>
+									<td>
+									<select name="車両" tabindex="7">
+										<option selected>1</option>
+										<option>2</option>
+										<option>3</option>
+										<option>4</option>
+									</select></td>
+								</tr>
+								</table>
+							</dd>
+						</dl>
+						<dl class="tenpo">
+							<dt>借りる店舗と返す店舗を指定</dt>
+							<dd>
+								<table>
+								<tr>
+									<th rowspan="2">借りる店舗</th>
+									<td>
+									<select name="借りる店舗" tabindex="8">
+										<option selected>那覇営業所(空港送迎あり)</option>
+										<option>その他</option>
+										<option>その他</option>
+										<option>その他</option>
+									</select></td>
+								</tr>
+								<tr>
+									<td>
+									<input accesskey="1" tabindex="9" type="text" name="配車希望" value="配車希望のホテル名"
+									onFocus="if(this.value=='配車希望のホテル名'){this.value='';}"
+									onblur="if(this.value==''){this.value='配車希望のホテル名'}"></td>
+								</tr>
+								<tr>
+									<th rowspan="2">返す店舗</th>
+									<td>
+									<select name="返す店舗" tabindex="10">
+										<option selected>那覇営業所(空港送迎あり)</option>
+										<option>その他</option>
+										<option>その他</option>
+										<option>その他</option>
+									</select></td>
+								</tr>
+								<tr>
+									<td>
+									<input accesskey="2" tabindex="11" name="乗り捨て希望" type="text" value="乗捨て希望のホテル名"
+									onFocus="if(this.value=='乗捨て希望のホテル名'){this.value='';}"
+									onblur="if(this.value==''){this.value='乗捨て希望のホテル名'}"></td>
+								</tr>
+								</table>
+								<p class="r_color">
+								※ホテルへの配車・乗捨てご希望の方は、必ず<br>
+								【 ホテル名 】をご記入ください</p>
+							</dd>
+						</dl>
+						<dl class="op">
+							<dt>オプションを指定</dt>
+							<dd>
+								<ul>
+									<li><p>ベビーシート</p>
+									<select name="シート1" tabindex="12">
+										<option selected>0ヶ</option>
+										<option>1ヶ</option>
+										<option>2ヶ以上</option>
+									</select>
+									</li>
+									<li><p>チャイルドシート</p>
+									<select name="シート2" tabindex="13">
+										<option selected>0ヶ</option>
+										<option>1ヶ</option>
+										<option>2ヶ以上</option>
+									</select>
+									</li>
+									<li><p>ジュニアシート</p>
+									<select name="シート3" tabindex="14">
+										<option selected>0ヶ</option>
+										<option>1ヶ</option>
+										<option>2ヶ以上</option>
+									</select>
+									</li>
+								</ul>
+							</dd>
+						</dl>
+						<dl class="tokuten">
+							<dt>特典を指定</dt>
+							<dd>
+								<ul>
+									<li><p>美ら海水族館(大人券)</p>
+									<select name="枚数1" tabindex="12">
+										<option selected>0枚</option>
+										<option>1枚</option>
+										<option>2枚</option>
+									</select>
+									</li>
+									<li><p>美ら海水族館(高校生券)</p>
+									<select name="枚数2" tabindex="13">
+										<option selected>0枚</option>
+										<option>1枚</option>
+										<option>2枚</option>
+									</select>
+									</li>
+									<li><p>美ら海水族館(小・中学生券)</p>
+									<select name="枚数3" tabindex="14">
+										<option selected>0枚</option>
+										<option>1枚</option>
+										<option>2枚</option>
+									</select>
+									</li>
+								</ul>
+							</dd>
+						</dl>
+						<p class="search_btn">
+							<input id="okuru" type="submit" value="" tabindex="10" accesskey="1">
+							<label for="okuru">
+								<img class="rollover" src="img/btn/mitsumori.png" width="442" height="46" alt="上記の条件でお見積もりを出す">
+							</label>
+						</p>
+						</form>
+					</div>
+					<div class="right">
+						<p class="title"><img src="img/yoyaku_title02.png" width="440" height="29" alt="お見積り"></p>
+						<table class="mitsumori_tbl">
+							<tr>
+								<th><span>ご利用プラン</span></th>
+								<td colspan="2">【シーズン特割！】OGS期間限定プラン</td>
+							</tr>
+							<tr>
+								<th><span>借りる日</span></th>
+								<td colspan="2">2012年10月10日 10:00</td>
+							</tr>
+							<tr>
+								<th><span>借りる店舗</span></th>
+								<td colspan="2">那覇営業所（空港送迎あり）</td>
+							</tr>
+							<tr>
+								<th><span>返す日</span></th>
+								<td colspan="2">2012年10月11日 10:00</td>
+							</tr>
+							<tr>
+								<th><span>返す店舗</span></th>
+								<td colspan="2">那覇営業所（空港送迎あり）</td>
+							</tr>
+							<tr>
+								<th><span>ご利用日数</span></th>
+								<td colspan="2">１日</td>
+							</tr>
+							<tr>
+								<th><span>基本料金</span></th>
+								<td colspan="2" class="r_color"><span>小計</span>&yen; 6,500円</td>
+							</tr>
+							<tr>
+								<th><span>オプション 1</span></th>
+								<td>ベビーシート１ヶ×１日</td><td class="r_color">&yen; 300円</td>
+							</tr>
+							<tr>
+								<th><span>オプション 2</span></th>
+								<td>チャイルドシート１ヶ×１日</td><td class="r_color">&yen; 500円</td>
+							</tr>
+							<tr>
+								<th><span>オプション 3</span></th>
+								<td>ジュニアシート１ヶ×１日</td><td class="r_color">&yen; 500円</td>
+							</tr>
+							<tr class="goukei">
+								<th><span>合計料金</span></th>
+								<td colspan="2">&yen;7,800円（税込）</td>
+							</tr>
+						</table>
+						<dl class="tyuui">
+							<dt>【 注意事項 】</dt>
+							<dd><ul>
+								<li>手続き、返事及び送迎などはすべて営業時間内受付となりますのでご了承ください。</li>
+							</ul></dd>
+						</dl>
+					</div>
+				</div>
+				<!-- yoyaku_tbl -->
+				<p class="sub_title">お客様情報入力</p>
+				<div id="jouhou">
+					<form>
+					<table class="Dtable">
+						<tr>
+							<th>お名前 （ カナ ）<span class="r_color">※必須</span></th>
+							<td>
+								セイ：<input name="性" accesskey="4" tabindex="16" type="text" value=""><span class="sukima">メイ：<input name="名" accesskey="4" tabindex="16" type="text" value=""></span>
+							</td>
+						</tr>
+						<tr class="meado">
+							<th>メールアドレス<span class="r_color">※必須</span></th>
+							<td><input name="メールアドレス" accesskey="5" tabindex="17" type="text" value=""></td>
+						</tr>
+						<tr>
+							<th>電話番号<span class="r_color">※必須</span></th>
+							<td><input name="電話番号1" accesskey="6" tabindex="18" type="text" value=""><span>（半角・ハイフン要）</span></td>
+						</tr>
+						<tr class="pos">
+							<th>沖縄到着後に連絡<br>
+							が取れる電話番号<span class="r_color">※必須</span></th>
+							<td><input name="電話番号2" accesskey="6" tabindex="19" type="text" value=""><span>（半角・ハイフン要）</span></td>
+						</tr>
+						<tr class="kibou">
+							<th>
+							<span class="kibou_th">那覇空港からの<br>
+							無料送迎希望</span><span class="r_color">※必須</span></th>
+							<td>
+								<p>
+								<label class="checked"><input checked type="radio" name="希望" value="希望する" accesskey="c" tabindex="20">希望する</label>
+								<span class="r_color">※那覇空港からの無料送迎希望の方は必ず便名及び到着時間をご入力ください。</span></p>
+								<select name="便名" tabindex="20">
+									<option selected>ANA</option>
+									<option>JAL</option>
+								</select>
+								<span>到着便及び到着時間</span>
+								<input class="rei" type="text" value="(例) ＡＮＮ123便　１０：００" accesskey="7" tabindex="21"
+								onFocus="if(this.value=='(例) ＡＮＮ123便　１０：００'){this.value='';}"
+								onblur="if(this.value==''){this.value='(例) ＡＮＮ123便　１０：００'}">
+								<p class="r_color">※到着便が未定の方は予約完了メール内にある入力フォームより後日必ずご入力ください。</p>
+								<p><label><input type="radio" name="希望" value="希望しない" accesskey="c" tabindex="20">希望しない （店舗に直接ご来店予定）</label></p>
+							</td>
+						</tr>
+						<tr class="ninzu">
+							<th>利用人数</th>
+							<td>
+								<span>
+								大人
+								<select name="大人人数" tabindex="22">
+									<option selected>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+								</select>
+								名</span>
+								<span>
+								子供
+								<select name="子供人数" tabindex="22">
+									<option selected>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+								</select>
+								名</span>
+								<span>
+								幼児
+								<select name="幼児人数" tabindex="22">
+									<option selected>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+								</select>
+								名</span>
+							</td>
+						</tr>
+						<tr>
+							<th>お支払方法</th>
+							<td>
+								お支払いは当日ご出発手続きの際に、店舗で精算させて頂きます。
+								<p>【ご利用可能なクレジットカード】<img src="img/card.jpg?imwidth=154" width="154" height="24" alt="カードの種類"></p>
+							</td>
+						</tr>
+						<tr>
+							<th>キャンセルポリシー</th>
+							<td>キャンセル料は頂いておりません。お早めのご連絡をお願いいたします。</td>
+						</tr>
+						<tr>
+							<th>備考</th>
+							<td><textarea rows="100" cols="100" tabindex="10" accesskey="1"></textarea></td>
+						</tr>
+					</table>
+					<p class="search_btn"><input id="okuru" type="submit" value="" tabindex="10" accesskey="1"><label for="okuru"><a href="kakunin.html"><img class="rollover" src="img/btn/susumu.png" width="477" height="44" alt="入力内容確認画面へ進む"></a></label></p>
+					</form>
+				</div>
+				<!-- jouhou -->
+			</article>
+			<!--main_plan-->
+		</div>
+		<!--//contents-->
+	</div>
+	<!--///container-->
+	<div class="topup">
+		<a href="#"><img class="rollover" src="img/btn/topup.png"  width="42" height="135" alt="TOPへ戻る"></a>
+	</div>
+	<!--//topup-->
+
+	<footer id="footer">
+		<ul>
+			<li><a href="http://192.168.11.59/rental_car/">トップページ</a> </li>
+			<li><a href="http://192.168.11.59/rental_car/">予約～返却までの流れ </a></li>
+			<li><a href="http://192.168.11.59/rental_car/">楽しみ方特集</a></li>
+			<li><a href="http://192.168.11.59/rental_car/koutu.html">沖縄交通注意事項 </a></li>
+			<li><a href="http://192.168.11.59/rental_car/">観光ドライブマップ</a></li>
+		</ul>
+		<p>2012&copy; Okinawa Rental car Search</p>
+	</footer>
+	<!--///footer-->
+
+</div>
+<!--///wrapper-->
+</body>
+</html>

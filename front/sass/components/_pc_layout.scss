@@ -1,0 +1,12 @@
+@use '../abstracts' as *;
+// PC 共通レイアウト
+
+// コンテンツsection　の設定
+.contents_wrap {
+	margin-top: ($margin_base * 7);
+}
+
+.content_section {
+	margin-bottom: ($margin_base * 7);
+	background-color: $white;
+}

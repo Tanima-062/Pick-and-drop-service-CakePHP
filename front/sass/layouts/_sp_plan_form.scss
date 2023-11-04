@@ -1,0 +1,288 @@
+@use '../abstracts' as *;
+
+// common2.0から移動
+// 整理途上
+
+// mypages全般,plan,reservations-現地step1/クレカstep2
+.plan_form {
+	// mypages,plan,reservations-現地step1/クレカstep2
+	table,
+	thead,
+	tbody,
+	th,
+	tr {
+		display: block;
+		width: 100%;
+	}
+
+	th {
+		padding: 12px 0;
+		line-height: 1;
+		font-size: $font_size_small;
+		font-weight: $font_weight_bold;
+
+		span {
+			display: inline-block;
+			margin-left: 6px;
+			vertical-align: middle;
+			color: $sub-color;
+		}
+	}
+
+	.inner table th {
+		font-weight: 400px;
+	}
+
+	td {
+		padding: 0;
+	}
+
+	// mypages-index,plan,reservations
+	td.select_type_line1 {
+		width: 100%;
+		display: block;
+
+		select,
+		input {
+			display: block;
+			width: 100%;
+			margin-bottom: 15px;
+		}
+
+		&:nth-of-type(1) {
+			padding: 10px;
+			background-color: #f0f0f0;
+
+			&.transparent {
+				padding: 0;
+				background-color: transparent;
+			}
+
+			select {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	// plan
+	.select_option {
+		tr {
+			width: 100%;
+		}
+
+		td {
+			margin-bottom: 5px;
+		}
+
+		#sheet-option,
+		#privilege-option {
+			tr {
+				border-bottom: 1px solid $gray;
+				padding-bottom: 10px;
+			}
+
+			tr:last-child {
+				border-bottom: none;
+				padding-bottom: 0;
+			}
+		}
+
+		td {
+			width: 49%;
+			display: inline-block;
+			box-sizing: border-box;
+
+			select {
+				width: 100%;
+			}
+
+			// なさそう？
+			// .font_b {
+			// 	font-weight: $font_weight_bold;
+			// 	line-height: 1.7rem;
+			// 	margin-bottom: 5px;
+			// }
+		}
+
+		.label-require {
+			display: inline-block;
+			background: $main-color;
+			border-radius: $border_radius;
+			color: $white;
+			padding: 4px 8px;
+			font-size: $font_size_tiny;
+			font-weight: $font_weight_normal;
+			margin-left: 20px;
+		}
+	}
+
+	// mypages,plan
+	dl dd {
+		// mypages-index
+		padding: 5px 10px;
+
+		// plan,mypages-index
+		span {
+			margin-left: 8px;
+		}
+
+		a {
+			text-decoration: underline;
+		}
+	}
+
+	// step2
+	.plan_form_dl {
+		.plan_form_dt {
+			font-weight: $font_weight_bold;
+		}
+
+		.plan_form_dd {
+			padding: 2px 0 12px;
+
+			> span {
+				margin-left: 0;
+			}
+		}
+	}
+
+	// mypages,plan(,reservations)
+	select {
+		height: 45px;
+		padding: 8px 6px;
+		background: $white;
+		color: #444;
+		transition: all linear .2s;
+		border-radius: 3px;
+		line-height: 1.5em;
+		text-transform: none;
+		font-size: 1.6rem;
+		background: $white url(../../img/sp/arw_select_down@2x.png) no-repeat;
+		background-size: 9px auto;
+		background-position: 95% center;
+		width: 100%;
+		display: block;
+		appearance: none;
+	}
+
+	// mypages
+	input {
+		height: 45px;
+		padding: 8px 6px;
+		background: $white;
+		color: #444;
+		transition: all linear .2s;
+		border-radius: 3px;
+		line-height: 1.8rem;
+		text-transform: none;
+		font-size: 1.8rem;
+		-webkit-appearance: button;
+		-moz-appearance: button;
+		appearance: button;
+	}
+}
+
+.plan_comfirmation {
+	// mypages-index,reservations-現地step1/クレカstep2
+	table {
+		width: 100%;
+		font-size: 1.2rem;
+
+		th {
+			background-color: #ebf6ff;
+			text-align: left;
+			width: 50%;
+			padding: 8px;
+			border-bottom: solid 1px #ddd;
+			font-size: 1.5rem;
+		}
+
+		td {
+			text-align: right;
+			width: 50%;
+			padding: 8px;
+			border-bottom: solid 1px #ddd;
+			font-size: 1.5rem;
+		}
+	}
+}
+
+// .plan_form内：　mypages全般,reservations
+// .plan_comfirmation内：　mypages-index,plan,reservations
+// それ以外：　reservations-completion/step1
+.plan_form_title {
+	padding: 12px;
+	border-top: 12px solid #f7f7f7;
+	box-shadow: 0 -2px 2px -2px rgba(0, 0, 0, .6);
+	font-size: $font_size_x-large;
+}
+
+/* 合計料金 */
+// mypages,reservations,plan
+.price_block {
+	padding: 12px;
+	font-size: 0;
+
+	// mypages,reservations
+	&.plan_info_body_price {
+		border-top: 2px dotted $gray_lightness_1;
+	}
+
+	// plan
+	&.plan_info_total_price {
+		border-top: 2px solid $main-color;
+		padding: 12px;
+		font-size: 0;
+	}
+
+	// mypages-index/input,plan
+	.plan_info_left,
+	.plan_info_right {
+		display: inline-block;
+		vertical-align: middle;
+		font-size: $font_size_small;
+	}
+
+	// mypages-index/input,plan
+	.plan_info_left {
+		width: 60%;
+	}
+
+	// mypages-index/input,plan
+	.plan_info_right {
+		width: 40%;
+		text-align: right;
+	}
+
+	// mypages-index,plan,reservations
+	.caption_gray {
+		color: $spear-gray;
+		font-size: $font_size_tiny;
+		line-height: 1.8rem;
+	}
+
+	// mypages,reservations,plan
+	.price_block_title {
+		font-weight: $font_weight_bold;
+		font-size: $font_size_small;
+
+		span {
+			font-size: $font_size_tiny;
+			margin-left: 4px;
+			font-weight: $font_weight_normal;
+		}
+	}
+
+	// mypages,reservations,plan
+	.price_block_price {
+		position: relative;
+		font-size: 2.3rem;
+		font-weight: $font_weight_bold;
+		color: $sub-color;
+
+		span {
+			display: table-cell;
+			vertical-align: middle;
+		}
+	}
+}

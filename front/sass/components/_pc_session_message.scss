@@ -1,0 +1,32 @@
+@use '../abstracts' as *;
+
+.session_message_wrap {
+	display: block;
+	margin: ($margin_base * 2) 0;
+
+	.session_message {
+		display: flex;
+		flex-flow: row nowrap;
+		align-items: center;
+		justify-content: flex-start;
+		background: $warning-color;
+		padding: ($margin_base * 2);
+		margin-bottom: $margin_base;
+
+		.icm-warning {
+			color: $error-color;
+			margin-right: ($margin_base * 2);
+			font-size: $font_size_x-large;
+		}
+
+		.session-message-text {
+			color: $black;
+			font-size: $font_size_small;
+
+			a {
+				// 予約完了エラーのメッセージ(step1に表示)用
+				display: contents;
+			}
+		}
+	}
+}

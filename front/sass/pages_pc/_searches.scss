@@ -1,0 +1,82 @@
+@use '../abstracts' as *;
+
+// 検索結果ページ
+
+//------------------
+// searches_page内へまとめていくこと。
+//------------------
+
+.searches_page {
+	// リスト検索ページ＆マップ検索ページ共通
+	.search_table {
+		padding: 0 0 0 90px !important;
+
+		.search_main_cell {
+			width: 325px;
+		}
+	}
+
+	.searchform_options_section {
+		.search_fieldset {
+			color: $white;
+		}
+	}
+
+	.campaign-banner {
+		margin-top: $margin_base * 3;
+	}
+
+	.search-tab {
+		display: flex;
+		align-items: center;
+		height: 60px;
+		border-bottom: 1px solid $gray;
+		margin-top: $margin_base * 2;
+		margin-bottom: $margin_base * 2;
+
+		&_item {
+			font-size: $font_size_x-large;
+			padding: $margin_base * 2 $margin_base * 7;
+			cursor: pointer;
+
+			&.active {
+				cursor: default;
+				font-weight: $font_weight_bold;
+				color: $sub-color;
+				border-bottom: 3px solid $sub-color;
+			}
+		}
+	}
+
+	.contents_result {
+		margin-bottom: $margin_base * 2;
+
+		&_number {
+			span {
+				font-size: $font_size_large;
+				font-weight: $font_weight_bold;
+			}
+
+			p {
+				span {
+					font-size: $font_size_medium;
+					font-weight: $font_weight_bold;
+				}
+			}
+
+			a {
+				text-decoration: underline;
+				font-size: $font_size_small;
+				margin-left: $margin_base * 2;
+
+				&.remove_total_cond {
+					font-size: $font_size_medium;
+					margin-left: 0;
+					margin-top: $margin_base;
+					display: block;
+				}
+			}
+		}
+	}
+}
+//------------------

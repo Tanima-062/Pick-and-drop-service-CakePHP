@@ -1,0 +1,47 @@
+@use '../abstracts' as *;
+
+// 市区町村ページ
+
+//------------------
+// NEW 202201 今後は.municipality_page内へまとめていくこと。
+//------------------
+
+.municipality_page {
+	.from_airport_link {
+		margin-bottom: 15px;
+		display: table;
+
+		li {
+			float: left;
+			margin-right: 8px;
+			margin-bottom: 15px;
+			vertical-align: middle;
+			display: table-cell;
+			height: 46px;
+
+			a {
+				background-color: #f7f7f7;
+				border: 3px solid #a0acba;
+				border-radius: 5px;
+				display: table-cell;
+				width: 152px;
+				text-align: center;
+				height: 40px;
+				vertical-align: middle;
+				line-height: 1.2;
+				cursor: pointer;
+				box-shadow: rgba(160, 172, 186, .2) 0 0 3px,
+					rgba(0, 0, 0, .15) 0 -4px 0 inset;
+
+				&:hover {
+					height: 40px;
+					border: 3px solid #6790c4;
+					text-decoration: none !important;
+					border-top: 3px solid #6790c4;
+					box-shadow: rgba(0, 0, 0, .15) 0 -3px 0 inset;
+				}
+			}
+		}
+	}
+}
+//------------------

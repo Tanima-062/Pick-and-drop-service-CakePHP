@@ -1,0 +1,121 @@
+@use '../abstracts' as *;
+
+.shoplist-wrap {
+	.shoplist-items {
+		margin: 0;
+		padding: 0;
+		font-size: $font_size_small;
+
+		.shoplist-item-wrap {
+			&:nth-of-type(1) {
+				border-top: solid 1px $gray;
+			}
+
+			.shoplist-item-header {
+				position: relative;
+				display: flex;
+				flex-flow: row nowrap;
+				gap: $margin_base;
+				justify-content: flex-start;
+				align-items: center;
+				height: 64px;
+				padding: 0;
+				padding-right: ($margin_base * 5);
+				color: $black;
+				line-height: 1;
+				border-bottom: solid 1px $gray;
+
+				.logo-wrap {
+					width: 36px;
+					margin: 0 $margin_base;
+					text-align: center;
+					display: flex;
+					align-items: center;
+
+					img {
+						width: 36px;
+						object-fit: contain;
+					}
+				}
+
+				.shop-name {
+					font-size: $font_size_small;
+				}
+
+				.icm-right-arrow {
+					position: absolute;
+					top: 0;
+					right: 16px;
+					bottom: 0;
+					display: flex;
+					align-items: center;
+					font-size: $font_size_tiny;
+					color: $dark-gray;
+					transition: .2s;
+				}
+
+				&[data-is-open='true'] {
+					border-bottom: none;
+
+					.icm-right-arrow {
+						transform: rotate(-90deg);
+					}
+				}
+			}
+
+			.shoplist-item-contents {
+				font-size: $font_size_small;
+				border-bottom: solid 1px $gray;
+				padding: 0 $margin_base;
+
+				table {
+					th,
+					td {
+						vertical-align: top;
+						padding: ($margin_base) ($margin_base * 1.5);
+
+						.shoplink {
+							text-decoration: underline;
+						}
+					}
+
+					th {
+						width: 7em;
+						background-color: $light-gray;
+					}
+				}
+
+				.btn-wrap {
+					margin: $margin_base 0;
+
+					.btn-type-primary {
+						font-size: $font_size_medium;
+						min-height: unset;
+						line-height: 1;
+						padding-top: 13px;
+						padding-bottom: 13px;
+					}
+				}
+			}
+		}
+	}
+
+	.show-more-shops-wrap {
+		text-align: right;
+		padding: 12px $margin_base;
+		color: $main-color;
+		font-size: $font_size_tiny;
+
+		.icm-right-arrow {
+			transition: .2s;
+		}
+	}
+
+	&[data-showall='true'] {
+		.show-more-shops-wrap {
+			.icm-right-arrow {
+				transform: rotate(-90deg);
+			}
+		}
+	}
+}

@@ -1,0 +1,125 @@
+@use '../abstracts' as *;
+
+// Wpcampaignページ
+
+.sp_wpcampaign_page {
+	.page_h2 {
+		padding: 24px 12px 12px;
+		letter-spacing: 1px;
+		font-size: $font_size_large;
+		background: $white;
+	}
+
+	.campaign_car_type_name {
+		display: inline-block;
+		padding: 6px;
+	}
+
+	.car_type_best_price {
+		display: table-cell;
+		vertical-align: middle;
+		font-size: $font_size_medium;
+		font-weight: $font_weight_bold;
+		color: $sub-color;
+	}
+
+	.icon_best_price {
+		display: inline-block;
+		margin-right: 6px;
+		padding: 2px;
+		font-size: $font_size_tiny;
+		font-weight: 100;
+		color: $white;
+		background: $accent-color;
+	}
+
+	.article_section {
+		position: relative;
+		padding: 0 12px;
+		border-bottom: 2px solid #f7f7f7;
+	}
+
+	p.article_cont {
+		padding-bottom: 36px;
+		line-height: 1.4;
+		font-size: $font_size_small;
+	}
+
+	.article_h5 {
+		margin-top: -20px;
+		padding: 12px 0;
+		line-height: 1.3;
+		letter-spacing: 1px;
+		font-size: $font_size_small;
+		font-weight: $font_weight_bold;
+	}
+
+	.car_type_wrap {
+		padding: 0 12px;
+	}
+
+	.car_type_li {
+		position: relative;
+		border: 1px solid #c5c5c5;
+		margin-bottom: 12px;
+
+		> i {
+			position: absolute;
+			right: 6px;
+			top: 50%;
+			margin-top: -6px;
+			color: #009fff;
+		}
+	}
+
+	.car_type_cont {
+		display: table;
+		width: 100%;
+		line-height: 1.3;
+		border-collapse: separate;
+		border-spacing: 6px 6px;
+		color: $black;
+	}
+
+	.car_type_img_wrap {
+		position: relative;
+		display: table-cell;
+		width: 130px;
+		padding: 6px 0;
+		vertical-align: middle;
+		font-size: $font_size_tiny;
+		font-weight: $font_weight_bold;
+		background: #f7f7f7;
+	}
+
+	// 使ってなさそう
+	// .car_type_size {
+	// 	position: absolute;
+	// 	bottom: 2px;
+	// 	left: 0;
+	// 	width: 42px;
+	// 	text-align: center;
+	// 	font-size: 10px;
+	// }
+
+	// .car_type_img {
+	// 	width: 30px;
+	// 	height: auto;
+	// 	margin: 0 6px 6px;
+	// 	vertical-align: middle;
+	// // }
+
+	// .car_type_name {
+	// 	display: inline-block;
+	// 	width: 80px;
+	// 	vertical-align: middle;
+	// }
+	.page_bg {
+		background: #f7f7f7;
+	}
+
+	.page_section {
+		border-bottom: 8px solid #f7f7f7;
+		background: $white;
+	}
+}

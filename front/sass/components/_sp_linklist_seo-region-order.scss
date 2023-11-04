@@ -1,0 +1,56 @@
+@use '../abstracts' as *;
+
+/* -----------------------------------------------------------------------------
+  人気空港リスト /Elements/popular_airport_linklist.ctp
+  都道府県リスト /Elements/prefecture_linklist.ctp
+----------------------------------------------------------------------------- */
+
+.sp_linklist_seo-region-order {
+	padding: $margin_base * 4 0;
+	border-top: solid $margin_base $light-gray;
+	background-color: #fff;
+
+	.title {
+		font-size: $font_size_x-large;
+		font-weight: $font_weight_bold;
+		padding: 0 $margin_base $margin_base * 2 $margin_base;
+	}
+
+	.sub_title {
+		margin-top: 1px;
+		font-size: $font_size_small;
+		padding: $margin_base * 2;
+		background-color: $light-gray;
+	}
+
+	ul.sp_linklist_seo-region-order_body {
+		li.sp_linklist_seo-region-order_item {
+			padding-left: $margin_base * 2;
+			border-top: 1px solid $light-gray;
+
+			a {
+				color: $black;
+				display: block;
+				position: relative;
+				padding: ($margin_base * 2) 0;
+
+				&::after {
+					position: absolute;
+					top: 0;
+					right: 16px;
+					bottom: 0;
+					display: flex;
+					align-items: center;
+					font-family: 'icomoon';
+					content: '\e902';
+					font-size: 12px;
+					color: $main-color;
+				}
+			}
+		}
+
+		li:nth-child(1) {
+			border: none;
+		}
+	}
+}

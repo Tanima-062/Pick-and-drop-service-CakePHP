@@ -1,0 +1,351 @@
+@use '../abstracts' as *;
+
+// 都道府県ページ
+
+//------------------
+// NEW 202201 今後は.prefectures_page内へまとめていくこと。
+//------------------
+
+.prefectures_page {
+	/* common */
+	.pref_cont_wrap {
+		width: 100%;
+		margin: 6px 0;
+		padding-bottom: 36px;
+		font-size: 0;
+	}
+
+	.pref_article_title {
+		padding: 12px 24px;
+		border: 1px solid #eaeaea;
+		border-bottom: none;
+		box-sizing: border-box;
+		font-size: $font_size_medium;
+		font-weight: $font_weight_bold;
+		background: #f7f7f7;
+	}
+
+	.pref_article_table {
+		display: table;
+		width: 100%;
+		border: 1px solid #eaeaea;
+		border-top: none;
+		border-collapse: separate;
+		border-spacing: 24px 24px;
+	}
+
+	.pref_article_table_cell {
+		display: table-cell;
+		vertical-align: top;
+		font-size: $font_size_small;
+	}
+
+	.page_h3 {
+		padding: 12px 0;
+		font-size: 22px;
+		font-weight: $font_weight_bold;
+		color: $black;
+	}
+
+	.page_hr {
+		margin-bottom: 24px;
+	}
+
+	.company_search_ul {
+		padding: 24px;
+		background: #f7f7f7;
+	}
+
+	.company_search_li {
+		display: inline-block;
+		width: 220px;
+		margin: 0 24px 12px 0;
+		padding: 2px;
+		vertical-align: middle;
+		border: 1px solid #c5c5c5;
+		box-sizing: border-box;
+
+		&:nth-of-type(4n) {
+			margin-right: 0;
+		}
+	}
+
+	.company_search_li_link {
+		display: inline-block;
+		width: 100%;
+		height: 45px;
+		vertical-align: middle;
+		color: #4c4c4c;
+		background: $white;
+	}
+
+	.company_search_name {
+		display: inline-block;
+		width: 154px;
+		margin-left: 12px;
+		line-height: 1;
+		vertical-align: middle;
+		font-size: $font_size_small;
+	}
+
+	.company_img {
+		vertical-align: middle;
+	}
+
+	.variable_cont_area {
+		margin-bottom: 36px;
+		overflow: hidden;
+		transition: height 1s;
+	}
+
+	.variable_cont_wrap {
+		width: 100%;
+	}
+
+	.variable_cont_hidden {
+		display: none;
+	}
+
+	.variable_cont_more {
+		position: relative;
+		height: 6px;
+		background: #f7f7f7;
+	}
+
+	.btn_more_cont {
+		position: absolute;
+		top: 100%;
+		right: 0;
+		display: block;
+		width: 120px;
+		height: 24px;
+		line-height: 24px;
+		text-align: center;
+		background: #f7f7f7;
+
+		> i {
+			color: #000;
+		}
+	}
+
+	.pickup_company_dt {
+		line-height: 1;
+		border: 1px solid $gray;
+		border-bottom: none;
+		box-sizing: border-box;
+		font-size: $font_size_medium;
+		background: #f7f7f7;
+	}
+
+	.pickup_company_dd {
+		margin-bottom: 24px;
+		padding: 24px 24px 0;
+		border: 1px solid $gray;
+		box-sizing: border-box;
+		font-size: $font_size_small;
+	}
+
+	.btn_pickup_company {
+		position: relative;
+		display: block;
+		padding: 12px;
+		color: $black;
+
+		> i {
+			position: absolute;
+			top: 50%;
+			right: 12px;
+			margin-top: -15px;
+			font-size: 30px;
+			font-weight: $font_weight_bold;
+		}
+	}
+
+	.pickup_company_name {
+		display: inline-block;
+		margin-left: 12px;
+		vertical-align: middle;
+	}
+
+	h3.pickup_company_name {
+		display: inline-block;
+		margin: 0;
+		margin-left: 12px;
+		vertical-align: middle;
+		font-size: $font_size_medium;
+		font-weight: $font_weight_normal;
+	}
+
+	.company_rate_star {
+		display: inline-block;
+		margin: 0 6px 0 24px;
+		letter-spacing: 3px;
+		font-size: $font_size_small;
+		color: #ffb901;
+	}
+
+	.company_rate_count {
+		font-size: $font_size_small;
+		font-weight: $font_weight_bold;
+	}
+
+	.pickup_company_table {
+		display: table;
+	}
+
+	.pickup_company_cell {
+		display: table-cell;
+		vertical-align: top;
+	}
+
+	.pref_pickup_car_img {
+		margin-right: 24px;
+		border: 1px solid $gray;
+	}
+
+	.pickup_store_cell {
+		display: table-cell;
+		width: 180px;
+		padding: 12px 0;
+		vertical-align: middle;
+	}
+
+	.pickup_store_title {
+		display: inline-block;
+		padding: 2px 12px;
+		vertical-align: middle;
+		border-radius: 5px;
+		background: $gray;
+	}
+
+	.pickup_store_list {
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	.pickup_store_search {
+		position: relative;
+		height: 40px;
+	}
+
+	.btn_search_store {
+		position: absolute;
+		right: 0;
+		bottom: 12px;
+		padding: 6px 12px;
+		border: 1px solid #eee;
+		border-radius: 2px;
+		box-sizing: border-box;
+		box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2);
+		color: $black;
+		background: #f7f7f7;
+	}
+
+	.pref_cont_title {
+		padding: 12px 0;
+		text-indent: 24px;
+		font-size: $font_size_medium;
+		background: #f7f7f7;
+	}
+
+	.pref_link_cont_ul {
+		padding: 12px 24px;
+		font-size: 0;
+
+		.link_cont_li {
+			display: inline-block;
+			line-height: 2;
+			padding-right: 24px;
+			font-size: $font_size_small;
+		}
+	}
+
+	.pref_all_list_col2 {
+		display: inline-block;
+		width: 494px;
+		vertical-align: top;
+	}
+
+	.pricelist {
+		h2 {
+			font-size: $font_size_big;
+			font-weight: $font_weight_bold;
+			margin-bottom: $margin_base;
+		}
+
+		table {
+			th {
+				background: $light-gray;
+				border: 1px solid $gray;
+				font-size: $font_size_small;
+				font-weight: $font_weight_bold;
+				padding: $margin_base;
+				text-align: center;
+			}
+
+			td {
+				border: 1px solid $gray;
+				font-size: $font_size_small;
+				padding: $margin_base;
+				vertical-align: top;
+
+				> table {
+					td,
+					th {
+						border: none;
+					}
+				}
+
+				&.no-padding {
+					padding: 0;
+				}
+
+				ul {
+					li:not(:last-child) {
+						padding-bottom: $margin_base;
+					}
+				}
+
+				&.-current_month,
+				&.-next_month {
+					text-align: right;
+				}
+			}
+
+			.-cartype,
+			.-client,
+			.-current_month {
+				border-right: 1px solid $gray;
+			}
+
+			.-cartype,
+			.-client {
+				width: 25%;
+			}
+
+			.-current_month,
+			.-next_month {
+				width: 12%;
+				font-weight: $font_weight_bold;
+			}
+		}
+
+		a {
+			color: $main-color;
+		}
+	}
+
+	.link_cont_ul {
+		padding: 12px 0;
+		font-size: 0;
+
+		.link_cont_li {
+			display: inline-block;
+			line-height: 2;
+			padding-right: 24px;
+			font-size: $font_size_small;
+		}
+	}
+}
+
+//------------------

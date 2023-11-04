@@ -1,0 +1,208 @@
+@use '../abstracts' as *;
+
+// 地方ページ
+
+//------------------
+// NEW 202201 今後は.region_page内へまとめていくこと。
+//------------------
+
+.region_page {
+	.page_text {
+		padding: 0 12px 18px;
+	}
+
+	.is-lightblue {
+		background-color: #c6e7fe !important;
+	}
+
+	.area-contents_main {
+		margin-bottom: 40px;
+
+		.area-contents_main_img {
+			float: left;
+			margin-right: 20px;
+		}
+
+		.area-contents_main_body {
+			width: 49%;
+			display: block;
+			float: right;
+
+			.area-head {
+				font-size: $font_size_big;
+				line-height: 24px;
+				border-top: 1px dashed #5998df;
+				border-bottom: 1px dashed #5998df;
+				background-color: #c6e7fe;
+				margin-top: 0;
+				margin-bottom: 20px;
+				padding: 10px 0;
+				text-align: center;
+			}
+
+			.area-contents_main_body_text {
+				margin-bottom: ($margin_base * 2);
+			}
+
+			.btn-wrap {
+				display: block;
+				text-align: center;
+			}
+		}
+	}
+
+	.area-contents-sub {
+		margin-bottom: ($margin_base * 4);
+
+		.area-contents-sub_column {
+			float: left;
+			width: 320px;
+			margin-right: 20px;
+
+			&.is-food {
+				margin-right: 0;
+			}
+
+			h3 {
+				padding: 15px 0;
+				text-align: center;
+				font-size: $font_size_large;
+				line-height: 16px;
+
+				img,
+				span {
+					vertical-align: middle;
+					color: #3f71b4;
+				}
+			}
+
+			.btn-wrap {
+				display: block;
+				text-align: center;
+
+				.btn-type-primary {
+					width: 100%;
+				}
+			}
+		}
+
+		.area-contents-sub_headline {
+			text-align: center;
+			font-size: $font_size_x-large;
+			letter-spacing: 1.2;
+			color: $sub-color;
+			line-height: 1.4;
+			padding: $margin_base;
+		}
+
+		.area-contents-sub_body {
+			border-top: 2px solid $sub-color;
+			padding-top: 20px;
+			margin-bottom: 20px;
+		}
+	}
+
+	.area_list {
+		background: transparent;
+		border: none;
+		height: auto;
+		margin-top: 10px;
+		margin-bottom: 20px;
+		width: 100%;
+
+		li {
+			vertical-align: middle;
+			letter-spacing: normal;
+			margin: 0 10px 10px 0;
+			float: left;
+
+			.area_list-label {
+				display: block;
+				box-sizing: border-box;
+				border-radius: $border_radius;
+				border: 1px solid;
+				width: 190px;
+				padding: 6px 0;
+				text-align: center;
+				color: $main-color;
+				text-decoration: none;
+
+				&:hover {
+					text-decoration: none;
+					opacity: .8;
+				}
+
+				.area_list-label_inner {
+					font-size: 1.1em;
+					margin: 0;
+					padding: 0;
+					vertical-align: text-bottom;
+				}
+
+				.area_list-label_arrow {
+					font-size: 3em;
+					padding-left: 38px;
+					vertical-align: sub;
+				}
+			}
+		}
+	}
+
+	// 使ってない？
+	// .area-map-map {
+	// 	margin-top: 20px;
+	// 	float: right;
+	// 	position: relative;
+	// 	width: 500px;
+	// 	height: 360px;
+	// 	background-size: 100%;
+	// 	background-repeat: no-repeat;
+	// 	background-position: center center;
+
+	// 	&.is-tohoku {
+	// 		background-image: url('/rentacar/img/img-map-tohoku.png');
+	// 	}
+
+	// 	&.is-hokkaido {
+	// 		background-image: url('/rentacar/img/img-map-hokkaido.png');
+	// 	}
+
+	// 	&.is-kanto {
+	// 		background-image: url('/rentacar/img/img-map-kanto.png');
+	// 	}
+
+	// 	&.is-kansai {
+	// 		background-image: url('/rentacar/img/img-map-kansai.png');
+	// 	}
+
+	// 	&.is-chugoku {
+	// 		background-image: url('/rentacar/img/img-map-chugoku.png');
+	// 	}
+
+	// 	&.is-kyushu {
+	// 		background-image: url('/rentacar/img/img-map-kyushu.png');
+	// 	}
+
+	// 	&.is-okinawa {
+	// 		background-image: url('/rentacar/img/img-map-okinawa.png');
+	// 	}
+
+	// 	&.is-tokai {
+	// 		background-image: url('/rentacar/img/img-map-tokai.png');
+	// 	}
+
+	// 	&.is-koushinetsu {
+	// 		background-image: url('/rentacar/img/img-map-koushinetsu.png');
+	// 	}
+
+	// 	&.is-hokuriku {
+	// 		background-image: url('/rentacar/img/img-map-hokuriku.png');
+	// 	}
+
+	// 	&.is-shikoku {
+	// 		background-image: url('/rentacar/img/img-map-shikoku.png');
+	// 	}
+	// }
+}
+
+//------------------

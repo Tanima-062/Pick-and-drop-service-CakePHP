@@ -1,0 +1,10 @@
+php_value memory_limit 512M
+php_value post_max_size 256M
+php_value max_input_vars 8096
+php_value max_execution_time 60
+
+RewriteEngine On
+RewriteBase /rentacar/client
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.php [QSA,L]

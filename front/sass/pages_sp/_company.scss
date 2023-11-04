@@ -1,0 +1,165 @@
+@use '../abstracts' as *;
+
+// 会社ページ
+
+//------------------
+// .sp_company_page内へまとめていくこと。
+//------------------
+
+.sp_company_page {
+	.company_head {
+		padding-bottom: $margin_base;
+	}
+
+	.company_content {
+		h2 {
+			font-size: $font_size_big;
+			font-weight: $font_weight_bold;
+			margin-bottom: $margin_base;
+			padding: 0 $margin_base;
+		}
+	}
+
+	.company_youtube {
+		padding-left: $margin_base;
+		padding-right: $margin_base;
+
+		.company_contents_h2 {
+			font-size: $font_size_x-large;
+		}
+
+		.content_wrap {
+			margin: ($margin_base * 2) 0;
+
+			.company_youtube_title {
+				background-color: unset;
+				padding: 0;
+				margin-bottom: $margin_base * 2;
+				font-size: $font_size_medium;
+				line-height: 1.4;
+				display: flex;
+				align-items: center;
+
+				.icm-skyticket-logo-round {
+					margin-right: $margin_base;
+					font-size: 40px;
+					color: #1c5db5;
+				}
+			}
+
+			.company_youtube_v {
+				height: calc((100vw - 16px) * .56);
+			}
+
+			.youtube-home-link-wrap {
+				display: flex;
+				justify-content: flex-end;
+
+				.youtube-home-link {
+					display: flex;
+					align-items: center;
+					font-size: $font_size_small;
+				}
+
+				.icm-external-link {
+					margin-left: $margin_base * .5;
+					font-size: $font_size_medium;
+				}
+			}
+		}
+
+		.btn-type-sub {
+			padding: $margin_base * 2;
+			display: flex;
+			align-items: center;
+			margin: 0 auto;
+			font-size: $font_size_medium;
+			overflow-wrap: break-word;
+			white-space: normal;
+
+			.icm-youtube {
+				color: #f00;
+				margin-right: $margin_base;
+				font-size: $font_size_big;
+			}
+		}
+	}
+
+	.search_list_div {
+		ul {
+			.search_list_header {
+				position: relative;
+				line-height: 1.3;
+				margin-bottom: 2px;
+				padding: 10px 40px 10px 20px;
+				text-align: left;
+				font-size: 1.4rem;
+				font-weight: $font_weight_bold;
+				background-color: #c6e7fe;
+
+				&::after {
+					content: '';
+					position: absolute;
+					top: 50%;
+					right: 10px;
+					width: 12px;
+					height: 12px;
+					margin-top: -6px;
+					background-image: url('/rentacar/img/sp/plus.png');
+					background-repeat: no-repeat;
+					background-size: 100%;
+				}
+
+				&.open {
+					+ .search_list_contents {
+						display: block;
+					}
+
+					&::after {
+						background-image: url('/rentacar/img/sp/minus.png');
+					}
+				}
+			}
+
+			.search_list_contents {
+				background-color: $white;
+				padding: 12px;
+				display: none;
+			}
+		}
+	}
+
+	.img_caption_detail {
+		h4 {
+			padding: 8px;
+			text-align: center;
+			font-size: 1.5rem;
+			font-weight: $font_weight_bold;
+		}
+	}
+
+	// 使ってないかも
+	// .company_search_body {
+	// 	margin-top: -1px;
+	// 	padding: 24px 0 32px;
+	// 	text-align: center;
+	// 	box-shadow: 0 -3px 3px -2px rgba(0, 0, 0, .2);
+	// 	box-sizing: border-box;
+	// 	background: $white;
+
+	// 	select {
+	// 		width: 100%;
+	// 		padding: 16px;
+	// 		border: 1px solid #8c8c8c;
+	// 		border-radius: 4px;
+	// 		box-sizing: border-box;
+	// 		text-align: left;
+	// 		font-size: 1.5rem;
+	// 		background: transparent;
+	// 		-webkit-appearance: none;
+	// 		-moz-appearance: none;
+	// 		appearance: none;
+	// 	}
+	// }
+}
+//------------------

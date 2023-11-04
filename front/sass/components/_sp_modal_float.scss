@@ -1,0 +1,181 @@
+@use '../abstracts' as *;
+
+//SP共通
+
+/* -----------------------------------------------------------------------------
+  モーダル-Float
+----------------------------------------------------------------------------- */
+body.body-fixed {
+	position: fixed;
+	width: 100%;
+}
+
+.btn_modalf_open_wrap {
+	position: relative;
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+
+	.btn_modal_open {
+		color: $main-color;
+		font-size: $font_size_small;
+		text-decoration: underline;
+	}
+
+	// インフォアイコンをつける場合
+	i.icm-info-button-fill {
+		font-size: $font_size_small;
+		color: $main-color;
+
+		& + .btn_modal_open {
+			padding-left: 8px;
+			line-height: 1;
+		}
+	}
+}
+
+.modalf-overlay {
+	z-index: 999;
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 120%;
+	background-color: rgba(0, 0, 0, .75);
+}
+
+.modalf-window {
+	background: rgba(0, 0, 0, 0);
+	display: none;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 0;
+	pointer-events: none;
+	margin: auto;
+	z-index: 999;
+	height: auto;
+	width: 95%;
+	align-items: center;
+
+	.modal_contents_wrap {
+		position: relative;
+		width: 100%;
+		height: auto;
+		border-radius: 3px;
+		background: $white;
+		pointer-events: auto;
+
+		.btn-close {
+			position: absolute;
+			right: 5px;
+			top: 14px;
+			width: 40px;
+			height: 40px;
+			padding: 11px;
+
+			i {
+				font-size: 18px;
+				color: $dark-gray;
+			}
+		}
+
+		.modal-title {
+			font-size: $font_size_x-large;
+			line-height: 1.4;
+			padding: 20px 16px;
+			font-weight: $font_weight_bold;
+			width: calc(100% - 29px);
+			text-align: left;
+		}
+
+		.modal_contents {
+			height: auto;
+			max-height: calc(70vh - 84px);
+			padding: 0 16px;
+			margin-bottom: 16px;
+			font-size: $font_size_small;
+			overflow-y: scroll;
+			overscroll-behavior: contain;
+			text-align: left;
+			background-color: $white;
+		}
+	}
+}
+
+// 変形タイプ①：クレカサンプル画像
+.modal_float_wrap.credit-code-dialog {
+	.btn_modalf_open_wrap {
+		display: block;
+	}
+
+	.modalf-window {
+		.modal_close_text {
+			padding: 12px;
+			text-align: center;
+		}
+	}
+}
+
+// 変形タイプ②：ABテスト（条件変更モーダル）
+.modalf-window.modal_search-cond-change {
+	width: 100%;
+
+	.modal_contents_wrap {
+		position: relative;
+		min-height: 57vh;
+
+		.modal_header {
+			display: flex;
+			align-items: center;
+			height: 60px;
+			padding: 0 $margin_base * 2;
+			line-height: 1;
+			border: none;
+			color: $main-color;
+			background: #ebf6ff;
+
+			.modal-title {
+				padding: 0;
+				font-size: $font_size_medium;
+				font-weight: 300;
+			}
+
+			.btn-close {
+				padding: 10px;
+				width: auto;
+				height: auto;
+
+				.icm-modal-close {
+					font-size: $font_size_small;
+					color: $main-color;
+				}
+			}
+		}
+
+		.modal_contents {
+			width: 100%;
+			height: 100%;
+			margin-bottom: 0;
+			max-height: calc(57vh - 130px);
+			padding: $margin_base * 3 $margin_base * 2;
+		}
+
+		.modal_footer {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			margin: 0;
+			padding: $margin_base;
+			border-top: 1px solid #ddd;
+			background: $white;
+			z-index: 888;
+			border-bottom-left-radius: 3px;
+			border-bottom-right-radius: 3px;
+		}
+	}
+}

@@ -1,0 +1,240 @@
+@use '../abstracts' as *;
+
+/***** SIDEBAR *****/
+
+.contents_type_side {
+	width: 28.7%;
+	float: right;
+
+	.nav_list {
+		.nav_list_title {
+			font-size: $font_size_medium;
+			font-weight: $font_weight_bold;
+			line-height: 1.2;
+			margin-bottom: 16px;
+		}
+
+		.nav_list_item_link {
+			position: relative;
+			height: auto;
+			padding: 6px 20px 6px 20px;
+			margin: 0 auto;
+			display: block;
+			border-radius: $border_radius;
+			background: #6790c4;
+			box-shadow: 0 3px 0 0 #4e79af;
+			color: $white;
+			margin-bottom: $margin_base;
+			text-align: left;
+			padding-left: 65px;
+
+			&.is-schedule,
+			&.is-cdw {
+				padding-left: 24px;
+			}
+
+			&::before {
+				position: absolute;
+				top: 5px;
+				left: 20px;
+				display: block;
+				content: '';
+			}
+
+			&.is-return {
+				.icm-rentacar {
+					position: absolute;
+					top: 4px;
+					left: 20px;
+					font-size: 16px;
+					color: #6790c4;
+
+					&::before {
+						z-index: 1;
+						position: absolute;
+						left: 3px;
+						top: 7px;
+					}
+
+					&::after {
+						content: '';
+						display: inline-block;
+						width: 30px;
+						height: 30px;
+						background-color: $white;
+						border-radius: 50%;
+					}
+				}
+			}
+
+			&.is-faq {
+				.icm-question-fill {
+					position: absolute;
+					left: 20px;
+					top: 4px;
+					font-size: 30px;
+				}
+			}
+
+			h3 {
+				margin: 0;
+				font-weight: $font_weight_normal;
+				font-size: $font_size_large;
+			}
+		}
+	}
+
+	.sidebar_links {
+		position: relative;
+		width: 100%;
+		height: auto;
+		margin-top: 20px;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border: 1px solid #d8d8d8;
+			border-top: none;
+			border-radius: $border_radius;
+			pointer-events: none;
+		}
+
+		dt {
+			position: relative;
+			margin-bottom: 14px;
+
+			.btn_sidebar_dt {
+				display: block;
+				color: $white;
+				padding: 14px;
+				border-top-left-radius: 4px;
+				border-top-right-radius: 4px;
+				text-decoration: none;
+				background: #3f71b4;
+
+				&:hover {
+					color: $white;
+					background: #3560a3;
+				}
+			}
+
+			.icm-right-arrow {
+				position: absolute;
+				right: 14px;
+				top: 50%;
+				margin-top: -7px;
+			}
+		}
+
+		dd {
+			margin-left: 20px;
+			-webkit-margin-start: 20px;
+			font-size: 0;
+
+			.btn_sidebar_dd {
+				display: inline-block;
+				vertical-align: middle;
+				padding: 8px 0;
+				border-bottom: 2px solid #ebebeb;
+				font-size: $font_size_small;
+
+				&.is_airport,
+				&.is_station {
+					width: 100%;
+				}
+			}
+
+			&:last-child .btn_sidebar_dd {
+				border-bottom: none;
+			}
+		}
+
+		.btn_all_list_link {
+			position: absolute;
+			right: 10px;
+			padding: 2px 40px;
+			border: 1px solid #3f71b4;
+			border-radius: $border_radius;
+
+			&:hover {
+				color: $white;
+				background: #3560a3;
+			}
+		}
+
+		.icon_company {
+			display: inline-block;
+			width: 43px;
+			height: 43px;
+			border-radius: $border_radius;
+			margin-right: 10px;
+			vertical-align: middle;
+
+			&:hover {
+				opacity: .6;
+			}
+
+			&.times {
+				background: url('/rentacar/img/logo/icon/33.png') center center
+					no-repeat;
+				background-size: 43px 43px;
+			}
+
+			&.budget {
+				background: url('/rentacar/img/logo/icon/13.png') center center
+					no-repeat;
+				background-size: 43px 43px;
+			}
+
+			&.niconico {
+				background: url('/rentacar/img/logo/icon/35.png') center center
+					no-repeat;
+				background-size: 43px 43px;
+			}
+
+			&.jnet {
+				background: url('/rentacar/img/logo/icon/5.png') center center no-repeat;
+				background-size: 43px 43px;
+			}
+
+			&.nissan {
+				background: url('/rentacar/img/logo/icon/46.png') center center
+					no-repeat;
+				background-size: 43px 43px;
+			}
+
+			&.nippon {
+				background: url('/rentacar/img/logo/icon/55.png') center center
+					no-repeat;
+				background-size: 43px 43px;
+			}
+		}
+
+		.sidebar_dd_company {
+			display: inline-block;
+			vertical-align: middle;
+			padding: 8px 0;
+			border-bottom: 2px solid #ebebeb;
+			font-size: $font_size_small;
+			width: 200px;
+
+			span {
+				font-size: $font_size_tiny;
+				color: $black;
+			}
+
+			a:hover {
+				text-decoration: underline;
+			}
+		}
+
+		.all_list_link {
+			position: relative;
+			height: 40px;
+		}
+	}
+}

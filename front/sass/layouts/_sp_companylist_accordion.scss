@@ -1,0 +1,85 @@
+@use '../abstracts' as *;
+
+// 会社一覧アコーディオン
+// 現在都道府県ページのみ
+
+.variable_cont_area {
+	overflow: hidden;
+	transition: height 1s;
+
+	.company_search_li {
+		position: relative;
+
+		&.variable_cont_hidden {
+			display: none;
+		}
+
+		> i {
+			position: absolute;
+			right: 12px;
+			top: 50%;
+			margin-top: -7px;
+			color: $dark-gray;
+			font-size: $font_size_tiny;
+		}
+	}
+
+	.company_search_table {
+		display: table;
+		width: 100%;
+		border-bottom: 2px solid #f7f7f7;
+		border-collapse: separate;
+		border-spacing: 12px 6px;
+		box-sizing: border-box;
+		text-align: left;
+		color: $black;
+	}
+
+	.company_search_cell {
+		display: table-cell;
+		line-height: 1.5;
+		vertical-align: top;
+
+		.company_search_name {
+			display: block;
+			min-width: 222px;
+		}
+
+		.company_rate_star {
+			letter-spacing: 3px;
+			font-size: 11px;
+			color: $accent-color;
+		}
+
+		.company_rate_count {
+			font-size: $font_size_tiny;
+			color: $sub-color;
+		}
+	}
+
+	.company_logo_square {
+		width: 45px;
+		height: 45px;
+		border: 1px solid #f7f7f7;
+		overflow: hidden;
+	}
+
+	+ .variable_cont_more {
+		margin-bottom: 2px;
+
+		.btn_more_cont {
+			display: block;
+			height: 48px;
+			padding: 0 12px;
+			line-height: 48px;
+			text-align: right;
+			box-sizing: border-box;
+			color: $main-color;
+			background: #f7f7f7;
+
+			> i {
+				font-size: $font_size_tiny;
+			}
+		}
+	}
+}

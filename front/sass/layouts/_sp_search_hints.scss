@@ -1,0 +1,42 @@
+@use '../abstracts' as *;
+
+// common2.0から移動
+
+/* ---------------------------------
+検索のヒント New
+--------------------------------- */
+
+.hints_wrap {
+	border-top: 8px solid $light-gray;
+	padding: ($margin_base * 3) $margin_base;
+
+	> h3 {
+		font-size: $font_size_x-large;
+		font-weight: $font_weight_bold;
+		text-align: left;
+		margin-bottom: ($margin_base * 2);
+		padding: 0;
+	}
+
+	h4 {
+		font-weight: $font_weight_bold;
+		margin-bottom: ($margin_base * 1);
+		margin-top: ($margin_base * 3);
+		text-align: left;
+		padding: 0;
+	}
+
+	.suggests_btns {
+		margin-top: 16px;
+
+		.btn-type-link {
+			margin-bottom: 16px;
+			display: block;
+		}
+	}
+
+	.a-link {
+		color: $main-color;
+		text-decoration: underline;
+	}
+}

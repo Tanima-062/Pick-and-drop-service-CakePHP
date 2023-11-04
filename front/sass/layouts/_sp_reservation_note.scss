@@ -1,0 +1,27 @@
+@use '../abstracts' as *;
+
+/* ------------------
+  予約ボタン直前の確認事項（利用規約とプライバシーポリシーを確認してください）
+  /Elements/reservation_note.ctp
+------------------ */
+
+.reservation_note_wrap {
+	margin-bottom: 32px;
+	margin-top: 32px;
+	padding: 0 8px;
+
+	.reservation_note_title {
+		text-align: center;
+		font-weight: $font_weight_bold;
+		font-size: $font_size_medium;
+		margin-bottom: 16px;
+	}
+
+	.reservation_note_content {
+		font-size: $font_size_small;
+
+		a {
+			text-decoration: underline;
+		}
+	}
+}

@@ -1,0 +1,6 @@
+.error-message > ul{
+	margin:0;
+}
+.error-message > ul > li {
+	list-style:none;
+}

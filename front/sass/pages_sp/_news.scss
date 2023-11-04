@@ -1,0 +1,19 @@
+@use '../abstracts' as *;
+
+// ニュースページ　https://skyticket.jp/rentacar/news/
+// ニュースページ　https://skyticket.jp/rentacar/news/show/数字
+
+//------------------
+// NEW 202201 今後は.sp_news_page内へまとめていくこと。
+//------------------
+.sp_news_page {
+	.contents-wrap {
+		padding: 0 8px;
+	}
+
+	h2.news-ttl {
+		font-size: $font_size_medium;
+		margin-top: 20px;
+	}
+}
+//------------------

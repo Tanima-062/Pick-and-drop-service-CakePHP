@@ -1,0 +1,7 @@
+@use '../abstracts' as *;
+
+.searchform_error {
+	font-size: $font_size_small;
+	font-weight: $font_weight_bold;
+	color: $error-color;
+}

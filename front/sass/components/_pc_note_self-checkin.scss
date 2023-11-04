@@ -1,0 +1,28 @@
+@use '../abstracts' as *;
+
+// セルフチェックイン案内
+// 予約完了ページ、予約確認ページ
+
+.note-self-checkin-wrap {
+	display: block;
+	border: 1px solid $gray_lightness_1;
+	border-radius: $border_radius;
+	padding: ($margin_base * 2);
+	margin: 0 4px ($margin_base * 4);
+
+	.-heading {
+		display: block;
+		font-size: $font_size_x-large;
+		font-weight: $font_weight_bold;
+		text-align: left;
+		margin-bottom: ($margin_base * 2);
+	}
+
+	.-content {
+		display: block;
+		font-size: $font_size_medium;
+		font-weight: $font_weight_normal;
+		text-align: left;
+		line-height: 1.4;
+	}
+}

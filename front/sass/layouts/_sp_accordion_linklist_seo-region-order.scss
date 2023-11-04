@@ -1,0 +1,29 @@
+@use '../abstracts' as *;
+
+// SP accordion
+// 現在のところsp_popular_airport_linklist.ctpとsp_prefecture_linklist.ctpを使用している
+// ここにはアコーディオンの一部しか含まれてなさそう
+
+._accordion {
+	position: relative;
+
+	&::after {
+		position: absolute;
+		top: 0;
+		right: 16px;
+		bottom: 0;
+		display: flex;
+		align-items: center;
+		font-family: 'icomoon';
+		font-size: 12px;
+		color: $dark-gray;
+		content: '\e902';
+		transform: rotate(90deg);
+		transition: .2s;
+	}
+
+	&.active::after {
+		transform: rotate(270deg);
+		transition: .2s;
+	}
+}

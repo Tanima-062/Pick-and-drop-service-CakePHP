@@ -1,0 +1,132 @@
+@use '../abstracts' as *;
+
+.shoplist-wrap {
+	.shoplist-items {
+		margin: 0;
+		padding: 0;
+
+		.shoplist-item-wrap {
+			border: solid 1px $gray;
+			margin-top: ($margin_base * 3);
+
+			&:first-child {
+				margin-top: 0;
+			}
+
+			.shoplist-item-header {
+				display: flex;
+				flex-flow: row nowrap;
+				gap: $margin_base;
+				justify-content: flex-start;
+				align-items: center;
+				height: 64px;
+				color: $black;
+				line-height: 1;
+				border-bottom: solid 1px $gray;
+				background-color: $light-gray;
+
+				.logo-wrap {
+					width: 50px;
+					margin: 0 ($margin_base * 2);
+					text-align: center;
+					display: flex;
+					align-items: center;
+
+					img {
+						width: 50px;
+						object-fit: contain;
+					}
+				}
+
+				.shop-name {
+					font-size: $font_size_x-large;
+				}
+			}
+
+			.shoplist-item-contents {
+				display: flex;
+				flex-flow: row nowrap;
+				justify-content: space-between;
+				font-size: $font_size_small;
+
+				.shop-info {
+					display: flex;
+					flex-flow: column nowrap;
+					width: 100%;
+					padding: ($margin_base * 2);
+
+					li {
+						margin-bottom: $margin_base;
+
+						&:last-child {
+							margin-bottom: 0;
+						}
+					}
+
+					dl {
+						display: flex;
+						flex-flow: row nowrap;
+						font-size: $font_size_medium;
+
+						dt {
+							width: 90px;
+							height: 30px;
+							margin-right: ($margin_base * 2);
+							background-color: $dark-gray;
+							color: $white;
+							text-align: center;
+							padding: 4px 0;
+						}
+
+						dd {
+							width: calc(100% - 90px - 24px);
+							padding: 4px 0;
+						}
+					}
+				}
+
+				.btn-wrap {
+					display: flex;
+					flex-flow: column nowrap;
+					gap: ($margin_base * 2);
+					justify-content: center;
+					align-items: center;
+					padding: ($margin_base * 2);
+					border-left: 1px solid $gray;
+
+					.shoplink {
+						text-decoration: underline;
+						font-size: $font_size_medium;
+					}
+
+					.btn-type-primary {
+						font-size: $font_size_medium;
+						padding-top: 10px;
+						padding-bottom: 10px;
+						min-height: unset;
+					}
+				}
+			}
+		}
+	}
+
+	.show-more-shops-wrap {
+		text-align: right;
+		padding: $margin_base 0;
+		color: $main-color;
+		font-size: $font_size_medium;
+
+		.icm-right-arrow {
+			font-size: $font_size_tiny;
+			transition: .2s;
+		}
+	}
+
+	&[data-showall='true'] {
+		.show-more-shops-wrap {
+			.icm-right-arrow {
+				transform: rotate(-90deg);
+			}
+		}
+	}
+}

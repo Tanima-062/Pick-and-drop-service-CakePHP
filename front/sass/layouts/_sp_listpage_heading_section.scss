@@ -1,0 +1,33 @@
+@use '../abstracts' as *;
+
+// listpage heading section
+// 空港一覧、港一覧、駅一覧
+
+.listpage-heading-section {
+	// margin-bottom: ($margin_base * 2);
+
+	.listpage-title {
+		margin: 0;
+		padding: 12px;
+		text-align: left;
+		font-weight: 100;
+		display: block;
+		font-size: 1.5em;
+	}
+
+	.listpage-heading-content {
+		.-header {
+			margin: 0;
+			display: block;
+			padding: 8px;
+			text-align: center;
+			font-size: 1.5rem;
+			font-weight: $font_weight_bold;
+		}
+
+		.-text {
+			padding: 13px 5%;
+			font-size: 1.4rem;
+		}
+	}
+}

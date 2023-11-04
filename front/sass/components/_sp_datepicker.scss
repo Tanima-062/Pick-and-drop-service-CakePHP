@@ -1,0 +1,166 @@
+@use '../abstracts' as *;
+
+// SP Calendar datepicker
+// PCとSPで作り方が違うようで、PCよりデフォルトCSSをunsetする操作が必要だった
+
+// 初期非表示（default.ctpから移動してみた、様子見）
+#ui-datepicker-div {
+	display: none;
+}
+// input要素にid="SearchDate"をつけると付与されるクラス
+.hasDatepicker {
+	cursor: pointer;
+}
+// input要素にid="SearchDate"をつけると現れるbutton要素
+.ui-datepicker-trigger {
+	display: none;
+}
+
+.ui-datepicker {
+	margin-top: 2px;
+	padding: ($margin_base * 2);
+	background: $white !important;
+	z-index: 999 !important;
+	border: $sub-color 1px solid !important;
+	border-radius: $border_radius !important;
+	margin-left: -16px;
+
+	* {
+		font-family: $base_font_family !important;
+	}
+}
+
+.ui-datepicker-header {
+	&.ui-widget-header {
+		background: unset;
+		border: unset;
+	}
+
+	position: relative;
+	padding: 6px 0;
+	background: $white;
+	border: none;
+
+	.ui-datepicker-prev,
+	.ui-datepicker-next {
+		position: absolute;
+		font-size: $font_size_medium;
+		font-weight: $font_weight_bold;
+		color: $dark-gray;
+		cursor: pointer;
+		background-color: $light-gray;
+		border-radius: 50%;
+		height: 40px;
+		width: 40px;
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+
+		&.ui-state-disabled {
+			color: $gray;
+			opacity: unset;
+		}
+
+		span.ui-icon {
+			text-indent: unset;
+			background-image: none;
+			width: unset;
+			height: unset;
+		}
+
+		.icm-right-arrow {
+			display: block;
+		}
+	}
+
+	.ui-datepicker-prev {
+		transform: rotate(180deg);
+		left: 0;
+	}
+
+	.ui-datepicker-next {
+		right: 0;
+	}
+
+	.ui-datepicker-title {
+		text-align: center;
+		width: 100%;
+		line-height: 40px;
+		color: $black;
+		font-weight: $font_weight_normal;
+	}
+}
+
+.ui-datepicker-calendar {
+	th,
+	td {
+		padding: 6px 10px;
+		border: none;
+		text-align: center;
+		font-weight: $font_weight_normal;
+		background-color: $white;
+	}
+
+	th {
+		span {
+			color: $black;
+		}
+
+		&.ui-datepicker-week-end {
+			span[title='土曜日'] {
+				color: $sub-color;
+			}
+
+			span[title='日曜日'] {
+				color: $error-color;
+			}
+		}
+	}
+
+	td {
+		opacity: unset !important;
+
+		.ui-state-default {
+			color: $black;
+			background: unset;
+			border: unset;
+			font-weight: unset;
+		}
+
+		&:nth-child(7n).ui-datepicker-week-end {
+			.ui-state-default {
+				color: $sub-color;
+			}
+		}
+
+		&:nth-child(7n + 1).ui-datepicker-week-end {
+			.ui-state-default {
+				color: $error-color;
+			}
+		}
+
+		&.ui-state-disabled,
+		&.ui-state-disabled.ui-datepicker-week-end {
+			.ui-state-default {
+				color: $gray;
+			}
+		}
+
+		&.ui-datepicker-current-day {
+			background: $sub-color;
+			border-radius: $border_radius;
+
+			.ui-state-default.ui-state-active {
+				// 選択中は祝日の赤も白に上書き
+				color: $white !important;
+			}
+		}
+
+		&.ui-datepicker-public-holiday {
+			.ui-state-default {
+				// 土曜日かつ祝日も赤に上書き
+				color: $error-color !important;
+			}
+		}
+	}
+}

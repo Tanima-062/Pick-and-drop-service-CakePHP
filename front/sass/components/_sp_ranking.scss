@@ -1,0 +1,121 @@
+@use '../abstracts' as *;
+
+//コンテンツページランキング
+
+.ranking {
+	border-top: solid 8px $light-gray;
+	padding-top: ($margin_base * 4);
+	margin-top: ($margin_base * 3);
+	margin-bottom: ($margin_base * 3);
+
+	h2 {
+		font-size: $font_size_x-large;
+		font-weight: $font_weight_bold;
+		margin-bottom: $margin_base;
+		padding: 0 $margin_base;
+	}
+
+	h3 {
+		font-size: $font_size_x-large;
+		font-weight: $font_weight_bold;
+		margin-bottom: $margin_base;
+		margin-left: $margin_base;
+
+		.-icon {
+			color: $accent-color;
+		}
+	}
+
+	.ranking-list {
+		padding: ($margin_base * 2) 0;
+
+		&.ranking1 {
+			.swiper-container {
+				height: 260px;
+			}
+
+			a {
+				height: 200px;
+				width: 75%;
+
+				.-carModels {
+					text-align: center;
+				}
+
+				.carImg {
+					position: relative;
+
+					img {
+						width: 150px;
+						height: auto;
+						position: absolute;
+
+						&.img1 {
+							top: 10px;
+							left: 50px;
+
+							&.kei {
+								width: 120px;
+							}
+						}
+
+						&.img2 {
+							top: 60px;
+							left: 80px;
+						}
+					}
+				}
+			}
+		}
+
+		// 会社、都道府県？
+		a {
+			background: $white;
+			border: 1px solid $gray;
+			color: $black;
+			display: block;
+			height: 60px;
+			margin: $margin_base;
+			padding: $margin_base;
+			position: relative;
+
+			&:hover {
+				box-shadow: 3px 3px 5px $dark-gray;
+			}
+
+			.bottom {
+				bottom: $margin_base;
+				position: absolute;
+				right: $margin_base;
+			}
+
+			.-carModels {
+				color: $main-color;
+				font-weight: $font_weight_bold;
+				text-align: left;
+			}
+
+			.-price {
+				color: $error-color;
+				font-size: $font_size_x-large;
+				font-weight: $font_weight_bold;
+			}
+
+			.carCapacity {
+				display: inline-block;
+				margin-right: $margin_base;
+				font-size: $font_size_small;
+			}
+
+			.-marker {
+				background: $accent-color;
+				color: $white;
+				display: inline-block;
+				font-size: $font_size_small;
+				font-weight: $font_weight_bold;
+				margin-right: $margin_base;
+				padding: 0 5px;
+			}
+		}
+	}
+}

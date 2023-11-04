@@ -1,0 +1,156 @@
+@use '../abstracts' as *;
+
+// Wpcampaignページ
+
+.wpcampaign_page {
+	.pref_article_title {
+		padding: 12px 24px;
+		border: 1px solid #eaeaea;
+		border-bottom: none;
+		box-sizing: border-box;
+		font-size: $font_size_medium;
+		font-weight: $font_weight_bold;
+		background: #f7f7f7;
+	}
+
+	.pref_article_table {
+		display: table;
+		width: 100%;
+		border: 1px solid #eaeaea;
+		border-top: none;
+		border-collapse: separate;
+		border-spacing: 24px 24px;
+	}
+
+	.pref_article_table_cell {
+		display: table-cell;
+		vertical-align: top;
+		font-size: $font_size_small;
+	}
+
+	.company_headline_box {
+		margin-bottom: 20px;
+
+		.company_headline_logo {
+			display: inline-block;
+			padding: 12px;
+			line-height: 0;
+			vertical-align: middle;
+			border: 1px solid #bcbcbc;
+			border-radius: 8px;
+		}
+
+		.company_headline_name {
+			display: inline-block;
+			line-height: 1.3;
+			vertical-align: middle;
+			margin-left: 32px;
+			font-size: $font_size_large;
+			font-weight: $font_weight_bold;
+		}
+	}
+
+	.car_type_best_badge {
+		display: block;
+		position: absolute;
+		left: -6px;
+		top: -6px;
+		padding: 2px 4px;
+		font-size: 10px;
+		color: $white;
+		background: $accent-color;
+	}
+
+	.article_wrap {
+		width: 100%;
+		margin: 6px 0;
+		padding-bottom: 36px;
+		box-sizing: border-box;
+		font-size: $font_size_tiny;
+	}
+
+	.article_h3 {
+		padding-top: 32px;
+		font-size: 22px;
+		color: $black;
+	}
+
+	.article_h5 {
+		padding: 12px 0;
+		font-size: $font_size_small;
+		font-weight: $font_weight_bold;
+	}
+
+	.article_cont_wrap {
+		font-size: $font_size_small;
+	}
+
+	.campaign_head_wrap {
+		width: 900px;
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	.campaign_car_type {
+		width: 1024px;
+		margin: 0 0 36px -12px;
+		padding: 12px 0;
+		box-sizing: border-box;
+	}
+
+	.campaign_car_type_ul {
+		display: table;
+		margin-left: -8px;
+		border-collapse: separate;
+		border-spacing: 8px;
+		table-layout: fixed;
+		width: 100%;
+
+		.campaign_car_type_li {
+			display: table-cell;
+			position: relative;
+			text-align: center;
+			vertical-align: top;
+		}
+	}
+
+	.campaign_btn_car_type {
+		display: block;
+		box-sizing: border-box;
+		border: 1px solid #c5c5c5;
+		border-radius: 3px;
+		font-size: $font_size_tiny;
+		color: $black;
+		background: $white;
+	}
+
+	.campaign_area_name {
+		height: 40px;
+		line-height: 40px;
+		font-weight: $font_weight_bold;
+		border-top-left-radius: 3px;
+		border-top-right-radius: 3px;
+		font-size: $font_size_small;
+		background: #f7f7f7;
+	}
+
+	.campaign_car_type_wrap {
+		position: relative;
+	}
+
+	.campaign_car_type_name {
+		display: block;
+		position: absolute;
+		bottom: 2px;
+		left: 0;
+		width: 100%;
+		text-align: center;
+		font-weight: $font_weight_bold;
+	}
+
+	.campaign_best_price {
+		font-size: $font_size_large;
+		font-weight: $font_weight_bold;
+		color: $sub-color;
+	}
+}

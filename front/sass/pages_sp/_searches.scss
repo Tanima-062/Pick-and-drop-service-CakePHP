@@ -1,0 +1,294 @@
+@use '../abstracts' as *;
+
+// 検索結果ページ
+
+//------------------
+// NEW 202201 今後は.sp_searches_page内へまとめていくこと。
+//------------------
+.sp_searches_page {
+	// search outline
+	.search_outline_wrap {
+		background-color: $light-gray;
+		padding: 12px 12px 0;
+
+		.search_outline {
+			background-color: $white;
+			border: $gray solid 1px;
+			border-radius: $border_radius;
+			display: flex;
+			flex-flow: row nowrap;
+			justify-content: space-between;
+			padding: 12px;
+			gap: 8px;
+		}
+
+		.search_outline_content {
+			background-color: $white;
+			font-size: $font_size_large;
+
+			span {
+				display: block;
+				font-size: $font_size_tiny;
+				margin-bottom: 4px;
+			}
+		}
+
+		.re_search_button {
+			a {
+				align-items: center;
+				color: $main-color;
+				display: flex;
+				flex-flow: column nowrap;
+				font-size: $font_size_tiny;
+				justify-content: center;
+				height: 100%;
+				width: 50px;
+
+				.icm-search {
+					font-size: 24px;
+					margin-bottom: 4px;
+				}
+			}
+		}
+
+		.search_outline-ab {
+			display: flex;
+			background-color: $white;
+			border: $gray solid 1px;
+			border-radius: $border_radius;
+			border-bottom: none;
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 0;
+			padding: $margin_base * 2;
+			flex-flow: row nowrap;
+			justify-content: space-between;
+			gap: 8px;
+		}
+
+		.search_outline_content-ab {
+			background-color: $white;
+			font-size: $font_size_large;
+
+			span {
+				display: block;
+				font-size: $font_size_tiny;
+				margin-bottom: 4px;
+			}
+		}
+
+		.cond_change_button-ab {
+			a {
+				align-items: center;
+				color: $main-color;
+				display: flex;
+				flex-flow: column nowrap;
+				font-size: $font_size_tiny;
+				justify-content: center;
+				height: 100%;
+				width: 50px;
+
+				.icm-search {
+					font-size: 24px;
+					margin-bottom: 4px;
+				}
+			}
+		}
+
+		.search_outline_bottom-ab {
+			background-color: $white;
+			height: 36px;
+			padding: $margin_base;
+			border: $gray solid 1px;
+			border-top: 1px dashed $gray;
+			border-radius: $border_radius;
+			border-top-left-radius: 0;
+			border-top-right-radius: 0;
+
+			a {
+				display: flex;
+				align-items: center;
+				column-gap: $margin_base;
+			}
+		}
+	}
+
+	// list or map
+	.search-tab {
+		background: $light-gray;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-bottom: 1px solid $gray;
+
+		&_item {
+			font-size: $font_size_medium;
+			padding: 14px 48px;
+			cursor: pointer;
+			white-space: nowrap;
+
+			&.active {
+				cursor: default;
+				font-weight: $font_weight_bold;
+				color: $sub-color;
+				border-bottom: 3px solid $sub-color;
+			}
+		}
+	}
+
+	// IN LIST
+	.search_result_number {
+		padding: 8px 12px;
+		line-height: 1.4;
+		box-sizing: border-box;
+		font-size: $font_size_tiny;
+
+		a {
+			display: block;
+			margin-top: $margin_base;
+			text-decoration: underline;
+			font-size: $font_size_small;
+		}
+
+		// マップ検索のみ
+		&.map {
+			font-size: $font_size_small;
+			padding: $margin_base * 2;
+
+			span {
+				font-size: $font_size_medium;
+				font-weight: $font_weight_bold;
+				color: $black;
+			}
+		}
+
+		span {
+			font-size: 10px;
+			color: $error-color;
+		}
+	}
+
+	// sorting
+	.search_sort_wrap {
+		position: relative;
+		height: 40px;
+		padding: 0 12px;
+		line-height: 40px;
+		text-align: right;
+
+		.icm-right-arrow {
+			display: inline-block;
+			vertical-align: middle;
+			font-size: $font_size_tiny;
+		}
+
+		.search_sort_select {
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+			border: none;
+			outline: 0;
+			box-shadow: none;
+			tap-highlight-color: transparent;
+			// font-family: 'メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif,'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro';
+			font-size: $font_size_small;
+			background: inherit;
+		}
+
+		.search_sort_option {
+			position: absolute;
+			top: 0;
+			right: 26px;
+			width: 100%;
+			height: 100%;
+			box-sizing: border-box;
+			background: $white;
+			pointer-events: none;
+			line-height: inherit;
+		}
+	}
+
+	// 使ってない？
+	// .search_result_list {
+	// 	select{
+	// 		width: 100%;
+	// 		padding: 3px;
+	// 		border-radius: 4px;
+	// 		margin-bottom: 10px;
+	// 		height: 40px;
+	// 		font-size: 1.4rem;
+	// 		box-sizing: border-box;
+	// 	}
+
+	// 	padding: 6px 12px;
+	// 	line-height: 1.5;
+	// 	box-sizing: border-box;
+	// 	border-top: solid 1px #c8c8c8;
+	// 	font-size: $font_size_tiny;
+	// 	background: #ebf6ff;
+	// }
+
+	// paging
+	.search_count {
+		padding: $margin_base;
+		margin: $margin_base 0;
+
+		.pagingnav {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			font-size: $font_size_small;
+
+			.paging_prev,
+			.paging_next {
+				a {
+					display: block;
+					color: $spear-gray;
+					font-size: $font_size_medium;
+					background-color: $light-gray;
+					border-radius: 50%;
+					height: 40px;
+					width: 40px;
+					line-height: 40px;
+					text-align: center;
+				}
+
+				&.no_paging {
+					display: block;
+					color: $gray;
+					font-size: $font_size_medium;
+					background-color: $light-gray;
+					border-radius: 50%;
+					height: 40px;
+					width: 40px;
+					line-height: 40px;
+					text-align: center;
+				}
+			}
+		}
+	}
+
+	// re-search button
+	.research-btn-wrap {
+		padding: 0 $margin_base;
+		margin-bottom: ($margin_base * 2);
+
+		.btn-type-secondary {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+			font-size: $font_size_x-large;
+			font-weight: $font_weight_normal;
+		}
+	}
+
+	.campaign-banner {
+		background: #f0f0f0;
+		padding: 4px 12px 0 12px;
+
+		img {
+			width: 100%;
+		}
+	}
+}
+//------------------

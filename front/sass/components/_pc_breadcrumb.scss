@@ -1,0 +1,106 @@
+@use '../abstracts' as *;
+
+/* -----------------------------------------------------------------------------
+  PC breadcrumb
+----------------------------------------------------------------------------- */
+
+//静的ページ用のパンくず
+.breadcrumb {
+	margin: 16px 0;
+	font-size: $font_size_tiny;
+
+	&-list {
+		display: inline-block;
+
+		&::after {
+			font-family: 'icomoon';
+			content: '\e902';
+			font-size: 8px;
+			padding: 0 8px;
+		}
+
+		&.is-current {
+			> a {
+				pointer-events: none;
+				color: $black;
+			}
+
+			&::after {
+				content: ' ';
+			}
+		}
+	}
+}
+
+// 予約導線のステップ
+.reservation_step {
+	//予約進行状況ステップ画像
+	margin: 24px 170px 32px;
+
+	img {
+		width: 100%;
+	}
+}
+
+//検索結果とお見積り用のステップ
+.stepnav {
+	margin: 10px 0;
+
+	&::after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+
+	&-list {
+		> a {
+			margin: 0 10px;
+			color: #736d62;
+			text-decoration: none;
+			padding: 0 8px;
+			background: #e5e2de;
+			position: relative;
+			display: block;
+			float: left;
+			font-size: 85%;
+
+			&::before,
+			&::after {
+				content: '';
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				width: 1em;
+				background: #e5e2de;
+				transform: skew(-15deg, 0deg);
+			}
+
+			&::before {
+				left: -.5em;
+			}
+
+			&::after {
+				right: -.5em;
+			}
+		}
+
+		&.is-current > a {
+			background: #ffb805;
+			color: $white;
+			pointer-events: none;
+
+			&::before,
+			&::after {
+				background: #ffb805;
+			}
+
+			&:hover {
+				text-decoration: none !important;
+			}
+		}
+
+		&.disabled > a {
+			pointer-events: none;
+		}
+	}
+}

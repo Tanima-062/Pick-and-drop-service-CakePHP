@@ -1,0 +1,14 @@
+@use '../abstracts' as *;
+
+// mypages-index, plan, reservations-completion
+// 「営業時間が通常と異なります」
+.office-data {
+	.note_irregular-business-hours {
+		padding: 6px 0;
+		border-bottom: 1px dotted #ebebeb;
+		text-align: center;
+		font-size: $font_size_small;
+		font-weight: $font_weight_bold;
+		color: $sub-color;
+	}
+}

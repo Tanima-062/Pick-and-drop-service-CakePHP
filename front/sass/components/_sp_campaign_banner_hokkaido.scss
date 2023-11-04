@@ -1,0 +1,11 @@
+@use '../abstracts' as *;
+
+// キャンペーンバナー（北海道）
+
+.campaign_banner {
+	display: block;
+	width: 100%;
+	margin-bottom: 24px;
+	height: calc(100vw * .328);
+	object-fit: contain;
+}

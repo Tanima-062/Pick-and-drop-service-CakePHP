@@ -1,0 +1,102 @@
+@use '../abstracts' as *;
+
+.footer_customlinks, // レンタカー会社からの流入時
+.footer_reservations {
+	background-color: $light-gray;
+	text-align: center;
+	padding: 0;
+	border-top: 1px solid $dark-gray;
+
+	.footer_about {
+		border-top: solid 1px #e6e6e6;
+		padding: 15px 12px;
+
+		> p {
+			font-size: 10px;
+			color: #888;
+			letter-spacing: 1px;
+		}
+
+		ul {
+			margin-top: 10px;
+
+			li {
+				display: inline-block;
+				vertical-align: middle;
+				border-right: solid 1px #e6e6e6;
+				margin-right: 10px;
+				padding-right: 10px;
+
+				a {
+					color: $black;
+					display: block;
+					font-size: 11px;
+				}
+
+				&:last-child {
+					border-right: none;
+				}
+			}
+		}
+	}
+
+	.footer_skyticket_logo {
+		background-color: $black;
+		padding: 15px;
+
+		img {
+			width: 100px;
+			vertical-align: middle;
+		}
+	}
+
+	.copyright {
+		display: block;
+		background-color: $white;
+		font-size: .7rem;
+		color: $black;
+		text-align: center;
+		text-indent: 5px;
+		padding: 10px 0 10px;
+		border-top: solid 1px #ddd;
+
+		p {
+			font-size: 10px;
+			letter-spacing: 1px;
+			color: #888;
+		}
+	}
+}
+
+// STEP1、STEP2
+.footer_reservations {
+	.footer_about {
+		display: flex;
+		justify-content: space-between;
+		background-color: $white;
+		border-top: solid 8px #f7f7f7;
+
+		.about_logos {
+			display: flex;
+			justify-content: space-between;
+
+			img {
+				width: 30px;
+				vertical-align: middle;
+				margin: auto 4px auto 0;
+			}
+		}
+
+		.about_text {
+			width: calc(100% - 70px);
+			font-size: 10px;
+			text-align: left;
+			margin-left: 2px;
+			line-height: 1.4;
+
+			span {
+				font-weight: $font_weight_bold;
+			}
+		}
+	}
+}

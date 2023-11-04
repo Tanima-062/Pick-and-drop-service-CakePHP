@@ -1,0 +1,26 @@
+@use '../abstracts' as *;
+
+.session_message_wrap {
+	margin: ($margin_base * 2) 0;
+
+	.session_message {
+		display: flex;
+		flex-flow: row nowrap;
+		align-items: center;
+		justify-content: flex-start;
+		background: $warning-color;
+		padding: $margin_base;
+		margin-bottom: $margin_base;
+
+		.icm-warning {
+			color: $error-color;
+			margin-right: $margin_base;
+			font-size: $font_size_medium;
+		}
+
+		.session-message-text {
+			color: $black;
+			font-size: $font_size_tiny;
+		}
+	}
+}

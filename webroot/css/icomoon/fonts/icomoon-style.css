@@ -1,0 +1,178 @@
+/* icomoon */
+
+@font-face {
+    font-family: "icomoon";
+    src: url("icomoon.eot?ds7e2e");
+    src: url("icomoon.eot?ds7e2e#iefix") format("embedded-opentype"),
+        url("icomoon.ttf?ds7e2e") format("truetype"),
+        url("icomoon.woff?ds7e2e") format("woff"),
+        url("icomoon.svg?ds7e2e#icomoon") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+[class^="icm-"], [class*=" icm-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: "icomoon" !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icm-mail:before {
+	content: "\e910";
+}
+.icm-pocket:before {
+    content: "\e008";
+}
+.icm-hatena:before {
+    content: "\e00a";
+}
+.icm-news:before {
+    content: "\e900";
+}
+.icm-plus-light:before {
+    content: "\e901";
+}
+.icm-right-arrow:before {
+    content: "\e902";
+}
+.icm-minus-light:before {
+    content: "\e903";
+}
+.icm-arrow:before {
+    content: "\e904";
+}
+.icm-car-side:before {
+    content: "\e905";
+}
+.icm-royal-crown:before {
+    content: "\e906";
+}
+.icm-car-front:before {
+    content: "\e90b";
+}
+.icm-train:before {
+    content: "\e90c";
+}
+.icm-calendar-title:before {
+    content: "\e911";
+}
+.icm-ticket-title:before {
+    content: "\e917";
+}
+.icm-radio-selected-bg-color:before {
+    content: "\e928";
+}
+.icm-baby:before {
+    content: "\e92a";
+}
+.icm-child:before {
+    content: "\e92b";
+}
+.icm-adult:before {
+    content: "\e92c";
+}
+.icm-sparkle:before {
+    content: "\e930";
+}
+.icm-modal-close:before {
+    content: "\e931";
+}
+.icm-star-full:before {
+    content: "\e932";
+}
+.icm-star-half:before {
+    content: "\e935";
+}
+.icm-star-empty:before {
+    content: "\e936";
+}
+.icm-eye:before {
+    content: "\e937";
+}
+.icm-eye-blocked:before {
+    content: "\e939";
+}
+.icm-filter:before {
+    content: "\e93a";
+}
+.icm-location:before {
+    content: "\e947";
+}
+.icm-clock:before {
+    content: "\e94e";
+}
+.icm-radio-selected:before {
+    content: "\e96f";
+}
+.icm-radio-unselected:before {
+    content: "\e970";
+}
+.icm-no_smoking:before {
+    content: "\e971";
+}
+.icm-smoking:before {
+    content: "\e972";
+}
+.icm-thumbsup:before {
+    content: "\e973";
+}
+.icm-info-button-fill:before {
+    content: "\e978";
+}
+.icm-user-shape:before {
+    content: "\e9bf";
+}
+.icm-warning:before {
+    content: "\ea07";
+}
+.icm-checkbox-checked:before {
+    content: "\ea52";
+}
+.icm-checkbox-unchecked:before {
+    content: "\ea53";
+}
+.icm-picture:before {
+    content: "\f03e";
+}
+.icm-sitemap:before {
+    content: "\e907";
+}
+.icm-question-fill:before {
+    content: "\e908";
+}
+.icm-youtube:before {
+    content: "\e909";
+}
+.icm-skyticket-logo-round:before {
+    content: "\e90a";
+}
+.icm-external-link:before {
+    content: "\e90d";
+}
+.icm-search:before {
+	content: "\e90e";
+}
+.icm-blocked:before {
+	content: "\e90f";
+}
+.icm-rentacar:before {
+	content: "\e912";
+}
+.icm-airplane:before {
+	content: "\e913";
+}
+.icm-baggage:before {
+	content: "\e914";
+}
+  
+	

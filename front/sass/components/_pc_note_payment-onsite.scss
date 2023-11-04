@@ -1,0 +1,20 @@
+@use '../abstracts' as *;
+
+// plan, stap1
+// pc_note_payment_onsite.ctp
+
+.notes_onsite {
+	margin: 12px 0;
+	padding: 12px;
+	border: #ebebeb;
+	background: #f7f7f7;
+
+	.notes_onsite_head {
+		padding: 6px 0;
+		border-bottom: 1px dotted #ebebeb;
+		text-align: center;
+		font-size: $font_size_medium;
+		font-weight: $font_weight_bold;
+		color: $sub-color;
+	}
+}

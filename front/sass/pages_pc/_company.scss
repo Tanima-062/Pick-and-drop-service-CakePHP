@@ -1,0 +1,208 @@
+@use '../abstracts' as *;
+
+// 会社ページ
+
+//------------------
+// NEW 202201 今後は.company_page内へまとめていくこと。
+//------------------
+
+.company_page {
+	.company_headline_box {
+		margin-bottom: 20px;
+
+		.company_headline_logo {
+			display: inline-block;
+			padding: 12px;
+			line-height: 0;
+			vertical-align: middle;
+			border: 1px solid #bcbcbc;
+			border-radius: 8px;
+		}
+
+		.company_headline_name {
+			display: inline-block;
+			line-height: 1.3;
+			vertical-align: middle;
+			margin-left: 32px;
+			font-size: $font_size_large;
+			font-weight: $font_weight_bold;
+		}
+
+		.company_headline {
+			margin: 20px 0;
+			word-break: break-all;
+		}
+	}
+
+	.company_content {
+		margin: calc($margin_base * 4) 0;
+	}
+
+	.company_contents_h2 {
+		padding: 0;
+		margin: 0;
+		line-height: 1.4;
+		border-left: none;
+		font-size: $font_size_big;
+		font-weight: $font_weight_bold;
+		margin-bottom: $margin_base;
+	}
+
+	.company_contents_img {
+		max-width: 100%;
+		padding: 4px;
+		border: solid 1px #dcdcdc;
+	}
+
+	.company_youtube {
+		.content_wrap {
+			margin: $margin_base * 5 100px;
+
+			.company_youtube_title {
+				background-color: unset;
+				padding: 0;
+				font-size: $font_size_x-large;
+				display: flex;
+				align-items: center;
+
+				.icm-skyticket-logo-round {
+					margin-right: $margin_base;
+					font-size: 40px;
+					color: #1c5db5;
+				}
+			}
+
+			.youtube-home-link-wrap {
+				display: flex;
+				justify-content: flex-end;
+
+				.youtube-home-link {
+					display: flex;
+					align-items: center;
+					font-size: $font_size_small;
+				}
+
+				.icm-external-link {
+					margin-left: $margin_base * .5;
+					font-size: $font_size_medium;
+				}
+			}
+		}
+
+		.btn-type-sub {
+			padding: $margin_base * 2;
+			line-height: 1;
+			display: flex;
+			align-items: center;
+			margin: 0 auto;
+			font-size: $font_size_x-large;
+
+			.icm-youtube {
+				color: #f00;
+				margin-right: $margin_base;
+				font-size: $font_size_big;
+			}
+		}
+	}
+
+	.rentacar_txt_area {
+		h3 {
+			margin: 16px 0;
+			padding: 10px 20px;
+			font-size: $font_size_medium;
+			background: #c6e7fe;
+		}
+
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			border: 1px solid $gray;
+			text-align: center;
+		}
+
+		thead {
+			th,
+			td {
+				background-color: #eaf6ff;
+				background-color: #eaf6ff;
+				font-weight: $font_weight_bold;
+				font-size: $font_size_tiny;
+			}
+		}
+
+		th {
+			background-color: #eaf6ff;
+			padding: 10px 0;
+			border: 1px solid $gray;
+			text-align: center;
+		}
+
+		td {
+			padding: 10px 0;
+			border: 1px solid $gray;
+		}
+	}
+
+	.renta_img_wrap {
+		padding: 10px 0;
+	}
+
+	.renta_body_wrap {
+		padding: 0 20px 10px;
+		word-break: break-all;
+	}
+
+	// common2.0から移動
+	.prefectureArea {
+		padding: 8px 24px;
+		cursor: pointer;
+		position: relative;
+
+		> h3.prefectureArea_text {
+			background: none;
+			margin: 0;
+			padding: 0;
+			font-size: $font_size_medium;
+		}
+
+		&:not(:first-child) {
+			border-top: 1px solid $gray;
+		}
+
+		.icon {
+			position: absolute;
+			right: 20px;
+			transform: rotate(90deg);
+			top: 12px;
+			color: $dark-gray;
+		}
+
+		.icm-right-arrow::before {
+			font-size: $font_size_tiny;
+		}
+
+		&.open {
+			font-weight: $font_weight_bold;
+
+			> h3.prefectureArea_text {
+				font-weight: $font_weight_bold;
+			}
+
+			.icon {
+				transform: rotate(-90deg);
+			}
+		}
+	}
+
+	.prefectureOffice {
+		padding: 16px 0 16px 24px;
+
+		a {
+			width: 45%;
+			text-decoration: underline;
+			color: $main-color;
+			display: inline-block;
+			padding: 0 8px 8px 0;
+		}
+	}
+}

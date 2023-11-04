@@ -1,0 +1,61 @@
+@use '../abstracts' as *;
+
+// 会社レビューページ
+
+//------------------
+// NEW 202201 今後は.company-reviews_page内へまとめていくこと。
+//------------------
+
+.company-reviews_page {
+	.content_section.contents_search-wrap {
+		margin-bottom: ($margin_base * 3);
+	}
+
+	.contents_type_main {
+		width: 69%;
+		float: left;
+	}
+
+	.review-page-container {
+		h1.page-title {
+			margin: $margin_base * 2 0;
+			font-size: $font_size_huge;
+			font-weight: $font_weight_bold;
+		}
+
+		h2.page-sub-title {
+			margin-top: $margin_base;
+			font-size: $font_size_big;
+			font-weight: $font_weight_bold;
+		}
+
+		.contents-top {
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: $margin_base * 3;
+
+			.review-yotpo {
+				display: flex;
+				align-items: center;
+				font-size: $font_size_large;
+				font-weight: $font_weight_bold;
+
+				&-title {
+					padding-right: $margin_base * 8;
+				}
+
+				&-score {
+					padding-right: $margin_base * 2;
+				}
+
+				// 上部 Rating Stars(api)
+				.pref_review_star {
+					font-size: $font_size_x-large;
+					padding-top: 0;
+					letter-spacing: 1px;
+				}
+			}
+		}
+	}
+}
+//------------------

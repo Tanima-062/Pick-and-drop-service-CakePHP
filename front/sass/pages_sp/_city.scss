@@ -1,0 +1,116 @@
+@use '../abstracts' as *;
+
+// エリアページ
+// .sp_city_page内へまとめていくこと。
+
+.sp_city_page {
+	.section_title_blue {
+		text-align: left;
+	}
+
+	.fromairport_head {
+		width: 100%;
+		min-height: 100px;
+		padding: 16px;
+		position: relative;
+
+		.fromairport_head_text {
+			.fromairport_head_ttl {
+				//city, station
+				font-size: $font_size_big;
+				font-weight: $font_weight_bold;
+				line-height: 1.4;
+				color: $black;
+			}
+
+			.fromairport_head_en {
+				margin-top: 8px;
+				font-size: $font_size_tiny;
+				font-weight: $font_weight_bold;
+				line-height: 1;
+				color: $black;
+			}
+		}
+	}
+
+	// 続きを読む
+	.forairport_txt_area {
+		background-color: #ebf6ff;
+		padding-top: 5px;
+		display: inline-block;
+		margin-bottom: $margin_base;
+		margin-top: $margin_base;
+
+		p {
+			background-color: $white;
+			margin: 0 2%;
+			padding: 5px;
+			height: 68px;
+			overflow: hidden;
+			font-size: 10px;
+		}
+
+		span {
+			background-color: $white;
+			float: right;
+			margin: 2%;
+			padding: 2px 5px 2px 10px;
+			font-size: 10px;
+			line-height: 1;
+
+			img {
+				vertical-align: top;
+				margin-left: 4px;
+				width: 12px;
+			}
+		}
+
+		.open {
+			height: auto;
+		}
+	}
+
+	.inner_space_area {
+		padding: 0 2% 10px;
+	}
+
+	.dropoff-pricelist-section {
+		padding: 0 $margin_base $margin_base;
+
+		.forairport_price_list {
+			width: 100%;
+			border-collapse: collapse;
+			margin-bottom: $margin_base;
+
+			th {
+				background-color: #f6f5f5;
+				text-align: center;
+				border: 1px solid #a0a0a0;
+				padding: 2px;
+				font-size: 10px;
+			}
+
+			td {
+				text-align: center;
+				border: 1px solid #a0a0a0;
+				padding: 2px;
+				font-size: 10px;
+				color: #ff0303;
+				vertical-align: middle;
+				line-height: 1;
+			}
+
+			img {
+				width: 80%;
+				vertical-align: middle;
+			}
+		}
+	}
+
+	.img_caption_wrap {
+		.img_caption_btn {
+			padding: 10px 0;
+			text-align: center;
+		}
+	}
+}

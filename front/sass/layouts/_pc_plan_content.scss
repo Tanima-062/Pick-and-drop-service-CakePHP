@@ -1,0 +1,585 @@
+@use '../abstracts' as *;
+
+// Plan Info Block
+
+// common2.0から移動
+// Searches: list_search_view.ctp, map_search_view.ctp
+// 予約導線 plan,step1,step2: plan_view.ctp(&.plan_view)
+// Mypages: index.ctp
+// クライアント画面: client/View/Commodities/preview.ctp(&.plan_view)
+
+// .plan_contents_list_**は、.plan_info_block_**に書き換えたいけど、進行中のABtestを考慮し一旦そのままにしておく。
+
+.plan_info_block {
+	margin-bottom: 24px;
+	border: 2px solid $gray;
+
+	.plan_info_block_head {
+		position: relative;
+		padding: 12px;
+		background: #f7f7f7;
+		display: flex;
+
+		.plan_contents_list_head_main {
+			flex: 1;
+		}
+
+		.plan_contents_list_head_campaign-logo {
+			margin-right: $margin_base;
+		}
+
+		.plan_contents_list_head_top {
+			display: flex;
+			height: 24px;
+
+			.plan_contents_list_shop_name {
+				width: auto;
+				max-width: 852px;
+				height: 24px;
+				overflow: hidden;
+				display: inline-block;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				font-size: $font_size_medium;
+			}
+
+			/* modal--searches */
+			.btn_modalf_open_wrap {
+				display: inline-block;
+				font-size: $font_size_tiny;
+				height: 24px;
+				line-height: 24px;
+				width: 120px;
+				text-align: right;
+
+				i {
+					font-size: $font_size_small;
+					color: $main-color;
+					margin-left: 6px;
+				}
+
+				.btn_modal_open {
+					padding-left: 8px;
+					color: $main-color;
+				}
+			}
+
+			.modalf-window {
+				width: 480px;
+
+				.modal_contents_wrap {
+					.modal_contents {
+						span {
+							display: block;
+							margin-bottom: 8px;
+						}
+
+						ul {
+							margin-top: 16px;
+
+							li {
+								list-style: disc inside;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.plan_contents_list_head_middle {
+			width: 100%;
+		}
+
+		.plan_contents_list_head_bottom {
+			display: flex;
+			justify-content: space-between;
+
+			.plan_contents_list_access {
+				display: inline-block;
+				font-size: $font_size_tiny;
+				height: 18px;
+			}
+
+			.plan_contents_list_yotpo {
+				display: inline-block;
+				height: 18px;
+
+				.yotpo_widget_wrap {
+					margin: 0;
+
+					.yotpo-stars {
+						display: none;
+					}
+
+					.text-m {
+						color: $main-color;
+
+						&::before {
+							content: '★';
+							color: #ffd200;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.plan_info_block_body {
+		display: table;
+		position: relative;
+		padding: 24px 0 12px;
+		height: 100%;
+
+		.plan_contents_list_left {
+			display: table-cell;
+			width: 280px;
+			padding-left: 12px;
+			vertical-align: top;
+			box-sizing: border-box;
+
+			.plan_contents_img {
+				border: 1px solid $gray;
+			}
+
+			a > .plan_contents_img:hover {
+				// searches
+				opacity: .8;
+			}
+		}
+
+		.plan_contents_list_center {
+			display: table-cell;
+			width: 500px;
+			vertical-align: top;
+			border-right: 1px dotted #c4c4c4;
+
+			.plan_contents_name_wrap {
+				padding: 0 12px;
+				box-sizing: border-box;
+
+				&.is_search {
+					width: 500px;
+					text-overflow: ellipsis;
+					overflow: hidden;
+					white-space: nowrap;
+				}
+
+				.plan_contents_name {
+					font-size: $font_size_medium;
+					font-weight: $font_weight_bold;
+				}
+
+				a.plan_contents_name {
+					// searches
+					text-decoration: underline;
+
+					&:hover {
+						text-decoration: none;
+					}
+				}
+			}
+
+			.plan_contents_list_plandetail {
+				padding: 0 12px;
+
+				a {
+					width: 100%;
+					margin-bottom: 10px;
+					text-decoration: underline;
+				}
+			}
+
+			.plan_car_spec_ul {
+				display: table;
+				table-layout: fixed;
+				width: 100%;
+				border-collapse: separate;
+				border-spacing: 12px 12px;
+
+				.plan_car_spec_li {
+					display: table-cell;
+					text-align: center;
+
+					.plan_car_spec {
+						height: 40px;
+						line-height: 40px;
+						border: 1px solid #c4c4c4;
+						border-radius: 3px;
+						font-weight: $font_weight_bold;
+						color: $black;
+						background: $white;
+
+						&.is_inactive {
+							color: #c4c4c4;
+							background: #f7f7f7;
+						}
+
+						&.is_no_smoking {
+							color: #f00;
+						}
+
+						&.is_no_smoking > i::before {
+							position: relative;
+							top: 6px;
+							font-size: $font_size_x-large;
+							color: #f00;
+						}
+
+						&.is_smoking > i::before {
+							position: relative;
+							top: 2px;
+							font-size: $font_size_large;
+							color: $black;
+						}
+
+						&.is_car_model > i::before {
+							position: relative;
+							top: 6px;
+							left: 2px;
+							font-size: $font_size_big;
+						}
+
+						&.is_new_car > i::before {
+							position: relative;
+							top: 4px;
+							font-size: $font_size_x-large;
+						}
+					}
+				}
+			}
+
+			.plan_equipment_ul {
+				padding: 6px 12px;
+				font-size: 0;
+
+				.plan_equipment_li {
+					position: relative;
+					display: inline-block;
+					margin: 0 6px 6px 0;
+					padding: 6px;
+					border-radius: 3px;
+					font-size: $font_size_tiny;
+					color: #b7d3c1;
+					background: #f4f9e7;
+
+					&.is_active {
+						color: #106e32;
+						background: #dcecb1;
+						cursor: help;
+					}
+
+					.plan_equipment_aside {
+						display: none;
+						position: absolute;
+						top: 40px;
+						left: 0;
+						width: 200px;
+						padding: 12px 24px;
+						border: 1px solid #ddd;
+						border-radius: 3px;
+						box-sizing: border-box;
+						color: $black;
+						background: $white;
+						z-index: 1;
+
+						&::before,
+						&::after {
+							position: absolute;
+							bottom: 100%;
+							left: 30px;
+							content: '';
+							width: 0;
+							height: 0;
+							border: 10px solid transparent;
+						}
+
+						&::before {
+							border-bottom: 10px solid #ddd;
+						}
+
+						&::after {
+							margin-bottom: -1px;
+							border-bottom: 10px solid $white;
+						}
+					}
+
+					&:hover > .plan_equipment_aside {
+						display: block;
+					}
+				}
+			}
+
+			// searches
+			.plan_option_dl {
+				padding: 0 12px;
+				color: $black;
+				margin-bottom: 16px;
+
+				.plan_option_dd {
+					position: relative;
+					display: inline-block;
+
+					&::after {
+						content: '/';
+						margin-left: 2px;
+					}
+
+					&:last-of-type::after {
+						content: '';
+						margin-left: 0;
+					}
+
+					&.is_help {
+						cursor: help;
+
+						// ハテナアイコン
+						.icm-question-fill {
+							color: $sub-color;
+						}
+					}
+
+					.plan_option_aside {
+						display: none;
+						position: absolute;
+						bottom: 30px;
+						left: 0;
+						padding: 12px;
+						border: 1px solid #ddd;
+						border-radius: 3px;
+						box-sizing: border-box;
+						color: $black;
+						background: $white;
+						z-index: 1;
+
+						&::before,
+						&::after {
+							position: absolute;
+							top: 100%;
+							left: 42px;
+							content: '';
+							width: 0;
+							height: 0;
+							border: 10px solid transparent;
+						}
+
+						&::before {
+							border-top: 10px solid #ddd;
+						}
+
+						&::after {
+							margin-top: -2px;
+							border-top: 10px solid $white;
+						}
+
+						.plan_option_list {
+							white-space: nowrap;
+							font-size: $font_size_tiny;
+						}
+					}
+
+					&:hover .plan_option_aside {
+						display: block;
+					}
+				}
+			}
+		}
+
+		.plan_contents_list_right {
+			width: 215px;
+			height: 100%;
+			padding: 0 12px;
+			text-align: center;
+			vertical-align: top;
+			box-sizing: border-box;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+
+			.payment_labels {
+				white-space: nowrap;
+				margin-bottom: 16px;
+
+				.menseki_label {
+					color: $white;
+					background-color: $sub-color;
+					border: 1px solid $sub-color;
+					border-radius: 3px;
+					text-align: center;
+					padding: 1px 3px;
+					display: inline-block;
+					font-size: $font_size_tiny;
+				}
+
+				.payment_type {
+					color: $sub-color;
+					background-color: $white;
+					border: 1px solid $sub-color;
+					border-radius: 3px;
+					text-align: center;
+					padding: 1px 3px;
+					display: inline-block;
+					font-size: $font_size_tiny;
+				}
+			}
+
+			.plan_contents_price_title {
+				font-size: $font_size_small;
+			}
+
+			.plan_contents_price {
+				margin-bottom: $margin_base;
+				font-size: $font_size_big;
+				font-weight: $font_weight_bold;
+				color: $black;
+
+				span {
+					font-size: $font_size_tiny;
+					color: $black;
+					font-weight: $font_weight_normal;
+				}
+			}
+
+			.plan-notes_additional-fee {
+				position: relative;
+				height: 30px;
+				text-align: center;
+				margin-bottom: $margin_base;
+
+				.-text_drop,
+				.-text_latenight {
+					font-size: $font_size_tiny;
+					line-height: 1.4;
+					color: $black;
+
+					span {
+						font-weight: $font_weight_bold;
+					}
+				}
+			}
+
+			// searches
+			.plan_contents_form {
+				display: block;
+				width: 191px;
+				height: 100%;
+
+				.plan_contents_notes {
+					position: relative;
+					height: 20px;
+					text-align: left;
+
+					&.notes_blue {
+						color: $sub-color;
+
+						// ニュースアイコンのズレを修正
+						.icm-news {
+							padding-left: 1px;
+							padding-right: 2px;
+						}
+					}
+
+					&.notes_red {
+						color: $error-color;
+					}
+
+					.plan_notes_p {
+						position: absolute;
+						bottom: 0;
+						line-height: 1.5;
+						font-size: $font_size_tiny;
+
+						&.plan_notes_hide {
+							display: none;
+						}
+					}
+				}
+
+				.btn-type-primary {
+					width: fit-content;
+					height: 52px;
+					min-width: 191px;
+					position: absolute;
+					bottom: 12px;
+					right: 12px;
+				}
+			}
+		}
+	}
+
+	.plan_info_block_bottom {
+		width: 976px;
+		margin: 0 auto;
+		padding: ($margin_base * 2) 0;
+		text-align: center;
+		border-top: 1px solid $gray;
+		font-size: $font_size_medium;
+		line-height: 1;
+
+		a {
+			text-decoration: underline;
+
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
+
+	// 予約導線 plan,step1,step2: plan_view.ctp
+	// クライアント画面: client/View/Commodities/preview.ctp
+	&.plan_view {
+		margin-top: 8px;
+
+		.plan_contents_list_right {
+			justify-content: center;
+		}
+	}
+
+	// Searches: list_search_view.ctp
+	&.recommend_plan {
+		background: #fff8ee;
+
+		.recommend_label {
+			position: absolute;
+			top: -20px;
+			right: -2px;
+			padding: 0 12px;
+			height: 30px;
+			line-height: 30px;
+			font-size: $font_size_tiny;
+			color: $white;
+			background: $accent-color;
+			z-index: 1;
+
+			&::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: -10px;
+				width: 10px;
+				height: 30px;
+				border-bottom-width: 30px;
+				border-bottom-style: solid;
+				border-bottom-color: $accent-color;
+				border-left-width: 10px;
+				border-left-style: solid;
+				border-left-color: transparent;
+				box-sizing: border-box;
+			}
+		}
+
+		.recommend_point {
+			font-size: $font_size_tiny;
+			font-weight: $font_weight_bold;
+
+			.recommend_icon {
+				display: inline-block;
+				padding: 4px 4px;
+				line-height: 1;
+				border-radius: 3px;
+				font-size: 10px;
+				color: $white;
+				background: $accent-color;
+			}
+		}
+	}
+}

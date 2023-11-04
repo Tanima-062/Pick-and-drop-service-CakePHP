@@ -1,0 +1,93 @@
+// SP：現状TOP以外の全ページで読み込み
+//
+// 共通系
+// @use 'abstracts' as *;
+@use 'base';
+@use 'components/sp_common';
+
+// 共通パーツ：部品単体 atoms　（他のatomsを内包できないもの）
+@use 'components/heading';
+@use 'components/button';
+@use 'components/sp_button';
+@use 'components/form';
+
+// 共通パーツ：機能単体　（atomsを内包できるもの）
+@use 'components/sp_modal_float';
+@use 'components/sp_modal_fullscreen';
+@use 'components/sp_modal-equipment_desc';
+@use 'components/sp_caution_blue';
+@use 'components/sp_caution_gray';
+@use 'components/sp_datepicker';
+@use 'components/sp_loading_indicator_earth';
+@use 'components/sp_reservation_note_memo_reminder';
+//// 以下layoutsへの振り分け今度考える
+@use 'components/sp_header';
+@use 'components/sp_footer';
+@use 'components/sp_layout';
+@use 'components/sp_breadcrumb';
+@use 'components/sp_session_message';
+@use 'components/sp_modal-plan';
+@use 'components/sp_scrolltotop';
+@use 'components/sp_faq-tablist';
+@use 'components/sp_searchform_main';
+@use 'components/sp_searchform_options';
+@use 'components/sp_searchform_submit';
+@use 'components/sp_new_searchform_main';
+@use 'components/sp_yotpo_api_custom';
+@use 'components/sp_ranking';
+@use 'components/sp_linklist_seo-region-order';
+@use 'components/sp_sidebar';
+@use 'components/sp_place_link_list'; // City&Municipality
+@use 'components/sp_campaign_banner_hokkaido';
+@use 'components/sp_note_self-checkin';
+@use 'components/sp_reservation_timer';
+@use 'components/sp_note_irregular-business-hours';
+
+// ページの構成要素
+@use 'layouts/sp_plan_content';
+@use 'layouts/sp_search_hints';
+@use 'layouts/sp_shoplist_detail_accordion';
+@use 'layouts/sp_shoplist_simple';
+@use 'layouts/sp_companylist_accordion';
+@use 'layouts/sp_reservation_note';
+@use 'layouts/sp_listpage_heading_section';
+@use 'layouts/sp_listpage_accordionlist';
+@use 'layouts/sp_accordion';
+@use 'layouts/sp_accordion_linklist_seo-region-order';
+@use 'layouts/sp_accordion_wpcontents';
+@use 'layouts/sp_readmore_company_outline';
+@use 'layouts/sp_article';
+@use 'layouts/sp_note_payment_onsite';
+@use 'layouts/sp_pagetitle_simple';
+@use 'layouts/sp_pagetitle_companypage';
+@use 'layouts/sp_sectiontitle_blueback';
+@use 'layouts/sp_plan_form';
+
+// ページごとのカスタマイズ
+@use 'pages_sp/region';
+@use 'pages_sp/prefectures';
+@use 'pages_sp/city';
+@use 'pages_sp/municipality';
+@use 'pages_sp/station';
+@use 'pages_sp/stationlist';
+@use 'pages_sp/fromairport';
+@use 'pages_sp/airportlist';
+@use 'pages_sp/ferryterminal';
+@use 'pages_sp/ferryterminallist';
+@use 'pages_sp/company';
+@use 'pages_sp/company-reviews';
+@use 'pages_sp/companylist';
+@use 'pages_sp/localstoredetail';
+@use 'pages_sp/localstoredetail-reviews';
+// @use '../pc/error';使ってない？
+@use 'pages_sp/news';
+@use 'pages_sp/infos-article';
+@use 'pages_sp/wpcampaign';
+@use 'pages_sp/mypage';
+//// 予約導線
+@use 'pages_sp/searches';
+@use 'pages_sp/searches_map_search';
+@use 'pages_sp/plan';
+@use 'pages_sp/reservations';
+
+// 以上

@@ -1,0 +1,481 @@
+@use '../abstracts' as *;
+
+/* reset的なもの（可能ならreset.scss（PCSP共通）に統合したい）　*/
+// 整理道半ば
+
+html {
+	font-size: 62.5%; // いずれなくす
+	overflow-x: hidden;
+}
+
+body {
+	font-size: $font_size_small;
+	-webkit-text-size-adjust: 100%;
+	overflow-x: hidden;
+}
+
+table {
+	border-collapse: separate;
+	border-spacing: 0;
+}
+
+th {
+	font-weight: $font_weight_normal;
+	text-align: left;
+}
+
+select,
+input {
+	border: 1px solid $dark-gray;
+}
+
+input {
+	&[type='submit'],
+	&[type='reset'],
+	&[type='button'] {
+		// cursor: pointer;
+		white-space: nowrap;
+	}
+}
+
+button {
+	white-space: nowrap;
+}
+
+/* search old */
+label input[type='radio'] {
+	margin: 0 5px 0 0;
+}
+
+.clearfix {
+	overflow: hidden;
+
+	&::after {
+		content: '';
+		display: block;
+		clear: both;
+		height: 0;
+		overflow: hidden;
+	}
+}
+
+/* -----------------
+  入力ページのフォーム部品のアップデート:sp追加スタイル
+  後でSP作業するときに適用する [20220126 kim-da]
+----------------- */
+.input-form {
+	.field {
+		width: 100%;
+	}
+}
+
+.select-form {
+	.field {
+		width: 100%;
+	}
+}
+
+/***** 共通 _basic.scssから移動　ここから　*****/
+// pre {
+// 	// debug用？？
+// 	overflow: auto;
+// 	white-space: pre-wrap;
+// 	word-wrap: break-word;
+// }
+
+// a {
+// 	&:hover {
+// 		text-decoration: none;
+// 	}
+// }
+
+/* \ */
+
+// 使ってなさそう
+// * html .clearfix {
+// 	height: 1em;
+// 	overflow: visible;
+// }
+
+/***** 共通 _basic.scssから移動 ここまで *****/
+
+/***** common.scssから移動 ここから　*****/
+// 使ってなさそう
+// #loading {
+// 	display: none;
+// 	text-align: center;
+
+// 	img {
+// 		width: 80%;
+// 	}
+// }
+
+// #loading_simple {
+// 	display: none;
+// 	position: absolute;
+// 	position: fixed;
+// 	left: 0;
+// 	top: 0;
+// 	height: 100%;
+// 	width: 100%;
+// 	z-index: 100;
+
+// 	img {
+// 		height: 150px;
+// 		width: 150px;
+// 		margin: 25px;
+// 		text-align: center;
+// 	}
+
+// 	.loading_box {
+// 		position: absolute;
+// 		left: 50%;
+// 		top: 50%;
+// 		width: 300px;
+// 		height: 100px;
+// 		margin: -50px 0 0 -150px;
+// 		background-color: rgba(255, 255, 255, .8);
+// 		border: 2px solid #ebf6ff;
+// 		border-radius: 8px;
+// 		box-sizing: border-box;
+// 		font-size: $font_size_medium;
+// 		color: #393939;
+// 		text-align: center;
+// 		font-weight: $font_weight_bold;
+// 		line-height: 100px;
+// 	}
+// }
+
+/* -----------------------------------------------------------------------------
+ pageNav
+----------------------------------------------------------------------------- */
+
+// 使ってなさそう
+// yotpoのみ
+// .pageNav {
+// 	margin: 0 0 10px;
+// 	padding: 5px;
+// 	text-align: center;
+// 	background: #f3f3f3;
+// 	font-size: $font_size_tiny;
+
+// 	p {
+// 		padding: 0 0 5px;
+// 	}
+
+// 	li {
+// 		display: inline;
+// 		margin: 0 1px;
+// 		padding: 0;
+
+// 		span,
+// 		a {
+// 			display: inline-block;
+// 			padding: 3px 10px;
+// 			background: $white;
+// 			vertical-align: middle;
+// 			text-decoration: none;
+// 			color: #333;
+// 		}
+
+// 		&.current {
+// 			span,
+// 			a {
+// 				background: #31aaff;
+// 				color: $white;
+// 			}
+// 		}
+
+// 		a:hover {
+// 			background: #82cbff;
+// 		}
+// 	}
+// }
+
+/* -----------------------------------------------------------------------------
+	error
+----------------------------------------------------------------------------- */
+
+// 使ってないと思う
+// .search {
+// 	.st-table {
+// 		td {
+// 			vertical-align: middle;
+// 		}
+
+// 		th {
+// 			vertical-align: middle;
+// 			padding: 8px 2px;
+// 		}
+
+// 		td {
+// 			padding: 8px 2px;
+// 		}
+// 	}
+// }
+
+/* -----------------------------------------------------------------------------
+ 一覧ページ
+----------------------------------------------------------------------------- */
+
+/* JS用 */
+// たぶん使ってない
+// .hideEl {
+// 	display: none !important;
+// }
+
+// .btn_change-conditions {
+// 	position: relative;
+// 	color: $black;
+// 	background: #ebf6ff;
+// 	border: 3px solid #a3d9ff;
+// 	text-align: center;
+// 	display: block;
+// 	padding: 4%;
+// 	margin-top: 2%;
+// 	font-weight: $font_weight_bold;
+// 	font-size: 1.1em;
+// 	width: 88%;
+// 	margin: 2% auto;
+// 	border-radius: 8px;
+// }
+
+// .btn_change-conditions_is-search {
+// 	position: absolute;
+// 	background: url(/img/international-flights/icon-search.png);
+// 	margin-right: 2%;
+// 	display: block;
+// 	top: 28%;
+// 	left: 24%;
+// 	width: 12%;
+// 	height: 100%;
+// 	background-size: 50%;
+// 	background-repeat: no-repeat;
+// }
+
+// #member_application {
+// 	margin-left: auto;
+// 	margin-right: auto;
+// 	float: none;
+// }
+
+/***** common.scssから移動 ここまで　*****/
+
+/***** detail.scssから移動 ここから　*****/
+
+/* -----------------------------------------------------------------------------
+** detail top
+----------------------------------------------------------------------------- */
+
+/* -------------------------------------
+_top-list.scssから移植ここから　おいおい整備
+------------------------------------- */
+
+// 使ってなさそう
+// .btn_ac_return_place {
+// 	padding: 12px 0;
+// 	text-align: center;
+// 	text-decoration: underline;
+// }
+
+/* -------------------------------------- */
+
+// .option,
+// .price {
+// 	padding: 0 3%;
+// }
+
+// たぶん使ってない
+// .option ul li {
+// 	display: inline-block;
+// 	width: 25%;
+// 	text-align: center;
+
+// 	span {
+// 		background-color: #ecebeb;
+// 		text-align: center;
+// 		border: solid 1px #c8c8c8;
+// 		font-size: .6rem;
+// 		color: #787878;
+// 		border-radius: 4px;
+// 		display: block;
+// 		width: 93%;
+// 		margin: 0 auto 5px;
+
+// 		&.on {
+// 			background-color: #dcedae;
+// 			border: solid 1px #106e32;
+// 			color: #106e32;
+// 		}
+// 	}
+// }
+
+/* -------------------------------------- */
+
+// 使ってなさそう
+// .search_section {
+// 	a {
+// 		display: block;
+// 		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+// 		box-shadow: none;
+// 		outline: none;
+
+// 		&:focus {
+// 			overflow: visible;
+// 		}
+// 	}
+
+// 	h3 {
+// 		text-indent: 12px;
+// 		font-size: $font_size_tiny;
+// 	}
+// }
+
+/* -------------------------------------
+_top-list.scssから移植ここまで　おいおい整備
+------------------------------------- */
+
+/***** detail.scssから移動 ここまで　*****/
+
+/***** search.scssから移動　ここから *****/
+
+// .company_accordion {
+// 	position: relative;
+// 	width: 99%;
+// 	margin: 0 auto;
+// 	padding: 0;
+// 	border: 1px solid #8c8c8c;
+// 	border-radius: 3px;
+// 	font-size: $font_size_medium;
+// 	line-height: 1;
+
+// 	input {
+// 		display: none;
+// 	}
+
+// 	div div {
+// 		position: relative;
+// 		padding: 15px 10px 12px 41px;
+// 		border-bottom: 1px solid #8c8c8c;
+// 		background: $white;
+// 	}
+
+// 	label {
+// 		&:first-child div div {
+// 			border-top: 0;
+// 			border-top-left-radius: 3px;
+// 			border-top-right-radius: 3px;
+// 		}
+
+// 		&:last-child div div {
+// 			border-bottom: 0;
+// 			border-bottom-left-radius: 3px;
+// 			border-bottom-right-radius: 3px;
+// 		}
+// 	}
+
+// 	div div {
+// 		&::before {
+// 			position: absolute;
+// 			top: 14px;
+// 			left: 17px;
+// 			color: #3c3c3c;
+// 			font-size: $font_size_medium;
+// 			border-top: 2px solid #787878;
+// 			border-right: 2px solid #787878;
+// 			content: '';
+// 			height: 9px;
+// 			transform: rotate(135deg);
+// 			width: 9px;
+// 		}
+
+// 		&:hover {
+// 			background: $white;
+// 			cursor: pointer;
+// 		}
+// 	}
+
+// 	ul {
+// 		list-style: none;
+// 		margin: 0;
+// 		background: #f3f3f3;
+
+// 		li span {
+// 			display: block;
+// 			overflow: hidden;
+// 			height: 0;
+// 			padding: 0;
+// 			color: #3c3c3c;
+// 			text-decoration: none;
+// 			font-size: $font_size_medium;
+// 		}
+// 	}
+
+// 	input:checked + div {
+// 		ul li {
+// 			span {
+// 				position: relative;
+// 				background: none;
+// 				line-height: 1;
+// 				height: 43px;
+// 				border-top: 1px solid $white;
+// 				border-bottom: 1px solid #8c8c8c;
+// 			}
+
+// 			&:first-child span {
+// 				border-top: 0;
+// 				box-shadow: 0 7px 7px -7px rgba(0, 0, 0, .5) inset;
+// 			}
+
+// 			&:last-child span {
+// 				border-bottom: 0;
+// 			}
+// 		}
+
+// 		div::before {
+// 			position: absolute;
+// 			top: 18px;
+// 			left: 17px;
+// 			color: #3c3c3c;
+// 			font-size: $font_size_medium;
+// 			border-top: 2px solid #787878;
+// 			border-right: 2px solid #787878;
+// 			content: '';
+// 			height: 9px;
+// 			transform: rotate(-45deg);
+// 			width: 9px;
+// 		}
+
+// 		ul li span {
+// 			&::after {
+// 				position: absolute;
+// 				top: 14px;
+// 				right: 16px;
+// 				color: #3c3c3c;
+// 				font-size: $font_size_medium;
+// 				border-top: 2px solid #787878;
+// 				border-right: 2px solid #787878;
+// 				content: '';
+// 				height: 9px;
+// 				transform: rotate(135deg);
+// 				width: 9px;
+// 			}
+
+// 			select {
+// 				font-size: 15px;
+// 				width: 100%;
+// 				position: relative;
+// 				top: 0;
+// 				left: 15px;
+// 				-webkit-appearance: none;
+// 				-moz-appearance: none;
+// 				appearance: none;
+// 				border: none;
+// 				background: transparent;
+// 				padding: 13px 15px 13px 26px;
+// 			}
+// 		}
+// 	}
+// }
+
+/***** search.scssから移動　ここまで *****/

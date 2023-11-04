@@ -1,0 +1,24 @@
+@use '../abstracts' as *;
+
+// 港、空港、都道府県
+#contents_top {
+	position: relative;
+	width: 100%;
+	padding: ($margin_base * 2);
+
+	.contents_top_title {
+		font-size: $font_size_big;
+		font-weight: $font_weight_bold;
+		color: $black;
+		line-height: 1.4;
+
+		span.catch {
+			display: block;
+			margin-top: 4px;
+			font-size: $font_size_tiny;
+			font-weight: $font_weight_bold;
+			line-height: 1;
+			color: $black;
+		}
+	}
+}

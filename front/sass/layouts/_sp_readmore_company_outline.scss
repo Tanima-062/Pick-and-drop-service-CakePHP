@@ -1,0 +1,59 @@
+@use '../abstracts' as *;
+
+// readmore_company_outline
+// company, キャンペーン
+.company_outline {
+	position: relative;
+	padding: 8px 16px;
+	font-size: $font_size_small;
+
+	.company_outline_text {
+		&.limited {
+			overflow: hidden;
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: 5;
+
+			+ .btn_outline {
+				&::before {
+					content: 'もっと読む';
+					display: inline;
+				}
+
+				&::after {
+					background: url('../../img/sp/plus.png') no-repeat;
+					background-size: 100%;
+				}
+			}
+		}
+	}
+
+	.btn_outline {
+		position: relative;
+		width: 108px;
+		margin-top: 8px;
+		padding: 4px 8px;
+		border: 1px solid $sub-color;
+		border-radius: 3px;
+		font-size: $font_size_tiny;
+		color: $sub-color;
+		cursor: pointer;
+
+		&::before {
+			content: '閉じる';
+			display: inline;
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			top: 50%;
+			right: 8px;
+			width: 12px;
+			height: 12px;
+			margin-top: -6px;
+			background: url('../../img/sp/minus.png') no-repeat;
+			background-size: 100%;
+		}
+	}
+}

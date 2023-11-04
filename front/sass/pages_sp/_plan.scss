@@ -1,0 +1,220 @@
+@use '../abstracts' as *;
+
+// Planページ
+
+//------------------
+// .sp_plan_page内へまとめていくこと。
+//------------------
+
+.sp_plan_page {
+	.inner {
+		padding: 6px 12px 12px;
+	}
+
+	h4 {
+		padding: 8px;
+		text-align: center;
+		font-size: 1.5rem;
+		font-weight: $font_weight_bold;
+		background-color: #f7f7f7;
+	}
+
+	.plan_warning {
+		font-size: $font_size_tiny;
+		text-align: center;
+		padding: 10px 0;
+		line-height: 1.4;
+	}
+
+	.plan_hr {
+		height: 1px;
+		border: 0;
+		background: #ebebeb;
+	}
+
+	.notes_nobg {
+		margin: 6px 0;
+		line-height: 1.4;
+		text-align: left;
+		font-size: 11px;
+		color: $sub-color;
+
+		em {
+			font-weight: $font_weight_bold;
+		}
+	}
+
+	.notes_aside {
+		display: block;
+		text-indent: 18px;
+	}
+
+	.radio-form {
+		&.-btn {
+			margin-right: 0;
+			margin-bottom: 8px;
+			width: 100%;
+			padding: 0 12px;
+		}
+	}
+
+	#ReservationFromOffice,
+	#ReservationReturnOffice {
+		&.-one {
+			border: none;
+			background: transparent;
+			pointer-events: none;
+			font-size: 18px;
+			font-weight: 700;
+			padding: 0;
+			min-height: auto;
+			height: auto;
+			white-space: unset;
+		}
+	}
+
+	.plan_form {
+		dl {
+			dd {
+				padding: 8px 0;
+			}
+		}
+	}
+
+	.caution_blue {
+		margin-top: $margin_base;
+	}
+
+	.font-size-large {
+		font-size: $font_size_large;
+		font-weight: $font_weight_bold;
+	}
+
+	.plan_comfirmation {
+		// デビット・プリペイドカードをご使用時の注意事項-----
+		.btn_modalf_open_wrap {
+			justify-content: center;
+			margin-bottom: $margin_base;
+
+			.btn_modal_open {
+				font-size: $font_size_small;
+				padding-left: 0;
+			}
+
+			i.icm-info-button-fill {
+				display: none;
+			}
+		}
+
+		.modalf-window ul li {
+			margin-bottom: 8px;
+			list-style: disc inside;
+		}
+		// -----デビット・プリペイドカードをご使用時の注意事項
+	}
+
+	// 以下common2.0からとりあえず移動:planのみで使用してるもの
+	.fromOfficeTitle {
+		display: none;
+	}
+
+	.plan_price_list li {
+		padding: 12px;
+		box-sizing: border-box;
+		border-top: 1px solid #ebebeb;
+		white-space: nowrap;
+
+		.opt_dbox_wrap {
+			padding: 4px 12px;
+			box-sizing: border-box;
+			font-size: $font_size_tiny;
+			background: #fafafa;
+
+			.opt_price_title {
+				color: #009fff;
+			}
+
+			i {
+				color: #009fff;
+			}
+		}
+	}
+
+	.plan_price_list_th {
+		display: inline-block;
+		width: 70%;
+		white-space: normal;
+	}
+
+	.plan_price_list_td {
+		display: inline-block;
+		width: 30%;
+		text-align: right;
+
+		&.no-padding {
+			padding: 0;
+		}
+	}
+
+	/* ポップアップ */
+	.popup_body {
+		display: none;
+		position: fixed;
+		right: auto;
+		bottom: -150px;
+		left: 0;
+		width: 100%;
+		height: 84px;
+		padding: 12px;
+		line-height: 1.5;
+		box-sizing: border-box;
+		color: $white;
+		transition: .8s ease-in-out;
+		z-index: 20;
+	}
+
+	.popup_wrap {
+		display: table;
+		width: 100%;
+		padding: 12px 0;
+		border-radius: 2px;
+		border-collapse: separate;
+		border-spacing: 8px 0;
+		box-sizing: border-box;
+		background: rgba(0, 0, 0, .8);
+
+		> p {
+			display: table-cell;
+			vertical-align: middle;
+			font-size: $font_size_small;
+		}
+	}
+
+	.popup_cell {
+		display: table-cell;
+		vertical-align: middle;
+	}
+
+	.popup_main_message {
+		height: 20px;
+		font-size: $font_size_small;
+	}
+
+	.popup_notes {
+		display: block;
+		font-size: 10px;
+	}
+
+	#notifierClose {
+		font-size: $font_size_x-large;
+	}
+
+	#notifier.fadeInBottom {
+		bottom: 0;
+	}
+
+	.backsearch-btn-wrap {
+		margin-bottom: 20px;
+	}
+}
+//------------------

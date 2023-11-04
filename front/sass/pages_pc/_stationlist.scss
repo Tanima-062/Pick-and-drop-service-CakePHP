@@ -1,0 +1,149 @@
+@use '../abstracts' as *;
+
+// 駅一覧ページ
+
+//------------------
+// NEW 202201 今後は.stationlist_page内へまとめていくこと。
+//------------------
+
+.stationlist_page {
+	.contents_type_main {
+		width: 69%;
+		float: left;
+	}
+
+	.section_station_list {
+		padding-bottom: 32px;
+
+		p {
+			margin: 16px 0;
+		}
+	}
+
+	.station_list_block {
+		display: inline-block;
+		width: 326px;
+		vertical-align: top;
+		margin-right: 32px;
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+
+	.station_list {
+		border-top: 1px solid #8c8c8c;
+
+		dl {
+			display: inline-block;
+			width: 100%;
+			padding-left: 32px;
+			padding-bottom: 10px;
+			box-sizing: border-box;
+		}
+
+		dt {
+			width: 100%;
+			padding: 10px 0;
+			text-indent: -32px;
+			border-bottom: 1px solid #ececec;
+		}
+
+		dd {
+			display: inline-block;
+			padding: 10px 12px 0 12px;
+		}
+
+		> ul {
+			margin: 0;
+			padding: 0;
+			display: inline-block;
+			width: 100%;
+			padding-left: 32px;
+			padding-bottom: 10px;
+			box-sizing: border-box;
+
+			> li {
+				display: inline-block;
+				padding: 10px 12px 0 12px;
+
+				&.station_list_title {
+					display: block;
+					width: 100%;
+					padding: 10px 0;
+					text-indent: -32px;
+					border-bottom: 1px solid #ececec;
+
+					> h2 {
+						margin: 0;
+						padding: 0;
+						font-weight: $font_weight_normal;
+						font-size: $font_size_medium;
+					}
+				}
+			}
+		}
+	}
+
+	.rent-margin-bottom-l {
+		margin-bottom: 40px !important;
+	}
+
+	.rentacar_txt_area {
+		h2 {
+			line-height: 40px;
+			margin: 10px 0;
+			padding-left: 24px;
+			border-left: 3px solid #4e78b9;
+			font-size: $font_size_large;
+			font-weight: $font_weight_normal;
+		}
+
+		h3 {
+			margin: 16px 0;
+			padding: 10px 20px;
+			font-size: $font_size_medium;
+			background: #c6e7fe;
+		}
+
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			border: 1px solid $gray;
+			text-align: center;
+		}
+
+		thead {
+			th,
+			td {
+				background-color: #eaf6ff;
+				background-color: #eaf6ff;
+				font-weight: $font_weight_bold;
+				font-size: $font_size_tiny;
+			}
+		}
+
+		th {
+			background-color: #eaf6ff;
+			padding: 10px 0;
+			border: 1px solid $gray;
+			text-align: center;
+		}
+
+		td {
+			padding: 10px 0;
+			border: 1px solid $gray;
+		}
+	}
+
+	.renta_img_wrap {
+		padding: 10px 0;
+	}
+
+	.renta_body_wrap {
+		padding: 0 20px 10px;
+		word-break: break-all;
+	}
+}
+
+//------------------

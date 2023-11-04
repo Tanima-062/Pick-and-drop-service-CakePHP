@@ -1,0 +1,123 @@
+@use '../abstracts' as *;
+
+// 会社一覧ページ
+
+//------------------
+// .companylist_page内へまとめていくこと。
+//------------------
+
+.companylist_page {
+	.contents_type_main {
+		width: 69%;
+		float: left;
+	}
+
+	h2.company_list_h2 {
+		font-size: $font_size_x-large;
+		font-weight: $font_weight_bold;
+		line-height: 1.2;
+		margin-bottom: 16px;
+	}
+
+	.left_contents {
+		width: 690px;
+		float: left;
+		margin-bottom: 20px;
+	}
+
+	.company_list_div {
+		width: 690px;
+		height: auto;
+		border: 1px solid #d2d2d2;
+		display: inline-block;
+		padding-bottom: 10px;
+		margin-bottom: 10px;
+	}
+
+	.company_list_title {
+		background-color: #cedff4;
+		height: 40px;
+
+		img {
+			float: left;
+			margin-top: 5px;
+			margin-left: 9px;
+		}
+
+		h3.company_list_title_text {
+			margin: 0;
+			clear: none;
+			float: left;
+			margin-left: 13px;
+			margin-top: 7px;
+			font-size: $font_size_large;
+			font-weight: $font_weight_normal;
+		}
+
+		p {
+			float: left;
+			margin-left: 13px;
+			margin-top: 7px;
+			font-size: $font_size_large;
+		}
+	}
+
+	.company_list_title_area {
+		float: right !important;
+		margin-right: 20px;
+		font-size: $font_size_small !important;
+		border-radius: 5px;
+		padding: 3px 45px 1px;
+		color: $white;
+
+		&.is-allarea {
+			background-color: #4d79af;
+		}
+
+		&.is-localarea {
+			background-color: #919295;
+		}
+	}
+
+	.company_description {
+		margin: 14px 17px 10px;
+	}
+
+	.show_company_detail {
+		color: $sub-color;
+		text-decoration: underline;
+		float: right;
+		margin-right: 17px;
+		position: relative;
+		padding-left: 19px;
+		cursor: pointer;
+
+		&::before {
+			content: url(../img/campaign_arrow.png);
+			display: block;
+			background-size: 16px;
+			top: 2px;
+			left: 0;
+			position: absolute;
+			background-repeat: no-repeat;
+		}
+	}
+
+	.right_contents {
+		width: 284px;
+		float: right;
+
+		a {
+			margin-bottom: 10px;
+			display: block;
+		}
+	}
+
+	.clearfix::after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+}
+
+//------------------

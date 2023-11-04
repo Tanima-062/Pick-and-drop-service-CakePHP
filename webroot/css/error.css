@@ -1,0 +1,69 @@
+main.error_wrapper {
+	display: block;
+	height: 100vh;
+	font-size: 1rem;
+	color: #fff;
+	background: #1ba1ff url('/rentacar/img/error.jpg') top center no-repeat;
+	background-size: cover;
+}
+.error_container {
+	width: 1000px;
+	margin: 0 auto;
+	padding-top: 3em;
+}
+.error_container h2 {
+	margin-bottom: .4em;
+}
+.error_container p {
+	margin-bottom: 3em;
+	line-height: 2;
+	font-size: .9em;
+	letter-spacing: 1.23px;
+}
+.error_container hr {
+	height: 0;
+	margin: 15px 0;
+	border: 0;
+	border-top: 1px solid #ddd;
+	box-sizing: content-box;
+}
+.error_container a {
+	color: #fff;
+	text-decoration: underline;
+	transition: opacity .2s linear;
+}
+.error_container a:hover {
+	opacity: .8;
+}
+a.btn_link_home {
+	display: block;
+	width: 270px;
+	padding: 1em 2em;
+	text-align: center;
+	text-decoration: none;
+	letter-spacing: 1.23px;
+	font-size: .9em;
+	background-color: #1f5eb4;
+	box-sizing: border-box;
+}
+@media screen and (max-width:640px){
+	html {
+		font-size: 14px;
+	}
+	.error_container {
+		width: 90%;
+		margin: 0 auto;
+		padding: 2rem 0;
+	}
+	.error_container h2 {
+		font-size: 1.5rem;
+		font-weight: 700;
+		text-shadow: 0 1px 1px #14425a;
+	}
+	.maintenance__container p {
+		line-height: 1.5em;
+	}
+	a.btn_link_home {
+		width:100%;
+	}
+}

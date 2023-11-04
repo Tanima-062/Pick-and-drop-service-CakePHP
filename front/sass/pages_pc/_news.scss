@@ -1,0 +1,55 @@
+@use '../abstracts' as *;
+
+// ニュースページ　https://skyticket.jp/rentacar/news/
+// ニュースページ　https://skyticket.jp/rentacar/news/show/数字
+
+//------------------
+// NEW 202201 今後は.news_page内へまとめていくこと。
+//------------------
+.news_page {
+	.contents-wrap {
+		margin: 16px 0 48px 0;
+	}
+
+	hr {
+		box-sizing: content-box;
+		height: 0;
+		margin: 15px 0;
+		border: 0;
+		border-top: 1px solid #ddd;
+	}
+
+	// .news-body { 使ってなさそう
+	// 	font-family: 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', 'メイリオ',
+	// 		Meiryo, sans-serif;
+	// 	line-height: 22px;
+	// 	font-size: $font_size_small;
+	// 	white-space: pre-wrap;
+	// 	word-wrap: break-word;
+	// 	overflow: auto;
+	// }
+
+	.st-list > li {
+		&::after,
+		&::before {
+			content: ' ';
+			display: table;
+		}
+
+		&::after {
+			clear: both;
+		}
+
+		&:nth-child(n + 2) {
+			margin-top: 5px;
+			padding-top: 5px;
+			border-top: 1px solid #ddd;
+		}
+
+		a {
+			color: $main-color;
+			text-decoration: none;
+		}
+	}
+}
+//------------------

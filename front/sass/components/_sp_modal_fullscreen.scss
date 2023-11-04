@@ -1,0 +1,113 @@
+@use '../abstracts' as *;
+
+/* -----------------------------------------------------------------------------
+  モーダル-Fullscreen
+----------------------------------------------------------------------------- */
+body.body-fixed {
+	position: fixed;
+	width: 100%;
+}
+
+.modalfs-window {
+	display: none;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	pointer-events: none;
+	z-index: 999;
+
+	.modal_contents_wrap {
+		position: relative;
+		height: 100%;
+		width: 100%;
+		border-radius: 3px;
+		background: $white;
+		pointer-events: auto;
+
+		.modal_header {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			height: 60px;
+			padding: 0 $margin_base * 2;
+			line-height: 1;
+			border: none;
+			color: $main-color;
+			background: #ebf6ff;
+
+			.modal-title {
+				font-size: $font_size_medium;
+				font-weight: 300;
+			}
+
+			.btn-close {
+				.icm-modal-close {
+					font-size: $font_size_small;
+					color: $main-color;
+				}
+			}
+
+			&-filter {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				height: 60px;
+				padding: 0 $margin_base * 2;
+				line-height: 1;
+				border-bottom: 1px solid $gray;
+
+				.modal-title {
+					font-size: $font_size_x-large;
+					font-weight: $font_weight_bold;
+				}
+
+				.btn-close {
+					.icm-modal-close {
+						font-size: $font_size_small;
+					}
+				}
+
+				.btn-reset {
+					font-size: $font_size_small;
+					color: $main-color;
+					text-decoration: underline;
+					white-space: nowrap;
+				}
+
+				.btn-close,
+				.btn-reset {
+					width: 50px;
+				}
+			}
+		}
+
+		form {
+			height: 100%;
+		}
+
+		.modal_contents {
+			width: 100%;
+			height: 100%;
+			font-size: $font_size_small;
+			overflow-y: scroll;
+			overscroll-behavior: contain;
+			background-color: $white;
+			padding: $margin_base * 3 $margin_base * 2 154px; // 154 = header(60px) + footer(70px) + basic padding(24px)
+		}
+
+		.modal_footer {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			padding: $margin_base;
+			border-top: 1px solid #ddd;
+			background: $white;
+			z-index: 1;
+			border-bottom-left-radius: 3px;
+			border-bottom-right-radius: 3px;
+		}
+	}
+}

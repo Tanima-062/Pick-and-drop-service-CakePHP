@@ -1,0 +1,134 @@
+@use '../abstracts' as *;
+
+.footer_customlinks,
+.footer_reservations {
+	background-color: $light-gray;
+	color: $black;
+	border-top: solid 1px $white;
+
+	a:hover {
+		opacity: .8;
+	}
+
+	.footer_bottom {
+		padding: 10px 0;
+		background-color: $white;
+
+		.copyright {
+			font-size: 11px;
+			letter-spacing: 1px;
+		}
+	}
+}
+
+// レンタカー会社からの流入時
+.footer_customlinks {
+	.registration_number {
+		height: 60px;
+		font-size: $font_size_tiny;
+		display: flex;
+		align-items: center;
+	}
+
+	.footer_wrap {
+		width: 1000px;
+		margin: 0 auto;
+		position: relative;
+	}
+
+	.footer_skyticket_logo_wrap {
+		background-color: $black;
+
+		.footer_skyticket_logo {
+			display: flex;
+			width: 1000px;
+			height: 60px;
+			align-items: center;
+			margin: 0 auto;
+
+			img {
+				vertical-align: middle;
+			}
+		}
+	}
+
+	.footer_bottom {
+		.footer_wrap {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		.footer_bottom_menu {
+			li {
+				display: inline-block;
+				border-right: solid 1px #ddd;
+				margin-right: 10px;
+				padding-right: 10px;
+
+				a {
+					display: block;
+					font-size: 11px;
+					color: #555;
+				}
+			}
+		}
+	}
+}
+
+// STEP1、STEP2 footer PC
+.footer_reservations {
+	.footer_about_wrapper {
+		background-color: $white;
+		border-top: solid 8px #f7f7f7;
+		padding: 16px 0;
+
+		.footer_about {
+			display: flex;
+			justify-content: space-between;
+			width: 1000px;
+			margin: 0 auto;
+
+			.about_logos {
+				display: flex;
+				justify-content: space-between;
+
+				img {
+					width: 30px;
+					vertical-align: middle;
+					margin: auto 4px auto 0;
+				}
+			}
+
+			.about_text {
+				width: calc(100% - 70px);
+				font-size: $font_size_tiny;
+				text-align: left;
+				margin-left: 2px;
+
+				span {
+					font-weight: $font_weight_bold;
+				}
+			}
+		}
+	}
+
+	.footer_logo {
+		padding: 10px 0;
+		background-color: $black;
+
+		.logo {
+			text-align: center;
+
+			img {
+				vertical-align: middle;
+				height: 24px;
+			}
+		}
+	}
+
+	p {
+		text-align: center;
+		color: $spear-gray;
+	}
+}

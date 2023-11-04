@@ -1,0 +1,488 @@
+@use '../abstracts' as *;
+
+// TOPページ
+
+.tops_page {
+	font-size: $font_size_medium; //　commonへ？？
+
+	// お知らせ
+	.news_dl {
+		display: block;
+		width: 1000px;
+		margin: 12px auto;
+		padding: 6px 12px;
+		border: 1px solid #ddd;
+		background: $white;
+
+		.news_dt {
+			padding: 2px 6px;
+			font-weight: $font_weight_bold;
+			display: flex;
+			align-items: center;
+			line-height: normal;
+
+			> i {
+				margin-right: 6px;
+				color: $accent-color;
+			}
+		}
+
+		.news_dd {
+			position: relative;
+			padding: 2px;
+			text-indent: 24px;
+			border-bottom: 1px solid #eee;
+
+			&:last-of-type {
+				border-bottom: 0;
+			}
+		}
+	}
+
+	h1,
+	h2,
+	h3 {
+		font-weight: $font_weight_bold;
+	}
+
+	.block-title {
+		margin-bottom: 16px;
+		font-size: $font_size_big;
+		font-weight: $font_weight_bold;
+		line-height: 1;
+	}
+
+	.wrap {
+		width: 1000px;
+		height: 100%;
+		padding: 0;
+		margin: auto;
+		position: relative;
+	}
+
+	//　バナー
+	.top_banner {
+		display: block;
+		width: 100%;
+		margin-top: 24px;
+		height: 82px;
+		object-fit: contain;
+	}
+
+	// お得なキャンペーンから探す
+	.campaign {
+		position: relative;
+		margin-bottom: ($margin_base * 3);
+		margin-top: ($margin_base * 3);
+
+		.swiper-campaign {
+			.swiper-wrapper {
+				text-align: center;
+			}
+
+			.swiper-slide {
+				> a {
+					text-align: center;
+
+					&:hover {
+						opacity: .6;
+					}
+				}
+			}
+		}
+
+		.swiper-button-next {
+			right: -50px;
+		}
+
+		.swiper-button-prev {
+			left: -50px;
+		}
+
+		.swiper-pagination {
+			position: relative;
+			width: 100%;
+			margin-top: 16px;
+
+			.swiper-pagination-bullet {
+				margin: 0 8px;
+			}
+		}
+	}
+
+	// 人気の空港から探す
+	.popularity {
+		margin-bottom: 48px;
+
+		.popularity-container {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+			grid-gap: 16px;
+		}
+
+		a {
+			border: 1px solid $gray;
+			border-radius: 3px;
+			display: block;
+
+			.popularity-img {
+				width: 100%;
+				height: 120px;
+				overflow: hidden;
+
+				picture {
+					display: block;
+					width: 100%;
+					height: 100%;
+
+					img {
+						object-position: center -30px;
+						object-fit: cover;
+					}
+				}
+			}
+
+			&:hover {
+				.popularity-img picture {
+					opacity: .8;
+					transform: scale(1.1);
+					transition: all .3s ease-out;
+				}
+			}
+
+			.popularity-desc {
+				padding: 8px;
+
+				.-cheapestprice {
+					display: flex;
+					justify-content: space-between;
+					margin-top: $margin_base;
+
+					.-tag {
+						background: $accent-color;
+						color: $white;
+						font-size: $font_size_tiny;
+						border-radius: 3px;
+						display: inline-block;
+						padding: 0 8px;
+						height: 22px;
+						line-height: 22px;
+					}
+
+					.-price {
+						font-weight: $font_weight_bold;
+						font-size: $font_size_x-large;
+					}
+				}
+			}
+		}
+	}
+
+	// 全国の主要な空港からレンタカーを探す
+	.search_by_airport_wrap {
+		margin-bottom: 48px;
+
+		.search_by_airport_content {
+			position: relative;
+			display: flex;
+			flex-flow: row nowrap;
+			justify-content: flex-start;
+			border: 1px solid $gray;
+			width: 100%;
+			padding: 24px 32px 48px 32px;
+		}
+
+		.search_by_airport_content_left,
+		.search_by_airport_content_right {
+			display: block;
+			width: 50%;
+
+			.content_row {
+				display: flex;
+				flex-flow: row nowrap;
+				justify-content: flex-start;
+
+				&:not(:last-of-type) {
+					margin-bottom: 16px;
+				}
+			}
+
+			.content_row_title {
+				padding: 8px 24px 0 0;
+				width: 72px;
+				line-height: 1.4;
+				font-size: $font_size_medium;
+				font-weight: $font_weight_normal;
+			}
+
+			.content_row_list {
+				padding: 8px 0 0 24px;
+				border-left: solid 1px $gray;
+				width: calc(100% - 72px);
+				display: flex;
+				flex-flow: row wrap;
+
+				li {
+					padding-right: 32px;
+					padding-bottom: 8px;
+					line-height: 1.4;
+					font-size: $font_size_medium;
+					font-weight: $font_weight_normal;
+				}
+			}
+		}
+
+		.link_to_list {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			font-size: $font_size_small;
+			margin: 0 32px 24px 0;
+			line-height: 1;
+
+			.icm-right-arrow {
+				margin-left: 8px;
+				font-size: $font_size_tiny;
+				font-weight: $font_weight_normal;
+			}
+		}
+	}
+
+	// 全国の主要な駅からレンタカーを探す
+	// 人気の場所からレンタカーを探す
+	.search_by_2col_wrap {
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-between;
+		width: 100%;
+
+		.search_by_station_wrap,
+		.search_by_place_wrap {
+			width: calc((100% - 24px) / 2);
+			margin-bottom: 48px;
+		}
+
+		.search_by_station_content,
+		.search_by_place_content {
+			position: relative;
+			border: 1px solid $gray;
+			padding: 24px 24px 48px 24px;
+			height: 236px;
+
+			li {
+				display: inline-block;
+				margin-bottom: 24px;
+				line-height: 1;
+			}
+		}
+
+		.search_by_station_content {
+			li:not(:nth-of-type(5n)) {
+				margin-right: 36px;
+			}
+		}
+
+		.search_by_place_content {
+			li:not(:nth-of-type(6n)) {
+				margin-right: 36px;
+			}
+		}
+
+		.link_to_list {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			font-size: $font_size_small;
+			margin: 0 24px 24px 0;
+			line-height: 1;
+
+			.icm-right-arrow {
+				margin-left: 8px;
+				font-size: $font_size_tiny;
+				font-weight: $font_weight_normal;
+			}
+		}
+	}
+
+	// おすすめのレンタカー会社から探す
+	.search_by_supplier_wrap {
+		padding: 0;
+
+		.search_by_supplier_content {
+			position: relative;
+			margin-bottom: 48px;
+
+			ul {
+				display: flex;
+				flex-flow: row wrap;
+
+				li {
+					border: 1px solid $gray;
+					width: calc((100% - 48px) / 4);
+					margin-bottom: 8px;
+					line-height: 1.4;
+
+					&:not(:nth-of-type(4n)) {
+						margin-right: 16px;
+					}
+
+					&:nth-last-of-type(1),
+					&:nth-last-of-type(2) {
+						margin-bottom: 0;
+					}
+
+					a {
+						width: 100%;
+						height: 100%;
+						display: flex;
+						flex-flow: row nowrap;
+						justify-content: flex-start;
+						padding: 8px;
+						align-items: center;
+						color: $black;
+					}
+
+					img {
+						width: 50px;
+						height: 50px;
+						margin-right: 8px;
+					}
+				}
+			}
+
+			.link_to_list {
+				position: absolute;
+				bottom: 0;
+				right: 0;
+				font-size: $font_size_small;
+				margin: 0;
+				line-height: 1;
+
+				.icm-right-arrow {
+					margin-left: 8px;
+					font-size: $font_size_tiny;
+					font-weight: $font_weight_normal;
+				}
+			}
+		}
+	}
+
+	// 人気のレンタカー店舗から探す
+	.search_by_store_wrap {
+		margin-bottom: 48px;
+
+		.search_by_store_content {
+			border: 1px solid $gray;
+			padding: 24px 16px;
+			line-height: 1;
+
+			ul {
+				display: block;
+				height: 48px;
+			}
+
+			li {
+				display: inline-block;
+				width: calc((100% - 32px) / 3);
+				line-height: 1;
+
+				&:not(:nth-last-of-type(1)):not(:nth-last-of-type(2)) {
+					margin-bottom: 16px;
+				}
+			}
+		}
+	}
+
+	// 予約から返却までの流れ、よくある質問
+	.info {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 16px;
+		margin-bottom: 48px;
+
+		> .btn-type-link {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 80px;
+			background-repeat: no-repeat;
+			background-size: 70px auto;
+			background-position: 24px center;
+			padding-left: 108px;
+
+			> h2 {
+				font-size: $font_size_x-large;
+			}
+		}
+
+		.-reserve {
+			background-image: url('../img/top/icon-reserve.png');
+		}
+
+		.-faq {
+			background-image: url('../img/top/icon-faq.png');
+		}
+	}
+
+	// レンタカーの注目記事
+	.guide_ariticles {
+		margin-bottom: 48px;
+
+		.grid-container {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-gap: 16px;
+		}
+
+		a {
+			padding: 8px;
+			display: table;
+			color: $black;
+			width: 100%;
+			border: 1px solid $gray;
+			border-radius: 3px;
+
+			div {
+				display: table-cell;
+				vertical-align: middle;
+
+				&.-image {
+					width: 70px;
+					height: 60px;
+
+					img {
+						width: 60px;
+						height: 60px;
+					}
+				}
+
+				.-title {
+					font-weight: $font_weight_bold;
+					font-size: $font_size_medium;
+				}
+
+				.-description {
+					font-size: $font_size_small;
+				}
+			}
+		}
+	}
+}
+
+// 海外レンタカー用　ヘッダー言語メニュー
+// ヘッダー共通化で不要となった可能性
+// .select_locale {
+// 	* {
+// 		box-sizing: border-box;
+// 	}
+
+// 	color:  $black;
+
+// 	.form-select {
+// 		width: 100%;
+// 	}
+
+// 	label {
+// 		display: block;
+// 	}
+// }

@@ -1,0 +1,37 @@
+extends: stylelint-config-standard
+ignoreFiles:
+  - '**/fa.scss'
+  - '**/icomoon.scss'
+  - '**/variables.scss'
+  - '**/webfont.scss'
+  - 'node_modules/**'
+rules:
+  color-hex-length: short
+  color-hex-case: lower
+  indentation: tab
+  string-quotes: single
+  selector-id-pattern: never
+  number-leading-zero: never
+  at-rule-no-unknown:
+    - true
+    - ignoreAtRules:
+      - at-root
+      - content
+      - each
+      - else
+      - error
+      - for
+      - function
+      - include
+      - if
+      - mixin
+      - return
+      - warn
+      - extend
+  declaration-block-no-redundant-longhand-properties:
+    - true
+    - ignoreShorthands:
+      - flex-flow
+  no-descending-specificity:
+  font-family-no-missing-generic-family-keyword:
+  declaration-block-no-duplicate-properties:

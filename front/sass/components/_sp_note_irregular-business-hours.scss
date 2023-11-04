@@ -1,0 +1,9 @@
+@use '../abstracts' as *;
+
+// mypages-index, plan, reservations-completion
+// 「営業時間が通常と異なります」
+.note_irregular-business-hours {
+	display: block;
+	color: $sub-color;
+	padding: $margin_base 0;
+}

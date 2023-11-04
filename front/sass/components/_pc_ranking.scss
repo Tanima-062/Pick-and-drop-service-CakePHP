@@ -1,0 +1,124 @@
+@use '../abstracts' as *;
+
+// PC コンテンツページランキング
+
+.ranking {
+	margin-bottom: ($margin_base * 4);
+
+	h2 {
+		font-size: $font_size_x-large;
+		font-weight: $font_weight_bold;
+		margin-bottom: $margin_base;
+	}
+
+	> div {
+		background: $light-gray;
+		padding: ($margin_base * 2);
+
+		&:not(:first-of-type) {
+			> ul {
+				> li.popular_area_ranking_item {
+					> div {
+						> a {
+							height: 100px;
+						}
+					}
+				}
+			}
+		}
+
+		&:first-of-type {
+			a {
+				height: 222px;
+
+				.carImg {
+					position: relative;
+
+					img {
+						width: 150px;
+						height: auto;
+						position: absolute;
+
+						&.img1 {
+							top: 10px;
+							left: 50px;
+
+							&.kei {
+								width: 120px;
+							}
+						}
+
+						&.img2 {
+							top: 60px;
+							left: 80px;
+						}
+					}
+				}
+			}
+		}
+
+		.ranking-inner {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		h3 {
+			font-size: $font_size_x-large;
+			font-weight: $font_weight_bold;
+			margin-bottom: $margin_base;
+
+			.-icon {
+				color: $accent-color;
+			}
+		}
+	}
+
+	a {
+		background: $white;
+		border: 1px solid $gray;
+		color: $black;
+		height: 50px;
+		margin: 0 $margin_base;
+		padding: $margin_base;
+		position: relative;
+		width: 100%;
+
+		&:hover {
+			box-shadow: 3px 3px 5px $dark-gray;
+		}
+
+		.bottom {
+			bottom: $margin_base;
+			position: absolute;
+			right: $margin_base;
+		}
+
+		.-carModels {
+			color: $main-color;
+			font-weight: $font_weight_bold;
+			text-align: center;
+		}
+
+		.-price {
+			color: $error-color;
+			font-size: $font_size_x-large;
+			font-weight: $font_weight_bold;
+		}
+
+		.carCapacity {
+			display: inline-block;
+			margin-right: $margin_base;
+			font-size: $font_size_small;
+		}
+
+		.-marker {
+			background: $accent-color;
+			color: $white;
+			display: inline-block;
+			font-size: $font_size_small;
+			font-weight: $font_weight_bold;
+			margin-right: $margin_base;
+			padding: 0 5px;
+		}
+	}
+}

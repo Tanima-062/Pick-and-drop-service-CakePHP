@@ -1,0 +1,658 @@
+@use '../abstracts' as *;
+
+// PC & SP 共通
+
+/* -----------------------------------------------------------------------------
+  入力ページのフォーム部品のアップデート
+----------------------------------------------------------------------------- */
+
+.input-form {
+	//inputスタイル
+	.field {
+		width: 100%;
+		min-height: 52px;
+		padding: $margin_base * 1 $margin_base * 2;
+		font-size: $font_size_medium;
+		border-radius: $border_radius;
+		border: 1px solid $dark-gray;
+		background: $white;
+
+		&::placeholder {
+			color: $dark-gray;
+		}
+
+		&:disabled {
+			background: $light-gray;
+			color: $dark-gray;
+			border-color: $gray;
+		}
+		// &:focus {
+		// 	border: 2px solid $sub-color;
+		// }
+		&.-error {
+			border: 2px solid $error-color;
+			background: $warning-color;
+		}
+
+		&.-full {
+			width: 100%;
+		}
+
+		&.-half {
+			width: 50%;
+		}
+
+		&.-onethird {
+			width: 33%;
+		}
+
+		&.-quarter {
+			width: 24%;
+		}
+	}
+
+	.field-wrap {
+		position: relative;
+
+		&.icon-right {
+			.-icon {
+				&::before {
+					position: absolute;
+					cursor: pointer;
+					font-size: $font_size_x-large;
+					color: $spear-gray;
+				}
+
+				&.icm-eye-blocked {
+					&::before {
+						top: 15px;
+						right: 16px;
+					}
+				}
+
+				&.icm-eye {
+					&::before {
+						font-size: 13px;
+						top: 19px;
+						right: 16px;
+					}
+				}
+			}
+		}
+
+		&.icon-left {
+			.field {
+				padding-left: 40px;
+			}
+
+			.-icon {
+				position: absolute;
+				left: 16px;
+				margin: auto;
+				top: 0;
+				bottom: 0;
+				font-size: $font_size_medium;
+				color: $dark-gray;
+
+				&.icm-calendar-title {
+					height: 16px;
+				}
+			}
+		}
+	}
+
+	.label {
+		display: block;
+		margin-bottom: calc($margin_base / 2);
+		font-size: $font_size_tiny;
+	}
+
+	.input-form-label {
+		display: block;
+		margin-bottom: $margin_base;
+		font-size: $font_size_small;
+		line-height: 1;
+
+		&.-required {
+			&::after {
+				content: '＊';
+				color: $sub-color;
+				font-size: 10px;
+				font-weight: $font_weight_bold;
+				position: relative;
+				top: -8px;
+				left: 4px;
+			}
+		}
+	}
+
+	.error-message {
+		color: $error-color;
+		font-size: $font_size_tiny;
+		margin-top: $margin_base;
+	}
+
+	&.-stack {
+		position: relative;
+		margin-top: $margin_base;
+
+		.label {
+			margin: 0;
+			position: absolute;
+			top: -8px;
+			left: 8px;
+			background: $white;
+			padding: 0 4px;
+			font-weight: normal;
+			font-size: $font_size_tiny;
+			z-index: 1;
+		}
+	}
+
+	&.-small {
+		.field {
+			min-height: 44px;
+		}
+	}
+}
+
+.textarea-form {
+	//textareaスタイル
+	.field {
+		padding: $margin_base * 2;
+		font-size: $font_size_medium;
+		border-radius: $border_radius;
+		border: 1px solid $dark-gray;
+		min-height: 110px;
+		width: 100%;
+		line-height: 1.4;
+		resize: none;
+
+		&::placeholder {
+			color: $dark-gray;
+		}
+	}
+}
+
+.select-form {
+	//selectスタイル
+	.field {
+		width: 100%;
+		min-height: 52px;
+		padding: $margin_base * 1 $margin_base * 5 $margin_base * 1 $margin_base * 2;
+		font-size: $font_size_medium;
+		border-radius: $border_radius;
+		border: 1px solid $dark-gray;
+		background: $white;
+		appearance: none;
+
+		&:disabled {
+			background: $light-gray;
+			color: $dark-gray;
+			border-color: $gray;
+		}
+
+		&.-full {
+			width: 100%;
+		}
+
+		&.-half {
+			width: 50%;
+		}
+
+		&.-onethird {
+			width: 33%;
+		}
+
+		&.-quarter {
+			width: 24%;
+		}
+	}
+
+	.field-wrap {
+		position: relative;
+
+		.icm-right-arrow {
+			//select矢印アイコンスタイル
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			right: 8px;
+			height: 10px;
+			margin: auto;
+			pointer-events: none;
+			font-size: $font_size_tiny;
+			color: $spear-gray;
+			transform: rotate(90deg);
+		}
+
+		&.icon-left {
+			.field {
+				padding-left: 40px;
+			}
+
+			.-icon {
+				position: absolute;
+				left: 16px;
+				margin: auto;
+				top: 0;
+				bottom: 0;
+				font-size: $font_size_medium;
+				color: $dark-gray;
+
+				&.icm-calendar-title {
+					height: 16px;
+				}
+
+				&.icm-clock {
+					height: 16px;
+				}
+			}
+		}
+	}
+
+	.label {
+		display: block;
+		margin-bottom: calc($margin_base / 2);
+		font-size: $font_size_tiny;
+	}
+
+	.error-message {
+		color: $error-color;
+		font-size: $font_size_tiny;
+		margin-top: $margin_base;
+	}
+
+	&.-stack {
+		position: relative;
+		margin-top: $margin_base;
+
+		.label {
+			margin: 0;
+			position: absolute;
+			top: -8px;
+			left: 8px;
+			background: $white;
+			padding: 0 4px;
+			font-weight: normal;
+			font-size: $font_size_tiny;
+			z-index: 1;
+		}
+	}
+
+	&.-small {
+		.field {
+			min-height: 44px;
+		}
+	}
+}
+
+//radio構成
+.radio-form {
+	&.-default {
+		// 一般radioの場合
+		input[type='radio'] {
+			display: none;
+
+			& + .label {
+				cursor: pointer;
+				line-height: 1;
+				font-size: $font_size_medium;
+
+				&:before {
+					content: '\e970';
+					font-family: 'icomoon';
+					color: $dark-gray;
+					margin-right: $margin_base;
+					position: relative;
+					top: 1px;
+				}
+			}
+
+			&:checked {
+				& + .label {
+					&:before {
+						content: '\e928';
+						color: $sub-color;
+					}
+				}
+			}
+		}
+	}
+
+	&.-btn {
+		// radio btnの場合
+		display: inline-block;
+		vertical-align: middle;
+		margin-right: $margin_base * 2;
+
+		input[type='radio'] {
+			display: none;
+
+			& + .label {
+				position: relative;
+				display: flex;
+				padding: 16px;
+				align-items: center;
+				border: 1px solid $dark-gray;
+				border-radius: $border_radius;
+				background-color: $white;
+				cursor: pointer;
+				font-size: $font_size_medium;
+
+				&:before {
+					content: '\e970';
+					font-family: 'icomoon';
+					color: $dark-gray;
+					margin-right: $margin_base;
+					background: white;
+					font-size: $font_size_medium;
+				}
+
+				> p {
+					line-height: 1.2;
+				}
+			}
+
+			&:checked {
+				& + .label {
+					background: $sub-color;
+					color: $white;
+					border: 1px solid $sub-color;
+
+					&:before {
+						content: '\e928';
+						font-family: 'icomoon';
+						color: $white;
+						background: transparent;
+						font-size: $font_size_medium;
+					}
+				}
+			}
+		}
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}
+
+//checkbox構成
+.checkbox-form {
+	&.-default {
+		// 一般checkboxの場合
+		input[type='checkbox'] {
+			display: none;
+
+			& + .label {
+				cursor: pointer;
+				line-height: 1;
+				font-size: $font_size_medium;
+
+				&:before {
+					content: '\ea53';
+					font-family: 'icomoon';
+					color: $dark-gray;
+					margin-right: $margin_base;
+					position: relative;
+					top: 1px;
+				}
+			}
+
+			&:checked {
+				& + .label {
+					&:before {
+						content: '\ea52';
+						color: $sub-color;
+					}
+				}
+			}
+		}
+	}
+
+	&.-btn {
+		// checkbox btnの場合
+		display: inline-block;
+		vertical-align: middle;
+		margin-right: $margin_base * 2;
+
+		input[type='checkbox'] {
+			display: none;
+
+			& + label {
+				position: relative;
+				display: flex;
+				padding: 16px;
+				align-items: center;
+				border: 1px solid $dark-gray;
+				border-radius: $border_radius;
+				background-color: $white;
+				cursor: pointer;
+				font-size: $font_size_medium;
+
+				&:before {
+					content: '\ea53';
+					font-family: 'icomoon';
+					color: $dark-gray;
+					margin-right: $margin_base;
+					background: white;
+					font-size: $font_size_medium;
+				}
+
+				> p {
+					line-height: 1.2;
+				}
+			}
+
+			&:checked {
+				& + label {
+					background: $sub-color;
+					color: $white;
+					border: 1px solid $sub-color;
+
+					&:before {
+						content: '\ea52';
+						font-family: 'icomoon';
+						color: $white;
+						background: transparent;
+						font-size: $font_size_medium;
+					}
+				}
+			}
+		}
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+
+	//検索フォームでのみ使用するもの（checkedで太字になるだけ）
+	//本来は_components.scssではなく検索フォームのcssに入れるべき記述ですが、わかりやすいようここに書きます。
+	&.-searchform {
+		input[type='checkbox'] {
+			&:checked {
+				& + .label {
+					font-weight: bold;
+				}
+			}
+		}
+	}
+}
+
+/* form */
+// 旧フォームスタイル
+.form {
+	// &-inputText {
+	// 	appearance: none;
+	// 	background-image: none;
+	// 	border-radius: 3px;
+	// 	border: 1px solid $dark-gray;
+	// 	box-sizing: border-box;
+	// 	color: $black;
+	// 	display: inline-block;
+	// 	font-size: $font_size_medium;
+	// 	height: 50px;
+	// 	line-height: 50px;
+	// 	outline: 0;
+	// 	padding: 0 8px;
+	// 	transition: border-color .2s cubic-bezier(.645, .045, .355, 1);
+	// 	width: 100%;
+
+	// 	&::placeholder {
+	// 		color: $dark-gray;
+	// 	}
+	// }
+
+	&-select {
+		appearance: none;
+		position: relative;
+		width: 100%;
+		display: block;
+		background: $white;
+		border-radius: 3px;
+		min-height: 50px;
+		border: 1px solid $spear-gray;
+
+		&:after {
+			content: '\e902';
+			font-family: 'icomoon';
+			position: absolute;
+			right: 8px;
+			top: 0;
+			bottom: 0;
+			margin: auto;
+			width: 12px;
+			height: 12px;
+			font-size: $font_size_tiny;
+			transform: rotate(90deg);
+			color: $spear-gray;
+		}
+
+		select {
+			width: 100%;
+			min-height: 50px;
+			padding: 0 24px 0 8px;
+			text-overflow: ellipsis;
+			font-size: $font_size_medium;
+			border: none;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+			background: transparent;
+			color: $black; // iOS15用
+		}
+
+		&.disabled {
+			select {
+				color: $dark-gray;
+				pointer-events: none;
+			}
+		}
+	}
+
+	&-checkbox {
+		display: none;
+
+		& + label {
+			cursor: pointer;
+			line-height: 1;
+			// margin-top: 8px;
+			&::before {
+				content: '\ea53';
+				font-family: 'icomoon';
+				width: 16px;
+				height: 16px;
+				color: $dark-gray;
+				margin-right: 8px;
+				position: relative;
+				top: 1px;
+			}
+		}
+
+		&:checked {
+			& + label {
+				display: inline-block;
+				position: relative;
+				line-height: 1;
+				// margin-top: 8px;
+				&::before {
+					content: '\ea52';
+					font-family: 'icomoon';
+					color: $sub-color;
+					position: relative;
+					top: 1px;
+					z-index: 1;
+				}
+
+				&::after {
+					content: '';
+					width: 14px;
+					height: 14px;
+					background: $white;
+					border-radius: $border_radius;
+					// margin: auto;
+					// display: inline-block;
+					position: absolute;
+					left: 1px;
+					top: 1px;
+					z-index: 0;
+				}
+			}
+		}
+	}
+}
+
+// htmlヘルパーで生成する場所については、input要素にクラス名を付与することができないため
+// wrap要素に対してform-checkbox-wrapを使用
+.form-checkbox-wrap {
+	input[type='checkbox'] {
+		display: none;
+
+		& + label {
+			cursor: pointer;
+			line-height: 1;
+			// margin-top: 8px;
+			&::before {
+				content: '\ea53';
+				font-family: 'icomoon';
+				width: 16px;
+				height: 16px;
+				color: $dark-gray;
+				margin-right: 8px;
+				position: relative;
+				top: 1px;
+			}
+		}
+
+		&:checked {
+			& + label {
+				display: inline-block;
+				position: relative;
+				line-height: 1;
+				// margin-top: 8px;
+				&::before {
+					content: '\ea52';
+					font-family: 'icomoon';
+					color: $sub-color;
+					position: relative;
+					top: 1px;
+					z-index: 1;
+				}
+
+				&::after {
+					content: '';
+					width: 14px;
+					height: 14px;
+					background: $white;
+					border-radius: 3px;
+					// margin: auto;
+					// display: inline-block;
+					position: absolute;
+					left: 1px;
+					top: 1px;
+					z-index: 0;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,407 @@
+@use '../abstracts' as *;
+
+// 駅ページ
+
+//------------------
+// .station_page内へまとめていくこと。
+//------------------
+
+.station_page {
+	/* Headline */
+	.station2_h3 {
+		margin-top: ($margin_base * 7 - 36px - 6px);
+		margin-bottom: ($margin_base * 5);
+		color: $black;
+		font-size: $font_size_big;
+		font-weight: $font_weight_bold;
+	}
+
+	/* Link */
+	.station2_link {
+		color: $main-color;
+		text-decoration: underline;
+	}
+
+	/* Calendar */
+	.best_price_cal_container {
+		width: 840px;
+		margin-top: ($margin_base * 5 - $margin_base * 1.2);
+		margin-left: ($margin_base * 8);
+		font-family: $base_font_family;
+	}
+
+	.best_price_cal_lead {
+		font-size: $font_size_medium;
+
+		strong {
+			font-size: $font_size_large;
+			font-weight: $font_weight_bold;
+			color: $main-color;
+		}
+	}
+
+	.best_price_cal_tab {
+		margin-top: ($margin_base * 3.6);
+
+		nav {
+			ul {
+				display: flex;
+				justify-content: space-between;
+				align-items: flex-end;
+				margin-left: ($margin_base * -.1);
+				margin-right: ($margin_base * -.1);
+
+				li {
+					position: relative;
+					width: 209px;
+					margin-left: ($margin_base * .1);
+					margin-right: ($margin_base * .1);
+					padding-top: ($margin_base * .8);
+					text-align: center;
+					font-size: $font_size_small;
+					border: 1px solid $gray;
+					border-bottom: none;
+					border-radius: $border_radius $border_radius 0 0;
+					box-sizing: border-box;
+					transition: background-color .3s ease;
+					cursor: pointer;
+
+					&:hover {
+						background-color: $light-gray;
+					}
+
+					&[aria-selected='true'] {
+						&::before {
+							display: block;
+							position: absolute;
+							top: -6px;
+							left: -4px;
+							width: calc(100% + 8px);
+							height: calc(100% + 6px + 1px);
+							border: 1px solid $gray;
+							border-bottom: none;
+							border-radius: $border_radius $border_radius 0 0;
+							background-color: $light-gray;
+							z-index: 9;
+							content: '';
+						}
+
+						&:first-child {
+							&::before {
+								left: -1px;
+							}
+						}
+
+						&:last-child {
+							&::before {
+								left: inherit;
+								right: -1px;
+							}
+						}
+					}
+
+					&[data-tab='1'] div {
+						background-image: url('../img/car_type_01.png');
+					}
+
+					&[data-tab='2'] div {
+						background-image: url('../img/car_type_02.png');
+					}
+
+					&[data-tab='3'] div {
+						background-image: url('../img/car_type_03.png');
+					}
+
+					&[data-tab='95'] div {
+						background-image: url('../img/car_type_05.png');
+					}
+
+					div {
+						position: relative;
+						height: 64px;
+						background-repeat: no-repeat;
+						background-position: 15px 13px;
+						background-size: 80px auto;
+						z-index: 10;
+					}
+
+					strong {
+						display: block;
+						padding-right: ($margin_base * 2);
+						margin-top: $margin_base;
+						margin-bottom: ($margin_base * 2);
+						height: 18px;
+						font-size: $font_size_medium;
+						text-align: right;
+					}
+				}
+			}
+		}
+	}
+
+	.best_price_cal_nav {
+		position: relative;
+		padding-top: ($margin_base * 2);
+		padding-bottom: ($margin_base * 2);
+		font-size: $font_size_medium;
+		text-align: center;
+		background-color: $light-gray;
+		border: 1px solid $gray;
+		border-bottom: none;
+
+		nav {
+			button {
+				display: block;
+				position: absolute;
+				top: 50%;
+				width: 16px;
+				height: 16px;
+				transform: translate3d(0, -50%, 0);
+				appearance: none;
+				border: none;
+				background: transparent;
+				cursor: pointer;
+
+				&[data-nav='prev'] {
+					left: 20px;
+					transform: translate3d(0, -50%, 0) scaleX(-1);
+				}
+
+				&[data-nav='next'] {
+					right: 20px;
+				}
+
+				svg {
+					width: 16px;
+					height: 16px;
+				}
+			}
+		}
+	}
+
+	.best_price_cal_calendar {
+		border: 1px solid $gray;
+		border-top: none;
+		font-size: $font_size_medium;
+
+		table {
+			padding-top: ($margin_base * .2);
+
+			th,
+			td {
+				padding: 0;
+				width: calc(100% / 7);
+				vertical-align: middle;
+				font-weight: $font_weight_bold;
+				text-align: center;
+				border: none;
+				background: none;
+
+				&:first-child {
+					.best_price_cal_calendar_date {
+						color: $error-color;
+					}
+				}
+
+				&:last-child {
+					.best_price_cal_calendar_date {
+						color: #165ab8;
+					}
+				}
+			}
+
+			th {
+				padding: ($margin_base * 1.5) 0;
+			}
+
+			td {
+				height: 70px;
+
+				> div {
+					height: 100%;
+				}
+
+				a {
+					display: block;
+					padding-top: 15px;
+					width: 100%;
+					height: 100%;
+					color: $black;
+					text-decoration: none;
+					box-sizing: border-box;
+
+					&[href]:hover {
+						background-color: $caution-color;
+					}
+				}
+			}
+
+			div[data-publicholiday='true'] {
+				a {
+					.best_price_cal_calendar_date {
+						color: $error-color;
+					}
+				}
+			}
+
+			tbody {
+				tr {
+					&:last-child {
+						td {
+							padding-bottom: ($margin_base * 1.5);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.best_price_cal_calendar_price {
+		height: 24px;
+		padding-top: $margin_base;
+		font-weight: $font_weight_normal;
+		box-sizing: border-box;
+		color: $dark-gray;
+		text-decoration: none;
+
+		&[data-bestprice='true'] {
+			color: $main-color;
+		}
+	}
+
+	/* station2_article */
+	.station2_article {
+		margin-bottom: ($margin_base * 3);
+		font-size: $font_size_medium;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	.station2_article_title {
+		padding: ($margin_base * 1.5) ($margin_base * 2);
+		font-size: $font_size_large;
+		line-height: 1;
+		background-color: $light-gray;
+		border: solid 1px $gray;
+		box-sizing: border-box;
+	}
+
+	.station2_article_title {
+		h3 {
+			display: block;
+			font-size: $font_size_large;
+			margin: 0;
+		}
+	}
+
+	.station2_article_body {
+		display: flex;
+		margin-bottom: ($margin_base * 3);
+		padding: ($margin_base * 3);
+		font-size: $font_size_medium;
+		border: solid 1px $gray;
+		border-top: none;
+		box-sizing: border-box;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	.station2_article_body_image {
+		margin-right: ($margin_base * 3);
+		text-align: center;
+
+		img {
+			max-width: 280px;
+			vertical-align: top;
+		}
+	}
+
+	.station2_article_body_image--borderd {
+		border: solid 1px $gray;
+
+		img {
+			vertical-align: middle;
+		}
+	}
+
+	.station2_article_body_text--rentacar-info {
+		color: #363636;
+
+		a {
+			color: $main-color;
+			text-decoration: underline;
+		}
+	}
+
+	.station2_pickup_store_search {
+		margin-top: ($margin_base * 2);
+		text-align: right;
+
+		.btn-type-primary {
+			width: 360px;
+			font-size: $font_size_medium;
+			min-height: unset;
+		}
+	}
+
+	/* station2_fromairport_place_time */
+	.station2_fromairport_place_time_tbl {
+		margin-bottom: ($margin_base * 3);
+		font-size: $font_size_medium;
+		letter-spacing: .89px;
+		border: none;
+
+		th,
+		td {
+			padding: ($margin_base * .8) ($margin_base * 1.5);
+			text-align: center;
+			border: solid 1px $gray;
+		}
+
+		th {
+			background-color: $light-gray;
+		}
+	}
+
+	.station2_fromairport_place_time_text {
+		margin: ($margin_base * 3);
+		font-size: $font_size_medium;
+		letter-spacing: .89px;
+	}
+
+	.station2_fromairport_place_time_link {
+		text-align: center;
+	}
+
+	.pref_cont_wrap {
+		width: 100%;
+		margin: 6px 0;
+		padding-bottom: 36px;
+		font-size: 0;
+	}
+}
+
+// .station2_article_title_logo {
+// 	display: inline-block;
+// 	vertical-align: middle;
+// 	margin-right: ($margin_base * 1.7);
+
+// 	img {
+// 		width: auto;
+// 		height: 30px;
+// 	}
+
+// 	+ a {
+// 		vertical-align: middle;
+// 		text-decoration: none;
+// 		color: $black;
+
+// 		&:hover {
+// 			text-decoration: underline;
+// 		}
+// 	}
+// }

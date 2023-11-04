@@ -1,0 +1,25 @@
+@use '../abstracts' as *;
+
+// sp_pagetitle_companypage.ctp
+// company,キャンペーン
+.company_title {
+	padding-top: 6px 0;
+	line-height: 1.4;
+	text-align: center;
+	font-size: $font_size_medium;
+	font-weight: $font_weight_bold;
+	color: $black;
+	background: $white;
+
+	.company_icon {
+		vertical-align: middle;
+	}
+
+	.company_name {
+		display: inline-block;
+		width: 230px;
+		margin-left: 6px;
+		text-align: left;
+		vertical-align: middle;
+	}
+}

@@ -1,0 +1,104 @@
+@use '../abstracts' as *;
+
+// areamap
+
+.areamap_block_wrap {
+	.pref_map_subtitle {
+		line-height: 1.4;
+		font-size: $font_size_medium;
+		font-weight: $font_weight_bold;
+	}
+
+	.prefecture_map {
+		display: inline-block;
+		position: relative;
+		width: 540px;
+		height: 400px;
+		vertical-align: top;
+		color: $sub-color;
+		background-color: $white;
+		overflow: hidden;
+
+		ul > li {
+			position: absolute;
+		}
+
+		.pref_map_area_li {
+			line-height: 1;
+			font-size: $font_size_tiny;
+
+			a {
+				line-height: 1.2;
+				color: $sub-color;
+			}
+		}
+
+		.pref_map_facility_li,
+		.pref_map_near_li {
+			line-height: 1;
+			font-size: $font_size_small;
+		}
+
+		.pref_map_facility_li a {
+			display: inline-block;
+			height: 18px;
+			padding: 0 5px;
+			line-height: 17px;
+			border: #979797 1px solid;
+			color: $sub-color;
+			background-color: #f7f7f7;
+
+			&:hover {
+				background-color: #eaeaea;
+			}
+		}
+
+		.pref_map_near_li a {
+			display: block;
+			width: 97px;
+			height: 25px;
+			line-height: 24px;
+			text-align: center;
+			border: 1px solid #979797;
+			border-radius: 8px;
+			color: $sub-color;
+			background-color: #f7f7f7;
+
+			&:hover {
+				background-color: #eaeaea;
+			}
+		}
+	}
+
+	.major_facility {
+		display: inline-block;
+		width: 460px;
+		height: 400px;
+		padding: 24px;
+		vertical-align: top;
+		background: #f7f7f7;
+
+		.link_cont_ul {
+			padding: 12px 0;
+			font-size: 0;
+
+			.link_cont_li {
+				display: inline-block;
+				line-height: 2;
+				padding-right: 24px;
+				font-size: $font_size_small;
+
+				&.link_bottom {
+					display: block;
+				}
+			}
+		}
+	}
+
+	.areamap_block_text_wrap {
+		margin: 24px 0;
+		line-height: 1.5;
+		text-align: left;
+		font-size: $font_size_small;
+	}
+}

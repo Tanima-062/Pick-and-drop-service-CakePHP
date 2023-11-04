@@ -1,0 +1,201 @@
+@use '../abstracts' as *;
+
+// SP 詳細検索フォームのオプションパーツ（トップ、検索結果一蘭ページ使用中）
+// sp_searchform_options.ctp
+
+.searchform_options_section {
+	.search_detail {
+		position: relative;
+
+		.search_detail_title {
+			margin-bottom: $margin_base * 2;
+			line-height: 1;
+			font-size: $font_size_medium;
+			font-weight: $font_weight_bold;
+		}
+
+		&:not(:first-child) {
+			margin-top: $margin_base * 4;
+		}
+
+		.form-select {
+			border-color: $dark-gray;
+		}
+	}
+
+	// 車両タイプ
+	.select_car_type {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 8px;
+
+		.form-checkbox {
+			& + label {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				width: 100%;
+				height: 76px;
+				padding: $margin_base $margin_base 0 $margin_base;
+				border-radius: $border_radius;
+				border: 1px solid $gray;
+
+				&::before {
+					display: none;
+				}
+
+				&::after {
+					display: none;
+				}
+
+				.cartype-detail-wrapper {
+					display: flex;
+					column-gap: 4px;
+
+					img {
+						width: 60px;
+						filter: grayscale(100%);
+					}
+				}
+
+				.cartype-name {
+					font-size: $font_size_tiny;
+					font-weight: $font_weight_bold;
+				}
+
+				.cartype-desc {
+					font-size: $font_size_tiny;
+				}
+
+				.cartype-lowest-price {
+					font-size: $font_size_tiny;
+					font-weight: $font_weight_bold;
+					margin-top: $margin_base;
+				}
+			}
+
+			&:checked {
+				& + label {
+					border: 1px solid $sub-color;
+
+					.cartype-detail-wrapper {
+						img {
+							filter: grayscale(0%);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.select_smoking {
+		display: flex;
+		align-items: center;
+		column-gap: $margin_base;
+
+		input[type='radio']:not(:first-of-type) {
+			margin-left: $margin_base * 2;
+		}
+	}
+
+	.about_price {
+		position: absolute;
+		top: 0;
+		right: 0;
+
+		.icm-info-button-fill {
+			color: $main-color;
+			font-size: $font_size_small;
+		}
+
+		.about_price_text {
+			font-size: $font_size_tiny;
+			text-decoration: underline;
+		}
+
+		.about_price_aside {
+			background-color: $black;
+			border-radius: $border_radius;
+			padding: $margin_base * 2;
+			color: $white;
+			font-size: $font_size_tiny;
+			width: 80vw;
+			max-width: 320px;
+			position: absolute;
+			bottom: 36px;
+			right: 0;
+			z-index: 200;
+			display: none;
+
+			&::before {
+				content: '';
+				border: transparent solid 8px;
+				border-top: $black solid 16px;
+				position: absolute;
+				bottom: -24px;
+				right: 30px;
+			}
+
+			&_ab {
+				background-color: $black;
+				border-radius: $border_radius;
+				padding: $margin_base * 2;
+				color: $white;
+				font-size: $font_size_tiny;
+				width: 80vw;
+				max-width: 320px;
+				position: absolute;
+				top: 35px;
+				right: 0;
+				z-index: 200;
+				display: none;
+
+				&::before {
+					content: '';
+					border: transparent solid 8px;
+					border-bottom: $black solid 16px;
+					position: absolute;
+					top: -23px;
+					right: 30px;
+				}
+			}
+		}
+	}
+
+	// 車両オプション
+	.select_option {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 8px;
+
+		.form-checkbox {
+			& + label {
+				display: flex;
+				width: 100%;
+				height: 36px;
+				padding: 0 $margin_base;
+				align-items: center;
+				justify-content: center;
+				border: 1px solid $gray;
+				border-radius: $border_radius;
+				font-size: $font_size_small;
+
+				&::before {
+					display: none;
+				}
+
+				&::after {
+					display: none;
+				}
+			}
+
+			&:checked {
+				& + label {
+					background-color: $sub-color;
+					border: 1px solid $sub-color;
+					color: $white;
+				}
+			}
+		}
+	}
+}

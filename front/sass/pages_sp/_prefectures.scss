@@ -1,0 +1,228 @@
+@use '../abstracts' as *;
+
+// 都道府県ページ
+
+//------------------
+// .sp_prefectures_page内へまとめていくこと。
+//------------------
+
+.sp_prefectures_page {
+	.pricelist {
+		margin-top: $margin_base * 4;
+
+		h2 {
+			font-size: $font_size_big;
+			font-weight: $font_weight_bold;
+			margin-bottom: $margin_base;
+			padding: 0 $margin_base;
+		}
+
+		.pricelist-item {
+			border: 1px solid $gray;
+			border-radius: 3px;
+			margin: $margin_base;
+			padding: $margin_base;
+
+			a {
+				display: flex;
+				justify-content: space-between;
+				padding: $margin_base 0;
+
+				.areaname {
+					font-size: $font_size_small;
+					font-weight: $font_weight_bold;
+				}
+
+				i {
+					font-size: $font_size_small;
+				}
+			}
+		}
+
+		table {
+			th {
+				border: none;
+				color: $dark-gray;
+				font-size: $font_size_small;
+				font-weight: $font_weight_bold;
+				padding: $margin_base;
+			}
+
+			td {
+				border: none;
+				font-size: $font_size_small;
+				padding: $margin_base;
+				vertical-align: top;
+
+				> table {
+					td,
+					th {
+						border: none;
+					}
+				}
+
+				&.no-padding {
+					padding: 0;
+				}
+
+				ul {
+					li:not(:last-child) {
+						padding-bottom: $margin_base;
+					}
+				}
+			}
+
+			.-cartype {
+				width: 50%;
+			}
+
+			.-current_month,
+			.-next_month {
+				width: 25%;
+				text-align: right;
+			}
+		}
+
+		a {
+			color: $main-color;
+		}
+
+		.accordion_dt,
+		.accordion_li {
+			position: relative;
+			height: 48px;
+			line-height: 48px;
+			font-size: $font_size_small;
+		}
+
+		.accordion_dt > i,
+		.accordion_li > i {
+			position: absolute;
+			right: 12px;
+			top: 50%;
+			margin-top: -7px;
+		}
+
+		.accordion_dt > a,
+		.accordion_li > a {
+			display: block;
+			padding: 0 12px;
+			color: $black;
+		}
+
+		i.rotate_arrow {
+			transform: rotateX(180deg);
+		}
+
+		.accordion_dt {
+			border-bottom: 2px solid $white;
+			background: #f7f7f7;
+		}
+
+		.accordion_dt > a > h3 {
+			display: block;
+			font-size: $font_size_small;
+			margin: 0;
+			font-weight: $font_weight_normal;
+		}
+
+		.accordion_li {
+			border-bottom: 2px solid #f7f7f7;
+		}
+
+		.accordion_dd {
+			height: 0;
+			overflow: hidden;
+			transition: height 1s;
+		}
+	}
+
+	.article_section {
+		position: relative;
+		padding: 0 12px;
+		border-bottom: 2px solid #f7f7f7;
+	}
+
+	.contents_text {
+		padding: 24px 12px 0;
+	}
+
+	.popular_airport_list {
+		margin-top: 32px;
+	}
+
+	.page_hr {
+		border: none;
+		background: $light-gray;
+		height: 8px;
+		margin-top: 32px;
+	}
+
+	// 使ってなさそう
+	// .pref_review_count {
+	// 	display: inline-block;
+	// 	margin: 0 12px;
+	// 	padding: 0 2px;
+	// 	border-bottom: 2px solid $sub-color;
+	// 	font-size: $font_size_tiny;
+	// 	font-weight: $font_weight_bold;
+	// 	color: $sub-color;
+
+	// 	> .pref_review_count_title {
+	// 		font-size: $font_size_tiny;
+	// 		margin: 0;
+	// 		display: inline-block;
+	// 		font-weight: $font_weight_bold;
+	// 	}
+
+	// 	> .pref_review_count_count {
+	// 		display: inline-block;
+	// 	}
+	// }
+
+	// .pref_review_ul {
+	// 	padding: 12px 12px;
+	// }
+
+	// .pref_review_li {
+	// 	margin-bottom: 6px;
+	// 	line-height: 1.5;
+	// 	border: 1px solid #c5c5c5;
+	// 	font-size: $font_size_tiny;
+	// }
+
+	// .pref_review_top {
+	// 	padding: 6px 12px;
+	// 	box-sizing: border-box;
+	// 	color: #4c4c4c;
+	// 	background: #f7f7f7;
+	// }
+
+	// .pref_review_bottom {
+	// 	padding: 6px 12px;
+	// }
+
+	// .pref_review_table {
+	// 	display: table;
+	// 	margin-bottom: 12px;
+	// }
+
+	// .pref_review_img {
+	// 	position: relative;
+	// 	display: table-cell;
+	// 	width: 60px;
+	// 	vertical-align: middle;
+
+	// 	> i {
+	// 		position: absolute;
+	// 		right: 8px;
+	// 		bottom: -4px;
+	// 		border-radius: 8px;
+	// 		font-size: $font_size_medium;
+	// 		color: #2bc187;
+	// 		background: $white;
+	// 	}
+	// }
+}
+
+//------------------
